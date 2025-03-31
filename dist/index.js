@@ -3580,7 +3580,7 @@ function NewNavbar(param) {
         setIsSearchOpen(false);
     };
     return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("header", {
-        className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 navbar-glass", className),
+        className: cn("fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-sm navbar-glass", className),
         children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
             className: "flex p-4 justify-between w-full h-16 items-center",
             children: [
