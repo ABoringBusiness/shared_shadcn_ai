@@ -430,6 +430,9 @@ __export(index_exports, {
     LoginForm: function() {
         return LoginForm;
     },
+    LoginModal: function() {
+        return LoginModal;
+    },
     NavHistory: function() {
         return NavHistory;
     },
@@ -2801,6 +2804,20 @@ function LoginForm(_param) {
         ]
     }));
 }
+// src/components/login/login-modal.tsx
+var import_jsx_runtime20 = require("react/jsx-runtime");
+function LoginModal(props) {
+    var showLoginModal = props.showLoginModal, restProps = _object_without_properties(props, [
+        "showLoginModal"
+    ]);
+    if (!showLoginModal) {
+        return null;
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", {
+        className: "fixed top-0 left-0 w-screen flex flex-col items-center justify-center h-screen backdrop-blur-md z-50",
+        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LoginForm, _object_spread({}, restProps))
+    });
+}
 // src/components/reva-navbar/reva-navbar.tsx
 var React14 = __toESM(require("react"));
 var import_link3 = __toESM(require("next/link"));
@@ -2811,19 +2828,19 @@ var React12 = __toESM(require("react"));
 var NavigationMenuPrimitive = __toESM(require("@radix-ui/react-navigation-menu"));
 var import_class_variance_authority5 = require("class-variance-authority");
 var import_react_icons4 = require("@radix-ui/react-icons");
-var import_jsx_runtime20 = require("react/jsx-runtime");
+var import_jsx_runtime21 = require("react/jsx-runtime");
 var NavigationMenu = React12.forwardRef(function(_param, ref) {
     var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
         "className",
         "children"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(NavigationMenuPrimitive.Root, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(NavigationMenuPrimitive.Root, _object_spread_props(_object_spread({
         ref: ref,
         className: cn("relative z-10 flex max-w-max flex-1 items-center justify-center", className)
     }, props), {
         children: [
             children,
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuViewport, {})
+            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(NavigationMenuViewport, {})
         ]
     }));
 });
@@ -2832,7 +2849,7 @@ var NavigationMenuList = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.List, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(NavigationMenuPrimitive.List, _object_spread({
         ref: ref,
         className: cn("group flex flex-1 list-none items-center justify-center space-x-1", className)
     }, props));
@@ -2845,14 +2862,14 @@ var NavigationMenuTrigger = React12.forwardRef(function(_param, ref) {
         "className",
         "children"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(NavigationMenuPrimitive.Trigger, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(NavigationMenuPrimitive.Trigger, _object_spread_props(_object_spread({
         ref: ref,
         className: cn(navigationMenuTriggerStyle(), "group", className)
     }, props), {
         children: [
             children,
             " ",
-            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_react_icons4.ChevronDownIcon, {
+            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_react_icons4.ChevronDownIcon, {
                 className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
                 "aria-hidden": "true"
             })
@@ -2864,7 +2881,7 @@ var NavigationMenuContent = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Content, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(NavigationMenuPrimitive.Content, _object_spread({
         ref: ref,
         className: cn("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", className)
     }, props));
@@ -2875,9 +2892,9 @@ var NavigationMenuViewport = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
         className: cn("absolute left-0 top-full flex justify-center"),
-        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Viewport, _object_spread({
+        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(NavigationMenuPrimitive.Viewport, _object_spread({
             className: cn("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", className),
             ref: ref
         }, props))
@@ -2888,11 +2905,11 @@ var NavigationMenuIndicator = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
         ref: ref,
         className: cn("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", className)
     }, props), {
-        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
             className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
         })
     }));
@@ -2901,12 +2918,12 @@ NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayN
 // src/components/ui/avatar.tsx
 var React13 = __toESM(require("react"));
 var AvatarPrimitive = __toESM(require("@radix-ui/react-avatar"));
-var import_jsx_runtime21 = require("react/jsx-runtime");
+var import_jsx_runtime22 = require("react/jsx-runtime");
 var Avatar = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Root, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(AvatarPrimitive.Root, _object_spread({
         ref: ref,
         className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)
     }, props));
@@ -2916,7 +2933,7 @@ var AvatarImage = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Image, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(AvatarPrimitive.Image, _object_spread({
         ref: ref,
         className: cn("aspect-square h-full w-full", className)
     }, props));
@@ -2926,7 +2943,7 @@ var AvatarFallback = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Fallback, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)(AvatarPrimitive.Fallback, _object_spread({
         ref: ref,
         className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)
     }, props));
@@ -2934,7 +2951,7 @@ var AvatarFallback = React13.forwardRef(function(_param, ref) {
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 // src/components/ui/badge.tsx
 var import_class_variance_authority6 = require("class-variance-authority");
-var import_jsx_runtime22 = require("react/jsx-runtime");
+var import_jsx_runtime23 = require("react/jsx-runtime");
 var badgeVariants = (0, import_class_variance_authority6.cva)("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", {
     variants: {
         variant: {
@@ -2953,7 +2970,7 @@ function Badge(_param) {
         "className",
         "variant"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("div", _object_spread({
         className: cn(badgeVariants({
             variant: variant
         }), className)
@@ -2963,21 +2980,21 @@ function Badge(_param) {
 var import_next_themes3 = require("next-themes");
 var import_image3 = __toESM(require("next/image"));
 var import_link2 = __toESM(require("next/link"));
-var import_jsx_runtime23 = require("react/jsx-runtime");
+var import_jsx_runtime24 = require("react/jsx-runtime");
 function RevaLogo() {
     var resolvedTheme = (0, import_next_themes3.useTheme)().resolvedTheme;
     var isDarkTheme = resolvedTheme === "dark";
-    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_link2.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link2.default, {
         href: "/",
         className: "flex items-center",
-        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_image3.default, {
+        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_image3.default, {
             src: "/images/reva-logo-dark.svg",
             alt: "REVA",
             width: 100,
             height: 30,
             className: "h-8 w-auto",
             priority: true
-        }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_image3.default, {
+        }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_image3.default, {
             src: "/images/reva-logo.png",
             alt: "REVA",
             width: 100,
@@ -2988,7 +3005,7 @@ function RevaLogo() {
     });
 }
 // src/components/reva-navbar/reva-navbar.tsx
-var import_jsx_runtime24 = require("react/jsx-runtime");
+var import_jsx_runtime25 = require("react/jsx-runtime");
 function RevaNavbar(param) {
     var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
         current: "Eng",
@@ -3017,42 +3034,42 @@ function RevaNavbar(param) {
         }
         setIsSearchOpen(false);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("header", {
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("header", {
         className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className),
-        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", {
             className: "container flex h-16 items-center",
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Sheet, {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Sheet, {
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(SheetTrigger, {
+                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(SheetTrigger, {
                             asChild: true,
-                            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 className: "mr-2 md:hidden",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Menu, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Menu, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                         className: "sr-only",
                                         children: "Toggle menu"
                                     })
                                 ]
                             })
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(SheetContent, {
+                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(SheetContent, {
                             side: "left",
                             className: "pr-0",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                                     className: "px-7",
-                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RevaLogo, {})
+                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(RevaLogo, {})
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                                     className: "mt-8 flex flex-col gap-4",
                                     children: items.map(function(item, index) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(MobileNavItem2, {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(MobileNavItem2, {
                                             item: item,
                                             pathname: pathname
                                         }, index);
@@ -3062,16 +3079,16 @@ function RevaNavbar(param) {
                         })
                     ]
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                     className: "mr-4 hidden md:flex",
-                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RevaLogo, {})
+                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(RevaLogo, {})
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                     className: "hidden md:flex",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenu, {
-                        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuList, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenu, {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuList, {
                             children: items.map(function(item, index) {
-                                return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavbarItem, {
+                                return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavbarItem, {
                                     item: item,
                                     pathname: pathname
                                 }, index);
@@ -3079,59 +3096,59 @@ function RevaNavbar(param) {
                         })
                     })
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", {
                     className: "flex flex-1 items-center justify-end gap-2",
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Camera, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Camera, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                             className: "sr-only",
                                             children: "Camera"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sofa, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Sofa, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                             className: "sr-only",
                                             children: "Room"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Phone, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Phone, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                             className: "sr-only",
                                             children: "Phone"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.PenLine, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.PenLine, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                             className: "sr-only",
                                             children: "Pen"
                                         })
@@ -3139,13 +3156,13 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                             className: "relative hidden md:flex",
-                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("form", {
+                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Input, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Input, {
                                         type: "search",
                                         placeholder: "Search...",
                                         className: "h-9 w-[200px] lg:w-[300px]",
@@ -3154,7 +3171,7 @@ function RevaNavbar(param) {
                                             return setSearchQuery(e.target.value);
                                         }
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                         type: "button",
                                         variant: "ghost",
                                         size: "icon",
@@ -3163,53 +3180,53 @@ function RevaNavbar(param) {
                                             return setIsSearchOpen(false);
                                         },
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.X, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.X, {
                                                 className: "h-4 w-4"
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                                 className: "sr-only",
                                                 children: "Close search"
                                             })
                                         ]
                                     })
                                 ]
-                            }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                            }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 onClick: function() {
                                     return setIsSearchOpen(true);
                                 },
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Search, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Search, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                         className: "sr-only",
                                         children: "Search"
                                     })
                                 ]
                             })
                         }),
-                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                         variant: "ghost",
                                         size: "sm",
                                         className: "gap-1 text-sm font-medium",
                                         children: [
                                             languages.current,
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.ChevronDown, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.ChevronDown, {
                                                 className: "h-4 w-4"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuContent, {
                                     align: "end",
                                     children: languages.options.map(function(language) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuItem, {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
                                             },
@@ -3219,68 +3236,68 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         children: [
-                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sun, {
+                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Sun, {
                                                 className: "h-5 w-5"
-                                            }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Moon, {
+                                            }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Moon, {
                                                 className: "h-5 w-5"
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                                 className: "sr-only",
                                                 children: "Toggle theme"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuContent, {
                                     align: "end",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sun, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Sun, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Light"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Moon, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Moon, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Dark"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Settings, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "System"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("contrast");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Bell, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Bell, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "High Contrast"
@@ -3290,44 +3307,44 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                             variant: "ghost",
                             size: "icon",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Bell, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Bell, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                     className: "sr-only",
                                     children: "Notifications"
                                 })
                             ]
                         }),
-                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Button, {
                             variant: "ghost",
                             size: "icon",
                             className: "relative",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.MessageSquare, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.MessageSquare, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Badge, {
                                     className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
                                     children: "3"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("span", {
                                     className: "sr-only",
                                     children: "Messages"
                                 })
                             ]
                         }),
-                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", {
                             className: "hidden items-center gap-2 md:flex",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Wallet, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Wallet, {
                                     className: "h-4 w-4"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("span", {
                                     className: cn("text-sm font-medium", balance < 0 ? "text-destructive" : ""),
                                     children: [
                                         balance > 0 ? "+" : "",
@@ -3336,68 +3353,68 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, {
+                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, {
                             className: "bg-black hover:bg-black/90 text-white",
                             children: "Create"
                         }),
-                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "rounded-full",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Avatar, {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(Avatar, {
                                             className: "h-8 w-8",
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AvatarImage, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(AvatarImage, {
                                                     src: user.image,
                                                     alt: user.name || "User"
                                                 }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AvatarFallback, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(AvatarFallback, {
                                                     children: user.initials || "U"
                                                 })
                                             ]
                                         })
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuContent, {
                                     align: "end",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuLabel, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuLabel, {
                                             children: [
-                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", {
                                                     children: user.name
                                                 }),
-                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", {
                                                     className: "text-xs text-muted-foreground",
                                                     children: user.email
                                                 })
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.User, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.User, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Profile"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Settings, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Settings"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(DropdownMenuItem, {
                                             onClick: onLogout,
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.LogOut, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.LogOut, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Log out"
@@ -3416,29 +3433,29 @@ function RevaNavbar(param) {
 function NavbarItem(param) {
     var item = param.item, pathname = param.pathname;
     if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(NavigationMenuItem, {
+        return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(NavigationMenuItem, {
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuTrigger, {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuTrigger, {
                     children: item.title
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuContent, {
-                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ul", {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuContent, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("ul", {
                         className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
                         children: item.children.map(function(child) {
-                            return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("li", {
+                            return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("li", {
                                 className: "row-span-3",
-                                children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuLink, {
+                                children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuLink, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_link3.default, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)(import_link3.default, {
                                         href: child.href || "#",
                                         className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
                                         children: [
                                             child.icon,
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                                                 className: "mb-2 mt-4 text-lg font-medium",
                                                 children: child.title
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("p", {
                                                 className: "text-sm leading-tight text-muted-foreground",
                                                 children: child.description
                                             })
@@ -3452,12 +3469,12 @@ function NavbarItem(param) {
             ]
         });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuItem, {
-        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuItem, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_link3.default, {
             href: item.href || "#",
             legacyBehavior: true,
             passHref: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuLink, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(NavigationMenuLink, {
                 className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
                 children: item.title
             })
@@ -3468,25 +3485,25 @@ function MobileNavItem2(param) {
     var item = param.item, pathname = param.pathname;
     var _React14_useState = _sliced_to_array(React14.useState(false), 2), isOpen = _React14_useState[0], setIsOpen = _React14_useState[1];
     if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("div", {
             className: "flex flex-col",
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("button", {
+                /* @__PURE__ */ (0, import_jsx_runtime25.jsxs)("button", {
                     className: "flex items-center justify-between py-2 text-base font-medium",
                     onClick: function() {
                         return setIsOpen(!isOpen);
                     },
                     children: [
                         item.title,
-                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.ChevronDown, {
+                        /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_lucide_react7.ChevronDown, {
                             className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
                         })
                     ]
                 }),
-                isOpen && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                isOpen && /* @__PURE__ */ (0, import_jsx_runtime25.jsx)("div", {
                     className: "ml-4 mt-2 flex flex-col gap-2",
                     children: item.children.map(function(child) {
-                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+                        return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_link3.default, {
                             href: child.href || "#",
                             className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
                             children: child.title
@@ -3496,7 +3513,7 @@ function MobileNavItem2(param) {
             ]
         });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_link3.default, {
         href: item.href || "#",
         className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
         children: item.title
@@ -3525,21 +3542,21 @@ var import_lucide_react8 = require("lucide-react");
 var import_next_themes4 = require("next-themes");
 var import_image4 = __toESM(require("next/image"));
 var import_link4 = __toESM(require("next/link"));
-var import_jsx_runtime25 = require("react/jsx-runtime");
+var import_jsx_runtime26 = require("react/jsx-runtime");
 function RevaLogo2() {
     var resolvedTheme = (0, import_next_themes4.useTheme)().resolvedTheme;
     var isDarkTheme = resolvedTheme === "dark";
-    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_link4.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link4.default, {
         href: "/",
         className: "flex items-center",
-        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_image4.default, {
+        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_image4.default, {
             src: "/images/reva-logo.svg",
             alt: "REVA",
             width: 141,
             height: 27,
             className: "h-5 w-auto",
             priority: true
-        }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_image4.default, {
+        }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_image4.default, {
             src: "/images/reva-logo-dark.svg",
             alt: "REVA",
             width: 160,
@@ -3550,7 +3567,7 @@ function RevaLogo2() {
     });
 }
 // src/components/new-navbar/new-navbar.tsx
-var import_jsx_runtime26 = require("react/jsx-runtime");
+var import_jsx_runtime27 = require("react/jsx-runtime");
 function NewNavbar(param) {
     var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems2 : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
         current: "Eng",
@@ -3579,42 +3596,42 @@ function NewNavbar(param) {
         }
         setIsSearchOpen(false);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("header", {
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("header", {
         className: cn("fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-sm navbar-glass", className),
-        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
             className: "flex p-4 justify-between w-full h-16 items-center",
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Sheet, {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Sheet, {
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(SheetTrigger, {
+                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(SheetTrigger, {
                             asChild: true,
-                            children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 className: "mr-2 md:hidden",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Menu, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Menu, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                         className: "sr-only",
                                         children: "Toggle menu"
                                     })
                                 ]
                             })
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(SheetContent, {
+                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(SheetContent, {
                             side: "left",
                             className: "pr-0",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                                     className: "px-7",
-                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RevaLogo2, {})
+                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RevaLogo2, {})
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                                     className: "mt-8 flex flex-col gap-4",
                                     children: items.map(function(item, index) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(MobileNavItem3, {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(MobileNavItem3, {
                                             item: item,
                                             pathname: pathname
                                         }, index);
@@ -3624,16 +3641,16 @@ function NewNavbar(param) {
                         })
                     ]
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                     className: "mr-4 hidden md:flex",
-                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RevaLogo2, {})
+                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(RevaLogo2, {})
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                     className: "hidden md:flex",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenu, {
-                        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuList, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenu, {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuList, {
                             children: items.map(function(item, index) {
-                                return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavbarItem2, {
+                                return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavbarItem2, {
                                     item: item,
                                     pathname: pathname
                                 }, index);
@@ -3641,59 +3658,59 @@ function NewNavbar(param) {
                         })
                     })
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
                     className: "flex items-center justify-end gap-2",
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Camera, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Camera, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Camera"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sofa, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sofa, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Room"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Phone, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Phone, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Phone"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.PenLine, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.PenLine, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Pen"
                                         })
@@ -3701,13 +3718,13 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                             className: "relative hidden md:flex",
-                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("form", {
+                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Input, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Input, {
                                         type: "search",
                                         placeholder: "Search...",
                                         className: "h-9 w-[200px] lg:w-[300px]",
@@ -3716,7 +3733,7 @@ function NewNavbar(param) {
                                             return setSearchQuery(e.target.value);
                                         }
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                         type: "button",
                                         variant: "ghost",
                                         size: "icon",
@@ -3725,53 +3742,53 @@ function NewNavbar(param) {
                                             return setIsSearchOpen(false);
                                         },
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.X, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.X, {
                                                 className: "h-4 w-4"
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                                 className: "sr-only",
                                                 children: "Close search"
                                             })
                                         ]
                                     })
                                 ]
-                            }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                            }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 onClick: function() {
                                     return setIsSearchOpen(true);
                                 },
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Search, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Search, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                         className: "sr-only",
                                         children: "Search"
                                     })
                                 ]
                             })
                         }),
-                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                         variant: "ghost",
                                         size: "sm",
                                         className: "gap-1 text-sm font-medium",
                                         children: [
                                             languages.current,
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.ChevronDown, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.ChevronDown, {
                                                 className: "h-4 w-4"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuContent, {
                                     align: "end",
                                     children: languages.options.map(function(language) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuItem, {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
                                             },
@@ -3781,68 +3798,68 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         children: [
-                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sun, {
+                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sun, {
                                                 className: "h-5 w-5"
-                                            }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Moon, {
+                                            }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Moon, {
                                                 className: "h-5 w-5"
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                                 className: "sr-only",
                                                 children: "Toggle theme"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuContent, {
                                     align: "end",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sun, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sun, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Light"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Moon, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Moon, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Dark"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("glass");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Glasses, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Glasses, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Glass"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
                                             },
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Settings, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "System"
@@ -3852,44 +3869,44 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                             variant: "ghost",
                             size: "icon",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Bell, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Bell, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                     className: "sr-only",
                                     children: "Notifications"
                                 })
                             ]
                         }),
-                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                             variant: "ghost",
                             size: "icon",
                             className: "relative",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.MessageSquare, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.MessageSquare, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Badge, {
                                     className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
                                     children: "3"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                     className: "sr-only",
                                     children: "Messages"
                                 })
                             ]
                         }),
-                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
                             className: "hidden items-center gap-2 md:flex",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Wallet, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Wallet, {
                                     className: "h-4 w-4"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("span", {
                                     className: "text-sm font-medium text-green-600",
                                     children: [
                                         "+",
@@ -3898,68 +3915,68 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, {
+                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
                             className: "bg-black hover:bg-black/90 text-white",
                             children: "Create"
                         }),
-                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "rounded-full",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Avatar, {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Avatar, {
                                             className: "h-8 w-8",
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AvatarImage, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(AvatarImage, {
                                                     src: user.image,
                                                     alt: user.name || "User"
                                                 }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AvatarFallback, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(AvatarFallback, {
                                                     children: user.initials || "U"
                                                 })
                                             ]
                                         })
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuContent, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuContent, {
                                     align: "end",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuLabel, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuLabel, {
                                             children: [
-                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", {
                                                     children: user.name
                                                 }),
-                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", {
                                                     className: "text-xs text-muted-foreground",
                                                     children: user.email
                                                 })
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.User, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.User, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Profile"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Settings, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Settings"
                                             ]
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(DropdownMenuItem, {
                                             onClick: onLogout,
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.LogOut, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.LogOut, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Log out"
@@ -3969,16 +3986,16 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                        /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                             variant: "ghost",
                             size: "icon",
                             className: "ml-2",
                             onClick: onLogout,
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.LogOut, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.LogOut, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                     className: "sr-only",
                                     children: "Logout"
                                 })
@@ -3993,29 +4010,29 @@ function NewNavbar(param) {
 function NavbarItem2(param) {
     var item = param.item, pathname = param.pathname;
     if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(NavigationMenuItem, {
+        return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(NavigationMenuItem, {
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuTrigger, {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuTrigger, {
                     children: item.title
                 }),
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuContent, {
-                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("ul", {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuContent, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("ul", {
                         className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
                         children: item.children.map(function(child) {
-                            return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("li", {
+                            return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("li", {
                                 className: "row-span-3",
-                                children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuLink, {
+                                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuLink, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_link5.default, {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_link5.default, {
                                         href: child.href || "#",
                                         className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
                                         children: [
                                             child.icon,
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                                                 className: "mb-2 mt-4 text-lg font-medium",
                                                 children: child.title
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("p", {
                                                 className: "text-sm leading-tight text-muted-foreground",
                                                 children: child.description
                                             })
@@ -4029,12 +4046,12 @@ function NavbarItem2(param) {
             ]
         });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuItem, {
-        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuItem, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
             href: item.href || "#",
             legacyBehavior: true,
             passHref: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuLink, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuLink, {
                 className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
                 children: item.title
             })
@@ -4045,25 +4062,25 @@ function MobileNavItem3(param) {
     var item = param.item, pathname = param.pathname;
     var _React15_useState = _sliced_to_array(React15.useState(false), 2), isOpen = _React15_useState[0], setIsOpen = _React15_useState[1];
     if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+        return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
             className: "flex flex-col",
             children: [
-                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("button", {
+                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("button", {
                     className: "flex items-center justify-between py-2 text-base font-medium",
                     onClick: function() {
                         return setIsOpen(!isOpen);
                     },
                     children: [
                         item.title,
-                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.ChevronDown, {
+                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.ChevronDown, {
                             className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
                         })
                     ]
                 }),
-                isOpen && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                isOpen && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                     className: "ml-4 mt-2 flex flex-col gap-2",
                     children: item.children.map(function(child) {
-                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+                        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
                             href: child.href || "#",
                             className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
                             children: child.title
@@ -4073,7 +4090,7 @@ function MobileNavItem3(param) {
             ]
         });
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
         href: item.href || "#",
         className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
         children: item.title
@@ -4096,7 +4113,7 @@ var defaultNavItems2 = [
 // src/components/new-navbar/ai-assistant.tsx
 var React16 = __toESM(require("react"));
 var import_lucide_react9 = require("lucide-react");
-var import_jsx_runtime27 = require("react/jsx-runtime");
+var import_jsx_runtime28 = require("react/jsx-runtime");
 function AiAssistant() {
     var _React16_useState = _sliced_to_array(React16.useState(false), 2), isOpen = _React16_useState[0], setIsOpen = _React16_useState[1];
     var _React16_useState1 = _sliced_to_array(React16.useState(false), 2), isMinimized = _React16_useState1[0], setIsMinimized = _React16_useState1[1];
@@ -4154,55 +4171,55 @@ function AiAssistant() {
             });
         }, 1e3);
     };
-    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
         className: "fixed bottom-4 right-4 z-50 flex flex-col items-end",
         children: [
-            isOpen && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+            isOpen && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                 className: cn("mb-2 w-80 rounded-lg border bg-background shadow-lg transition-all duration-200 ease-in-out", isMinimized ? "h-14" : "h-96"),
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                    /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                         className: "flex items-center justify-between border-b p-3",
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                                 className: "flex items-center gap-2",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Avatar, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Avatar, {
                                         className: "h-6 w-6",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(AvatarFallback, {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(AvatarFallback, {
                                             className: "bg-primary text-primary-foreground",
                                             children: "AI"
                                         })
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("span", {
                                         className: "font-medium",
                                         children: "REVA Assistant"
                                     })
                                 ]
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                                 className: "flex items-center gap-1",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "h-6 w-6",
                                         onClick: function() {
                                             return setIsMinimized(!isMinimized);
                                         },
-                                        children: isMinimized ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Maximize2, {
+                                        children: isMinimized ? /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_lucide_react9.Maximize2, {
                                             className: "h-4 w-4"
-                                        }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Minimize2, {
+                                        }) : /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_lucide_react9.Minimize2, {
                                             className: "h-4 w-4"
                                         })
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "h-6 w-6",
                                         onClick: function() {
                                             return setIsOpen(false);
                                         },
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.X, {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_lucide_react9.X, {
                                             className: "h-4 w-4"
                                         })
                                     })
@@ -4210,29 +4227,29 @@ function AiAssistant() {
                             })
                         ]
                     }),
-                    !isMinimized && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, {
+                    !isMinimized && /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)(import_jsx_runtime28.Fragment, {
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                            /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                                 className: "flex-1 overflow-y-auto p-3 h-[calc(100%-7rem)]",
                                 children: [
                                     messages.map(function(message) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", {
                                             className: cn("mb-3 max-w-[80%] rounded-lg p-3", message.role === "user" ? "ml-auto bg-primary text-primary-foreground" : "bg-muted"),
                                             children: message.content
                                         }, message.id);
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("div", {
                                         ref: messagesEndRef
                                     })
                                 ]
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("form", {
+                            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)("form", {
                                 onSubmit: handleSendMessage,
                                 className: "border-t p-3",
-                                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                                children: /* @__PURE__ */ (0, import_jsx_runtime28.jsxs)("div", {
                                     className: "flex gap-2",
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Input, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Input, {
                                             placeholder: "Type a message...",
                                             value: input,
                                             onChange: function(e) {
@@ -4240,11 +4257,11 @@ function AiAssistant() {
                                             },
                                             className: "flex-1"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, {
                                             type: "submit",
                                             size: "icon",
                                             className: "bg-primary",
-                                            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Send, {
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_lucide_react9.Send, {
                                                 className: "h-4 w-4"
                                             })
                                         })
@@ -4255,12 +4272,12 @@ function AiAssistant() {
                     })
                 ]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+            /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(Button, {
                 onClick: function() {
                     return setIsOpen(!isOpen);
                 },
                 className: "h-12 w-12 rounded-full bg-primary shadow-lg",
-                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Bot, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_lucide_react9.Bot, {
                     className: "h-6 w-6"
                 })
             })
@@ -4269,12 +4286,12 @@ function AiAssistant() {
 }
 // src/components/new-navbar/theme-provider.tsx
 var import_next_themes5 = require("next-themes");
-var import_jsx_runtime28 = require("react/jsx-runtime");
+var import_jsx_runtime29 = require("react/jsx-runtime");
 function ThemeProvider(_param) {
     var children = _param.children, props = _object_without_properties(_param, [
         "children"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_next_themes5.ThemeProvider, _object_spread_props(_object_spread({}, props), {
+    return /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_next_themes5.ThemeProvider, _object_spread_props(_object_spread({}, props), {
         themes: [
             "light",
             "dark",
@@ -4287,46 +4304,46 @@ function ThemeProvider(_param) {
 // src/components/new-navbar/theme-toggle.tsx
 var import_lucide_react10 = require("lucide-react");
 var import_next_themes6 = require("next-themes");
-var import_jsx_runtime29 = require("react/jsx-runtime");
+var import_jsx_runtime30 = require("react/jsx-runtime");
 function ThemeToggle2() {
     var setTheme = (0, import_next_themes6.useTheme)().setTheme;
-    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(DropdownMenu, {
+    return /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(DropdownMenu, {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuTrigger, {
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(DropdownMenuTrigger, {
                 asChild: true,
-                children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Button, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(Button, {
                     variant: "ghost",
                     size: "icon",
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_lucide_react10.Sun, {
+                        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_lucide_react10.Sun, {
                             className: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_lucide_react10.Moon, {
+                        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(import_lucide_react10.Moon, {
                             className: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", {
+                        /* @__PURE__ */ (0, import_jsx_runtime30.jsx)("span", {
                             className: "sr-only",
                             children: "Toggle theme"
                         })
                     ]
                 })
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(DropdownMenuContent, {
+            /* @__PURE__ */ (0, import_jsx_runtime30.jsxs)(DropdownMenuContent, {
                 align: "end",
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("light");
                         },
                         children: "Light"
                     }),
-                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("dark");
                         },
                         children: "Dark"
                     }),
-                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                    /* @__PURE__ */ (0, import_jsx_runtime30.jsx)(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("system");
                         },
@@ -4368,6 +4385,7 @@ function ThemeToggle2() {
     Input: Input,
     Label: Label,
     LoginForm: LoginForm,
+    LoginModal: LoginModal,
     NavHistory: NavHistory,
     NavListings: NavListings,
     NavMain: NavMain,

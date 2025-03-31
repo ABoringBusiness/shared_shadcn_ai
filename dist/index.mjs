@@ -2478,6 +2478,20 @@ function LoginForm(_param) {
         ]
     }));
 }
+// src/components/login/login-modal.tsx
+import { jsx as jsx20 } from "react/jsx-runtime";
+function LoginModal(props) {
+    var showLoginModal = props.showLoginModal, restProps = _object_without_properties(props, [
+        "showLoginModal"
+    ]);
+    if (!showLoginModal) {
+        return null;
+    }
+    return /* @__PURE__ */ jsx20("div", {
+        className: "fixed top-0 left-0 w-screen flex flex-col items-center justify-center h-screen backdrop-blur-md z-50",
+        children: /* @__PURE__ */ jsx20(LoginForm, _object_spread({}, restProps))
+    });
+}
 // src/components/reva-navbar/reva-navbar.tsx
 import * as React14 from "react";
 import Link5 from "next/link";
@@ -2488,7 +2502,7 @@ import * as React12 from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva as cva5 } from "class-variance-authority";
 import { ChevronDownIcon } from "@radix-ui/react-icons";
-import { jsx as jsx20, jsxs as jsxs13 } from "react/jsx-runtime";
+import { jsx as jsx21, jsxs as jsxs13 } from "react/jsx-runtime";
 var NavigationMenu = React12.forwardRef(function(_param, ref) {
     var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
         "className",
@@ -2500,7 +2514,7 @@ var NavigationMenu = React12.forwardRef(function(_param, ref) {
     }, props), {
         children: [
             children,
-            /* @__PURE__ */ jsx20(NavigationMenuViewport, {})
+            /* @__PURE__ */ jsx21(NavigationMenuViewport, {})
         ]
     }));
 });
@@ -2509,7 +2523,7 @@ var NavigationMenuList = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.List, _object_spread({
+    return /* @__PURE__ */ jsx21(NavigationMenuPrimitive.List, _object_spread({
         ref: ref,
         className: cn("group flex flex-1 list-none items-center justify-center space-x-1", className)
     }, props));
@@ -2529,7 +2543,7 @@ var NavigationMenuTrigger = React12.forwardRef(function(_param, ref) {
         children: [
             children,
             " ",
-            /* @__PURE__ */ jsx20(ChevronDownIcon, {
+            /* @__PURE__ */ jsx21(ChevronDownIcon, {
                 className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
                 "aria-hidden": "true"
             })
@@ -2541,7 +2555,7 @@ var NavigationMenuContent = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Content, _object_spread({
+    return /* @__PURE__ */ jsx21(NavigationMenuPrimitive.Content, _object_spread({
         ref: ref,
         className: cn("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", className)
     }, props));
@@ -2552,9 +2566,9 @@ var NavigationMenuViewport = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx20("div", {
+    return /* @__PURE__ */ jsx21("div", {
         className: cn("absolute left-0 top-full flex justify-center"),
-        children: /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Viewport, _object_spread({
+        children: /* @__PURE__ */ jsx21(NavigationMenuPrimitive.Viewport, _object_spread({
             className: cn("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", className),
             ref: ref
         }, props))
@@ -2565,11 +2579,11 @@ var NavigationMenuIndicator = React12.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ jsx21(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
         ref: ref,
         className: cn("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", className)
     }, props), {
-        children: /* @__PURE__ */ jsx20("div", {
+        children: /* @__PURE__ */ jsx21("div", {
             className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
         })
     }));
@@ -2578,12 +2592,12 @@ NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayN
 // src/components/ui/avatar.tsx
 import * as React13 from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
-import { jsx as jsx21 } from "react/jsx-runtime";
+import { jsx as jsx22 } from "react/jsx-runtime";
 var Avatar = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx21(AvatarPrimitive.Root, _object_spread({
+    return /* @__PURE__ */ jsx22(AvatarPrimitive.Root, _object_spread({
         ref: ref,
         className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)
     }, props));
@@ -2593,7 +2607,7 @@ var AvatarImage = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx21(AvatarPrimitive.Image, _object_spread({
+    return /* @__PURE__ */ jsx22(AvatarPrimitive.Image, _object_spread({
         ref: ref,
         className: cn("aspect-square h-full w-full", className)
     }, props));
@@ -2603,7 +2617,7 @@ var AvatarFallback = React13.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ jsx21(AvatarPrimitive.Fallback, _object_spread({
+    return /* @__PURE__ */ jsx22(AvatarPrimitive.Fallback, _object_spread({
         ref: ref,
         className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)
     }, props));
@@ -2611,7 +2625,7 @@ var AvatarFallback = React13.forwardRef(function(_param, ref) {
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 // src/components/ui/badge.tsx
 import { cva as cva6 } from "class-variance-authority";
-import { jsx as jsx22 } from "react/jsx-runtime";
+import { jsx as jsx23 } from "react/jsx-runtime";
 var badgeVariants = cva6("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", {
     variants: {
         variant: {
@@ -2630,7 +2644,7 @@ function Badge(_param) {
         "className",
         "variant"
     ]);
-    return /* @__PURE__ */ jsx22("div", _object_spread({
+    return /* @__PURE__ */ jsx23("div", _object_spread({
         className: cn(badgeVariants({
             variant: variant
         }), className)
@@ -2640,21 +2654,21 @@ function Badge(_param) {
 import { useTheme as useTheme3 } from "next-themes";
 import Image4 from "next/image";
 import Link4 from "next/link";
-import { jsx as jsx23 } from "react/jsx-runtime";
+import { jsx as jsx24 } from "react/jsx-runtime";
 function RevaLogo() {
     var resolvedTheme = useTheme3().resolvedTheme;
     var isDarkTheme = resolvedTheme === "dark";
-    return /* @__PURE__ */ jsx23(Link4, {
+    return /* @__PURE__ */ jsx24(Link4, {
         href: "/",
         className: "flex items-center",
-        children: isDarkTheme ? /* @__PURE__ */ jsx23(Image4, {
+        children: isDarkTheme ? /* @__PURE__ */ jsx24(Image4, {
             src: "/images/reva-logo-dark.svg",
             alt: "REVA",
             width: 100,
             height: 30,
             className: "h-8 w-auto",
             priority: true
-        }) : /* @__PURE__ */ jsx23(Image4, {
+        }) : /* @__PURE__ */ jsx24(Image4, {
             src: "/images/reva-logo.png",
             alt: "REVA",
             width: 100,
@@ -2665,7 +2679,7 @@ function RevaLogo() {
     });
 }
 // src/components/reva-navbar/reva-navbar.tsx
-import { jsx as jsx24, jsxs as jsxs14 } from "react/jsx-runtime";
+import { jsx as jsx25, jsxs as jsxs14 } from "react/jsx-runtime";
 function RevaNavbar(param) {
     var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
         current: "Eng",
@@ -2694,24 +2708,24 @@ function RevaNavbar(param) {
         }
         setIsSearchOpen(false);
     };
-    return /* @__PURE__ */ jsx24("header", {
+    return /* @__PURE__ */ jsx25("header", {
         className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className),
         children: /* @__PURE__ */ jsxs14("div", {
             className: "container flex h-16 items-center",
             children: [
                 /* @__PURE__ */ jsxs14(Sheet, {
                     children: [
-                        /* @__PURE__ */ jsx24(SheetTrigger, {
+                        /* @__PURE__ */ jsx25(SheetTrigger, {
                             asChild: true,
                             children: /* @__PURE__ */ jsxs14(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 className: "mr-2 md:hidden",
                                 children: [
-                                    /* @__PURE__ */ jsx24(Menu2, {
+                                    /* @__PURE__ */ jsx25(Menu2, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ jsx24("span", {
+                                    /* @__PURE__ */ jsx25("span", {
                                         className: "sr-only",
                                         children: "Toggle menu"
                                     })
@@ -2722,14 +2736,14 @@ function RevaNavbar(param) {
                             side: "left",
                             className: "pr-0",
                             children: [
-                                /* @__PURE__ */ jsx24("div", {
+                                /* @__PURE__ */ jsx25("div", {
                                     className: "px-7",
-                                    children: logo || /* @__PURE__ */ jsx24(RevaLogo, {})
+                                    children: logo || /* @__PURE__ */ jsx25(RevaLogo, {})
                                 }),
-                                /* @__PURE__ */ jsx24("div", {
+                                /* @__PURE__ */ jsx25("div", {
                                     className: "mt-8 flex flex-col gap-4",
                                     children: items.map(function(item, index) {
-                                        return /* @__PURE__ */ jsx24(MobileNavItem2, {
+                                        return /* @__PURE__ */ jsx25(MobileNavItem2, {
                                             item: item,
                                             pathname: pathname
                                         }, index);
@@ -2739,16 +2753,16 @@ function RevaNavbar(param) {
                         })
                     ]
                 }),
-                /* @__PURE__ */ jsx24("div", {
+                /* @__PURE__ */ jsx25("div", {
                     className: "mr-4 hidden md:flex",
-                    children: logo || /* @__PURE__ */ jsx24(RevaLogo, {})
+                    children: logo || /* @__PURE__ */ jsx25(RevaLogo, {})
                 }),
-                /* @__PURE__ */ jsx24("div", {
+                /* @__PURE__ */ jsx25("div", {
                     className: "hidden md:flex",
-                    children: /* @__PURE__ */ jsx24(NavigationMenu, {
-                        children: /* @__PURE__ */ jsx24(NavigationMenuList, {
+                    children: /* @__PURE__ */ jsx25(NavigationMenu, {
+                        children: /* @__PURE__ */ jsx25(NavigationMenuList, {
                             children: items.map(function(item, index) {
-                                return /* @__PURE__ */ jsx24(NavbarItem, {
+                                return /* @__PURE__ */ jsx25(NavbarItem, {
                                     item: item,
                                     pathname: pathname
                                 }, index);
@@ -2766,10 +2780,10 @@ function RevaNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx24(Camera2, {
+                                        /* @__PURE__ */ jsx25(Camera2, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx24("span", {
+                                        /* @__PURE__ */ jsx25("span", {
                                             className: "sr-only",
                                             children: "Camera"
                                         })
@@ -2779,10 +2793,10 @@ function RevaNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx24(Sofa2, {
+                                        /* @__PURE__ */ jsx25(Sofa2, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx24("span", {
+                                        /* @__PURE__ */ jsx25("span", {
                                             className: "sr-only",
                                             children: "Room"
                                         })
@@ -2792,10 +2806,10 @@ function RevaNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx24(Phone2, {
+                                        /* @__PURE__ */ jsx25(Phone2, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx24("span", {
+                                        /* @__PURE__ */ jsx25("span", {
                                             className: "sr-only",
                                             children: "Phone"
                                         })
@@ -2805,10 +2819,10 @@ function RevaNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx24(PenLine2, {
+                                        /* @__PURE__ */ jsx25(PenLine2, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx24("span", {
+                                        /* @__PURE__ */ jsx25("span", {
                                             className: "sr-only",
                                             children: "Pen"
                                         })
@@ -2816,13 +2830,13 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showSearch && /* @__PURE__ */ jsx24("div", {
+                        showSearch && /* @__PURE__ */ jsx25("div", {
                             className: "relative hidden md:flex",
                             children: isSearchOpen ? /* @__PURE__ */ jsxs14("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
-                                    /* @__PURE__ */ jsx24(Input, {
+                                    /* @__PURE__ */ jsx25(Input, {
                                         type: "search",
                                         placeholder: "Search...",
                                         className: "h-9 w-[200px] lg:w-[300px]",
@@ -2840,10 +2854,10 @@ function RevaNavbar(param) {
                                             return setIsSearchOpen(false);
                                         },
                                         children: [
-                                            /* @__PURE__ */ jsx24(X2, {
+                                            /* @__PURE__ */ jsx25(X2, {
                                                 className: "h-4 w-4"
                                             }),
-                                            /* @__PURE__ */ jsx24("span", {
+                                            /* @__PURE__ */ jsx25("span", {
                                                 className: "sr-only",
                                                 children: "Close search"
                                             })
@@ -2857,10 +2871,10 @@ function RevaNavbar(param) {
                                     return setIsSearchOpen(true);
                                 },
                                 children: [
-                                    /* @__PURE__ */ jsx24(Search, {
+                                    /* @__PURE__ */ jsx25(Search, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ jsx24("span", {
+                                    /* @__PURE__ */ jsx25("span", {
                                         className: "sr-only",
                                         children: "Search"
                                     })
@@ -2869,7 +2883,7 @@ function RevaNavbar(param) {
                         }),
                         showLanguageSelector && /* @__PURE__ */ jsxs14(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx25(DropdownMenuTrigger, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs14(Button, {
                                         variant: "ghost",
@@ -2877,16 +2891,16 @@ function RevaNavbar(param) {
                                         className: "gap-1 text-sm font-medium",
                                         children: [
                                             languages.current,
-                                            /* @__PURE__ */ jsx24(ChevronDown2, {
+                                            /* @__PURE__ */ jsx25(ChevronDown2, {
                                                 className: "h-4 w-4"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ jsx24(DropdownMenuContent, {
+                                /* @__PURE__ */ jsx25(DropdownMenuContent, {
                                     align: "end",
                                     children: languages.options.map(function(language) {
-                                        return /* @__PURE__ */ jsx24(DropdownMenuItem, {
+                                        return /* @__PURE__ */ jsx25(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
                                             },
@@ -2898,18 +2912,18 @@ function RevaNavbar(param) {
                         }),
                         showThemeToggle && /* @__PURE__ */ jsxs14(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx25(DropdownMenuTrigger, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs14(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         children: [
-                                            isDark ? /* @__PURE__ */ jsx24(Sun2, {
+                                            isDark ? /* @__PURE__ */ jsx25(Sun2, {
                                                 className: "h-5 w-5"
-                                            }) : /* @__PURE__ */ jsx24(Moon2, {
+                                            }) : /* @__PURE__ */ jsx25(Moon2, {
                                                 className: "h-5 w-5"
                                             }),
-                                            /* @__PURE__ */ jsx24("span", {
+                                            /* @__PURE__ */ jsx25("span", {
                                                 className: "sr-only",
                                                 children: "Toggle theme"
                                             })
@@ -2924,7 +2938,7 @@ function RevaNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx24(Sun2, {
+                                                /* @__PURE__ */ jsx25(Sun2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Light"
@@ -2935,7 +2949,7 @@ function RevaNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx24(Moon2, {
+                                                /* @__PURE__ */ jsx25(Moon2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Dark"
@@ -2946,7 +2960,7 @@ function RevaNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx24(Settings, {
+                                                /* @__PURE__ */ jsx25(Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "System"
@@ -2957,7 +2971,7 @@ function RevaNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("contrast");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx24(Bell, {
+                                                /* @__PURE__ */ jsx25(Bell, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "High Contrast"
@@ -2971,10 +2985,10 @@ function RevaNavbar(param) {
                             variant: "ghost",
                             size: "icon",
                             children: [
-                                /* @__PURE__ */ jsx24(Bell, {
+                                /* @__PURE__ */ jsx25(Bell, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ jsx24("span", {
+                                /* @__PURE__ */ jsx25("span", {
                                     className: "sr-only",
                                     children: "Notifications"
                                 })
@@ -2985,14 +2999,14 @@ function RevaNavbar(param) {
                             size: "icon",
                             className: "relative",
                             children: [
-                                /* @__PURE__ */ jsx24(MessageSquare, {
+                                /* @__PURE__ */ jsx25(MessageSquare, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ jsx24(Badge, {
+                                /* @__PURE__ */ jsx25(Badge, {
                                     className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
                                     children: "3"
                                 }),
-                                /* @__PURE__ */ jsx24("span", {
+                                /* @__PURE__ */ jsx25("span", {
                                     className: "sr-only",
                                     children: "Messages"
                                 })
@@ -3001,7 +3015,7 @@ function RevaNavbar(param) {
                         showBalance && /* @__PURE__ */ jsxs14("div", {
                             className: "hidden items-center gap-2 md:flex",
                             children: [
-                                /* @__PURE__ */ jsx24(Wallet, {
+                                /* @__PURE__ */ jsx25(Wallet, {
                                     className: "h-4 w-4"
                                 }),
                                 /* @__PURE__ */ jsxs14("span", {
@@ -3013,26 +3027,26 @@ function RevaNavbar(param) {
                                 })
                             ]
                         }),
-                        showCreateButton && /* @__PURE__ */ jsx24(Button, {
+                        showCreateButton && /* @__PURE__ */ jsx25(Button, {
                             className: "bg-black hover:bg-black/90 text-white",
                             children: "Create"
                         }),
                         showUserMenu && user && /* @__PURE__ */ jsxs14(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx25(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ jsx24(Button, {
+                                    children: /* @__PURE__ */ jsx25(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "rounded-full",
                                         children: /* @__PURE__ */ jsxs14(Avatar, {
                                             className: "h-8 w-8",
                                             children: [
-                                                /* @__PURE__ */ jsx24(AvatarImage, {
+                                                /* @__PURE__ */ jsx25(AvatarImage, {
                                                     src: user.image,
                                                     alt: user.name || "User"
                                                 }),
-                                                /* @__PURE__ */ jsx24(AvatarFallback, {
+                                                /* @__PURE__ */ jsx25(AvatarFallback, {
                                                     children: user.initials || "U"
                                                 })
                                             ]
@@ -3044,19 +3058,19 @@ function RevaNavbar(param) {
                                     children: [
                                         /* @__PURE__ */ jsxs14(DropdownMenuLabel, {
                                             children: [
-                                                user.name && /* @__PURE__ */ jsx24("p", {
+                                                user.name && /* @__PURE__ */ jsx25("p", {
                                                     children: user.name
                                                 }),
-                                                user.email && /* @__PURE__ */ jsx24("p", {
+                                                user.email && /* @__PURE__ */ jsx25("p", {
                                                     className: "text-xs text-muted-foreground",
                                                     children: user.email
                                                 })
                                             ]
                                         }),
-                                        /* @__PURE__ */ jsx24(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsx25(DropdownMenuSeparator, {}),
                                         /* @__PURE__ */ jsxs14(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ jsx24(User, {
+                                                /* @__PURE__ */ jsx25(User, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Profile"
@@ -3064,17 +3078,17 @@ function RevaNavbar(param) {
                                         }),
                                         /* @__PURE__ */ jsxs14(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ jsx24(Settings, {
+                                                /* @__PURE__ */ jsx25(Settings, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Settings"
                                             ]
                                         }),
-                                        /* @__PURE__ */ jsx24(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsx25(DropdownMenuSeparator, {}),
                                         /* @__PURE__ */ jsxs14(DropdownMenuItem, {
                                             onClick: onLogout,
                                             children: [
-                                                /* @__PURE__ */ jsx24(LogOut2, {
+                                                /* @__PURE__ */ jsx25(LogOut2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Log out"
@@ -3095,27 +3109,27 @@ function NavbarItem(param) {
     if (item.children) {
         return /* @__PURE__ */ jsxs14(NavigationMenuItem, {
             children: [
-                /* @__PURE__ */ jsx24(NavigationMenuTrigger, {
+                /* @__PURE__ */ jsx25(NavigationMenuTrigger, {
                     children: item.title
                 }),
-                /* @__PURE__ */ jsx24(NavigationMenuContent, {
-                    children: /* @__PURE__ */ jsx24("ul", {
+                /* @__PURE__ */ jsx25(NavigationMenuContent, {
+                    children: /* @__PURE__ */ jsx25("ul", {
                         className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
                         children: item.children.map(function(child) {
-                            return /* @__PURE__ */ jsx24("li", {
+                            return /* @__PURE__ */ jsx25("li", {
                                 className: "row-span-3",
-                                children: /* @__PURE__ */ jsx24(NavigationMenuLink, {
+                                children: /* @__PURE__ */ jsx25(NavigationMenuLink, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs14(Link5, {
                                         href: child.href || "#",
                                         className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
                                         children: [
                                             child.icon,
-                                            /* @__PURE__ */ jsx24("div", {
+                                            /* @__PURE__ */ jsx25("div", {
                                                 className: "mb-2 mt-4 text-lg font-medium",
                                                 children: child.title
                                             }),
-                                            /* @__PURE__ */ jsx24("p", {
+                                            /* @__PURE__ */ jsx25("p", {
                                                 className: "text-sm leading-tight text-muted-foreground",
                                                 children: child.description
                                             })
@@ -3129,12 +3143,12 @@ function NavbarItem(param) {
             ]
         });
     }
-    return /* @__PURE__ */ jsx24(NavigationMenuItem, {
-        children: /* @__PURE__ */ jsx24(Link5, {
+    return /* @__PURE__ */ jsx25(NavigationMenuItem, {
+        children: /* @__PURE__ */ jsx25(Link5, {
             href: item.href || "#",
             legacyBehavior: true,
             passHref: true,
-            children: /* @__PURE__ */ jsx24(NavigationMenuLink, {
+            children: /* @__PURE__ */ jsx25(NavigationMenuLink, {
                 className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
                 children: item.title
             })
@@ -3155,15 +3169,15 @@ function MobileNavItem2(param) {
                     },
                     children: [
                         item.title,
-                        /* @__PURE__ */ jsx24(ChevronDown2, {
+                        /* @__PURE__ */ jsx25(ChevronDown2, {
                             className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
                         })
                     ]
                 }),
-                isOpen && /* @__PURE__ */ jsx24("div", {
+                isOpen && /* @__PURE__ */ jsx25("div", {
                     className: "ml-4 mt-2 flex flex-col gap-2",
                     children: item.children.map(function(child) {
-                        return /* @__PURE__ */ jsx24(Link5, {
+                        return /* @__PURE__ */ jsx25(Link5, {
                             href: child.href || "#",
                             className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
                             children: child.title
@@ -3173,7 +3187,7 @@ function MobileNavItem2(param) {
             ]
         });
     }
-    return /* @__PURE__ */ jsx24(Link5, {
+    return /* @__PURE__ */ jsx25(Link5, {
         href: item.href || "#",
         className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
         children: item.title
@@ -3202,21 +3216,21 @@ import { Bell as Bell2, Camera as Camera3, ChevronDown as ChevronDown3, LogOut a
 import { useTheme as useTheme4 } from "next-themes";
 import Image5 from "next/image";
 import Link6 from "next/link";
-import { jsx as jsx25 } from "react/jsx-runtime";
+import { jsx as jsx26 } from "react/jsx-runtime";
 function RevaLogo2() {
     var resolvedTheme = useTheme4().resolvedTheme;
     var isDarkTheme = resolvedTheme === "dark";
-    return /* @__PURE__ */ jsx25(Link6, {
+    return /* @__PURE__ */ jsx26(Link6, {
         href: "/",
         className: "flex items-center",
-        children: isDarkTheme ? /* @__PURE__ */ jsx25(Image5, {
+        children: isDarkTheme ? /* @__PURE__ */ jsx26(Image5, {
             src: "/images/reva-logo.svg",
             alt: "REVA",
             width: 141,
             height: 27,
             className: "h-5 w-auto",
             priority: true
-        }) : /* @__PURE__ */ jsx25(Image5, {
+        }) : /* @__PURE__ */ jsx26(Image5, {
             src: "/images/reva-logo-dark.svg",
             alt: "REVA",
             width: 160,
@@ -3227,7 +3241,7 @@ function RevaLogo2() {
     });
 }
 // src/components/new-navbar/new-navbar.tsx
-import { jsx as jsx26, jsxs as jsxs15 } from "react/jsx-runtime";
+import { jsx as jsx27, jsxs as jsxs15 } from "react/jsx-runtime";
 function NewNavbar(param) {
     var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems2 : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
         current: "Eng",
@@ -3256,24 +3270,24 @@ function NewNavbar(param) {
         }
         setIsSearchOpen(false);
     };
-    return /* @__PURE__ */ jsx26("header", {
+    return /* @__PURE__ */ jsx27("header", {
         className: cn("fixed top-0 z-50 w-full border-b bg-background/80 backdrop-blur-lg shadow-sm navbar-glass", className),
         children: /* @__PURE__ */ jsxs15("div", {
             className: "flex p-4 justify-between w-full h-16 items-center",
             children: [
                 /* @__PURE__ */ jsxs15(Sheet, {
                     children: [
-                        /* @__PURE__ */ jsx26(SheetTrigger, {
+                        /* @__PURE__ */ jsx27(SheetTrigger, {
                             asChild: true,
                             children: /* @__PURE__ */ jsxs15(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 className: "mr-2 md:hidden",
                                 children: [
-                                    /* @__PURE__ */ jsx26(Menu3, {
+                                    /* @__PURE__ */ jsx27(Menu3, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ jsx26("span", {
+                                    /* @__PURE__ */ jsx27("span", {
                                         className: "sr-only",
                                         children: "Toggle menu"
                                     })
@@ -3284,14 +3298,14 @@ function NewNavbar(param) {
                             side: "left",
                             className: "pr-0",
                             children: [
-                                /* @__PURE__ */ jsx26("div", {
+                                /* @__PURE__ */ jsx27("div", {
                                     className: "px-7",
-                                    children: logo || /* @__PURE__ */ jsx26(RevaLogo2, {})
+                                    children: logo || /* @__PURE__ */ jsx27(RevaLogo2, {})
                                 }),
-                                /* @__PURE__ */ jsx26("div", {
+                                /* @__PURE__ */ jsx27("div", {
                                     className: "mt-8 flex flex-col gap-4",
                                     children: items.map(function(item, index) {
-                                        return /* @__PURE__ */ jsx26(MobileNavItem3, {
+                                        return /* @__PURE__ */ jsx27(MobileNavItem3, {
                                             item: item,
                                             pathname: pathname
                                         }, index);
@@ -3301,16 +3315,16 @@ function NewNavbar(param) {
                         })
                     ]
                 }),
-                /* @__PURE__ */ jsx26("div", {
+                /* @__PURE__ */ jsx27("div", {
                     className: "mr-4 hidden md:flex",
-                    children: logo || /* @__PURE__ */ jsx26(RevaLogo2, {})
+                    children: logo || /* @__PURE__ */ jsx27(RevaLogo2, {})
                 }),
-                /* @__PURE__ */ jsx26("div", {
+                /* @__PURE__ */ jsx27("div", {
                     className: "hidden md:flex",
-                    children: /* @__PURE__ */ jsx26(NavigationMenu, {
-                        children: /* @__PURE__ */ jsx26(NavigationMenuList, {
+                    children: /* @__PURE__ */ jsx27(NavigationMenu, {
+                        children: /* @__PURE__ */ jsx27(NavigationMenuList, {
                             children: items.map(function(item, index) {
-                                return /* @__PURE__ */ jsx26(NavbarItem2, {
+                                return /* @__PURE__ */ jsx27(NavbarItem2, {
                                     item: item,
                                     pathname: pathname
                                 }, index);
@@ -3328,10 +3342,10 @@ function NewNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx26(Camera3, {
+                                        /* @__PURE__ */ jsx27(Camera3, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx26("span", {
+                                        /* @__PURE__ */ jsx27("span", {
                                             className: "sr-only",
                                             children: "Camera"
                                         })
@@ -3341,10 +3355,10 @@ function NewNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx26(Sofa3, {
+                                        /* @__PURE__ */ jsx27(Sofa3, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx26("span", {
+                                        /* @__PURE__ */ jsx27("span", {
                                             className: "sr-only",
                                             children: "Room"
                                         })
@@ -3354,10 +3368,10 @@ function NewNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx26(Phone3, {
+                                        /* @__PURE__ */ jsx27(Phone3, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx26("span", {
+                                        /* @__PURE__ */ jsx27("span", {
                                             className: "sr-only",
                                             children: "Phone"
                                         })
@@ -3367,10 +3381,10 @@ function NewNavbar(param) {
                                     variant: "ghost",
                                     size: "icon",
                                     children: [
-                                        /* @__PURE__ */ jsx26(PenLine3, {
+                                        /* @__PURE__ */ jsx27(PenLine3, {
                                             className: "h-5 w-5"
                                         }),
-                                        /* @__PURE__ */ jsx26("span", {
+                                        /* @__PURE__ */ jsx27("span", {
                                             className: "sr-only",
                                             children: "Pen"
                                         })
@@ -3378,13 +3392,13 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showSearch && /* @__PURE__ */ jsx26("div", {
+                        showSearch && /* @__PURE__ */ jsx27("div", {
                             className: "relative hidden md:flex",
                             children: isSearchOpen ? /* @__PURE__ */ jsxs15("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
-                                    /* @__PURE__ */ jsx26(Input, {
+                                    /* @__PURE__ */ jsx27(Input, {
                                         type: "search",
                                         placeholder: "Search...",
                                         className: "h-9 w-[200px] lg:w-[300px]",
@@ -3402,10 +3416,10 @@ function NewNavbar(param) {
                                             return setIsSearchOpen(false);
                                         },
                                         children: [
-                                            /* @__PURE__ */ jsx26(X3, {
+                                            /* @__PURE__ */ jsx27(X3, {
                                                 className: "h-4 w-4"
                                             }),
-                                            /* @__PURE__ */ jsx26("span", {
+                                            /* @__PURE__ */ jsx27("span", {
                                                 className: "sr-only",
                                                 children: "Close search"
                                             })
@@ -3419,10 +3433,10 @@ function NewNavbar(param) {
                                     return setIsSearchOpen(true);
                                 },
                                 children: [
-                                    /* @__PURE__ */ jsx26(Search2, {
+                                    /* @__PURE__ */ jsx27(Search2, {
                                         className: "h-5 w-5"
                                     }),
-                                    /* @__PURE__ */ jsx26("span", {
+                                    /* @__PURE__ */ jsx27("span", {
                                         className: "sr-only",
                                         children: "Search"
                                     })
@@ -3431,7 +3445,7 @@ function NewNavbar(param) {
                         }),
                         showLanguageSelector && /* @__PURE__ */ jsxs15(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx26(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx27(DropdownMenuTrigger, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs15(Button, {
                                         variant: "ghost",
@@ -3439,16 +3453,16 @@ function NewNavbar(param) {
                                         className: "gap-1 text-sm font-medium",
                                         children: [
                                             languages.current,
-                                            /* @__PURE__ */ jsx26(ChevronDown3, {
+                                            /* @__PURE__ */ jsx27(ChevronDown3, {
                                                 className: "h-4 w-4"
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ jsx26(DropdownMenuContent, {
+                                /* @__PURE__ */ jsx27(DropdownMenuContent, {
                                     align: "end",
                                     children: languages.options.map(function(language) {
-                                        return /* @__PURE__ */ jsx26(DropdownMenuItem, {
+                                        return /* @__PURE__ */ jsx27(DropdownMenuItem, {
                                             onClick: function() {
                                                 return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
                                             },
@@ -3460,18 +3474,18 @@ function NewNavbar(param) {
                         }),
                         showThemeToggle && /* @__PURE__ */ jsxs15(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx26(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx27(DropdownMenuTrigger, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs15(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         children: [
-                                            isDark ? /* @__PURE__ */ jsx26(Sun3, {
+                                            isDark ? /* @__PURE__ */ jsx27(Sun3, {
                                                 className: "h-5 w-5"
-                                            }) : /* @__PURE__ */ jsx26(Moon3, {
+                                            }) : /* @__PURE__ */ jsx27(Moon3, {
                                                 className: "h-5 w-5"
                                             }),
-                                            /* @__PURE__ */ jsx26("span", {
+                                            /* @__PURE__ */ jsx27("span", {
                                                 className: "sr-only",
                                                 children: "Toggle theme"
                                             })
@@ -3486,7 +3500,7 @@ function NewNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx26(Sun3, {
+                                                /* @__PURE__ */ jsx27(Sun3, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Light"
@@ -3497,7 +3511,7 @@ function NewNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx26(Moon3, {
+                                                /* @__PURE__ */ jsx27(Moon3, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Dark"
@@ -3508,7 +3522,7 @@ function NewNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("glass");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx26(Glasses, {
+                                                /* @__PURE__ */ jsx27(Glasses, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Glass"
@@ -3519,7 +3533,7 @@ function NewNavbar(param) {
                                                 return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
                                             },
                                             children: [
-                                                /* @__PURE__ */ jsx26(Settings2, {
+                                                /* @__PURE__ */ jsx27(Settings2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "System"
@@ -3533,10 +3547,10 @@ function NewNavbar(param) {
                             variant: "ghost",
                             size: "icon",
                             children: [
-                                /* @__PURE__ */ jsx26(Bell2, {
+                                /* @__PURE__ */ jsx27(Bell2, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ jsx26("span", {
+                                /* @__PURE__ */ jsx27("span", {
                                     className: "sr-only",
                                     children: "Notifications"
                                 })
@@ -3547,14 +3561,14 @@ function NewNavbar(param) {
                             size: "icon",
                             className: "relative",
                             children: [
-                                /* @__PURE__ */ jsx26(MessageSquare2, {
+                                /* @__PURE__ */ jsx27(MessageSquare2, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ jsx26(Badge, {
+                                /* @__PURE__ */ jsx27(Badge, {
                                     className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
                                     children: "3"
                                 }),
-                                /* @__PURE__ */ jsx26("span", {
+                                /* @__PURE__ */ jsx27("span", {
                                     className: "sr-only",
                                     children: "Messages"
                                 })
@@ -3563,7 +3577,7 @@ function NewNavbar(param) {
                         showBalance && /* @__PURE__ */ jsxs15("div", {
                             className: "hidden items-center gap-2 md:flex",
                             children: [
-                                /* @__PURE__ */ jsx26(Wallet2, {
+                                /* @__PURE__ */ jsx27(Wallet2, {
                                     className: "h-4 w-4"
                                 }),
                                 /* @__PURE__ */ jsxs15("span", {
@@ -3575,26 +3589,26 @@ function NewNavbar(param) {
                                 })
                             ]
                         }),
-                        showCreateButton && /* @__PURE__ */ jsx26(Button, {
+                        showCreateButton && /* @__PURE__ */ jsx27(Button, {
                             className: "bg-black hover:bg-black/90 text-white",
                             children: "Create"
                         }),
                         showUserMenu && user && /* @__PURE__ */ jsxs15(DropdownMenu, {
                             children: [
-                                /* @__PURE__ */ jsx26(DropdownMenuTrigger, {
+                                /* @__PURE__ */ jsx27(DropdownMenuTrigger, {
                                     asChild: true,
-                                    children: /* @__PURE__ */ jsx26(Button, {
+                                    children: /* @__PURE__ */ jsx27(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "rounded-full",
                                         children: /* @__PURE__ */ jsxs15(Avatar, {
                                             className: "h-8 w-8",
                                             children: [
-                                                /* @__PURE__ */ jsx26(AvatarImage, {
+                                                /* @__PURE__ */ jsx27(AvatarImage, {
                                                     src: user.image,
                                                     alt: user.name || "User"
                                                 }),
-                                                /* @__PURE__ */ jsx26(AvatarFallback, {
+                                                /* @__PURE__ */ jsx27(AvatarFallback, {
                                                     children: user.initials || "U"
                                                 })
                                             ]
@@ -3606,19 +3620,19 @@ function NewNavbar(param) {
                                     children: [
                                         /* @__PURE__ */ jsxs15(DropdownMenuLabel, {
                                             children: [
-                                                user.name && /* @__PURE__ */ jsx26("p", {
+                                                user.name && /* @__PURE__ */ jsx27("p", {
                                                     children: user.name
                                                 }),
-                                                user.email && /* @__PURE__ */ jsx26("p", {
+                                                user.email && /* @__PURE__ */ jsx27("p", {
                                                     className: "text-xs text-muted-foreground",
                                                     children: user.email
                                                 })
                                             ]
                                         }),
-                                        /* @__PURE__ */ jsx26(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsx27(DropdownMenuSeparator, {}),
                                         /* @__PURE__ */ jsxs15(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ jsx26(User2, {
+                                                /* @__PURE__ */ jsx27(User2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Profile"
@@ -3626,17 +3640,17 @@ function NewNavbar(param) {
                                         }),
                                         /* @__PURE__ */ jsxs15(DropdownMenuItem, {
                                             children: [
-                                                /* @__PURE__ */ jsx26(Settings2, {
+                                                /* @__PURE__ */ jsx27(Settings2, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Settings"
                                             ]
                                         }),
-                                        /* @__PURE__ */ jsx26(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsx27(DropdownMenuSeparator, {}),
                                         /* @__PURE__ */ jsxs15(DropdownMenuItem, {
                                             onClick: onLogout,
                                             children: [
-                                                /* @__PURE__ */ jsx26(LogOut3, {
+                                                /* @__PURE__ */ jsx27(LogOut3, {
                                                     className: "mr-2 h-4 w-4"
                                                 }),
                                                 "Log out"
@@ -3652,10 +3666,10 @@ function NewNavbar(param) {
                             className: "ml-2",
                             onClick: onLogout,
                             children: [
-                                /* @__PURE__ */ jsx26(LogOut3, {
+                                /* @__PURE__ */ jsx27(LogOut3, {
                                     className: "h-5 w-5"
                                 }),
-                                /* @__PURE__ */ jsx26("span", {
+                                /* @__PURE__ */ jsx27("span", {
                                     className: "sr-only",
                                     children: "Logout"
                                 })
@@ -3672,27 +3686,27 @@ function NavbarItem2(param) {
     if (item.children) {
         return /* @__PURE__ */ jsxs15(NavigationMenuItem, {
             children: [
-                /* @__PURE__ */ jsx26(NavigationMenuTrigger, {
+                /* @__PURE__ */ jsx27(NavigationMenuTrigger, {
                     children: item.title
                 }),
-                /* @__PURE__ */ jsx26(NavigationMenuContent, {
-                    children: /* @__PURE__ */ jsx26("ul", {
+                /* @__PURE__ */ jsx27(NavigationMenuContent, {
+                    children: /* @__PURE__ */ jsx27("ul", {
                         className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
                         children: item.children.map(function(child) {
-                            return /* @__PURE__ */ jsx26("li", {
+                            return /* @__PURE__ */ jsx27("li", {
                                 className: "row-span-3",
-                                children: /* @__PURE__ */ jsx26(NavigationMenuLink, {
+                                children: /* @__PURE__ */ jsx27(NavigationMenuLink, {
                                     asChild: true,
                                     children: /* @__PURE__ */ jsxs15(Link7, {
                                         href: child.href || "#",
                                         className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
                                         children: [
                                             child.icon,
-                                            /* @__PURE__ */ jsx26("div", {
+                                            /* @__PURE__ */ jsx27("div", {
                                                 className: "mb-2 mt-4 text-lg font-medium",
                                                 children: child.title
                                             }),
-                                            /* @__PURE__ */ jsx26("p", {
+                                            /* @__PURE__ */ jsx27("p", {
                                                 className: "text-sm leading-tight text-muted-foreground",
                                                 children: child.description
                                             })
@@ -3706,12 +3720,12 @@ function NavbarItem2(param) {
             ]
         });
     }
-    return /* @__PURE__ */ jsx26(NavigationMenuItem, {
-        children: /* @__PURE__ */ jsx26(Link7, {
+    return /* @__PURE__ */ jsx27(NavigationMenuItem, {
+        children: /* @__PURE__ */ jsx27(Link7, {
             href: item.href || "#",
             legacyBehavior: true,
             passHref: true,
-            children: /* @__PURE__ */ jsx26(NavigationMenuLink, {
+            children: /* @__PURE__ */ jsx27(NavigationMenuLink, {
                 className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
                 children: item.title
             })
@@ -3732,15 +3746,15 @@ function MobileNavItem3(param) {
                     },
                     children: [
                         item.title,
-                        /* @__PURE__ */ jsx26(ChevronDown3, {
+                        /* @__PURE__ */ jsx27(ChevronDown3, {
                             className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
                         })
                     ]
                 }),
-                isOpen && /* @__PURE__ */ jsx26("div", {
+                isOpen && /* @__PURE__ */ jsx27("div", {
                     className: "ml-4 mt-2 flex flex-col gap-2",
                     children: item.children.map(function(child) {
-                        return /* @__PURE__ */ jsx26(Link7, {
+                        return /* @__PURE__ */ jsx27(Link7, {
                             href: child.href || "#",
                             className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
                             children: child.title
@@ -3750,7 +3764,7 @@ function MobileNavItem3(param) {
             ]
         });
     }
-    return /* @__PURE__ */ jsx26(Link7, {
+    return /* @__PURE__ */ jsx27(Link7, {
         href: item.href || "#",
         className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
         children: item.title
@@ -3773,7 +3787,7 @@ var defaultNavItems2 = [
 // src/components/new-navbar/ai-assistant.tsx
 import * as React16 from "react";
 import { Bot, X as X4, Minimize2, Maximize2, Send } from "lucide-react";
-import { Fragment as Fragment3, jsx as jsx27, jsxs as jsxs16 } from "react/jsx-runtime";
+import { Fragment as Fragment3, jsx as jsx28, jsxs as jsxs16 } from "react/jsx-runtime";
 function AiAssistant() {
     var _React16_useState = _sliced_to_array(React16.useState(false), 2), isOpen = _React16_useState[0], setIsOpen = _React16_useState[1];
     var _React16_useState1 = _sliced_to_array(React16.useState(false), 2), isMinimized = _React16_useState1[0], setIsMinimized = _React16_useState1[1];
@@ -3843,14 +3857,14 @@ function AiAssistant() {
                             /* @__PURE__ */ jsxs16("div", {
                                 className: "flex items-center gap-2",
                                 children: [
-                                    /* @__PURE__ */ jsx27(Avatar, {
+                                    /* @__PURE__ */ jsx28(Avatar, {
                                         className: "h-6 w-6",
-                                        children: /* @__PURE__ */ jsx27(AvatarFallback, {
+                                        children: /* @__PURE__ */ jsx28(AvatarFallback, {
                                             className: "bg-primary text-primary-foreground",
                                             children: "AI"
                                         })
                                     }),
-                                    /* @__PURE__ */ jsx27("span", {
+                                    /* @__PURE__ */ jsx28("span", {
                                         className: "font-medium",
                                         children: "REVA Assistant"
                                     })
@@ -3859,27 +3873,27 @@ function AiAssistant() {
                             /* @__PURE__ */ jsxs16("div", {
                                 className: "flex items-center gap-1",
                                 children: [
-                                    /* @__PURE__ */ jsx27(Button, {
+                                    /* @__PURE__ */ jsx28(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "h-6 w-6",
                                         onClick: function() {
                                             return setIsMinimized(!isMinimized);
                                         },
-                                        children: isMinimized ? /* @__PURE__ */ jsx27(Maximize2, {
+                                        children: isMinimized ? /* @__PURE__ */ jsx28(Maximize2, {
                                             className: "h-4 w-4"
-                                        }) : /* @__PURE__ */ jsx27(Minimize2, {
+                                        }) : /* @__PURE__ */ jsx28(Minimize2, {
                                             className: "h-4 w-4"
                                         })
                                     }),
-                                    /* @__PURE__ */ jsx27(Button, {
+                                    /* @__PURE__ */ jsx28(Button, {
                                         variant: "ghost",
                                         size: "icon",
                                         className: "h-6 w-6",
                                         onClick: function() {
                                             return setIsOpen(false);
                                         },
-                                        children: /* @__PURE__ */ jsx27(X4, {
+                                        children: /* @__PURE__ */ jsx28(X4, {
                                             className: "h-4 w-4"
                                         })
                                     })
@@ -3893,23 +3907,23 @@ function AiAssistant() {
                                 className: "flex-1 overflow-y-auto p-3 h-[calc(100%-7rem)]",
                                 children: [
                                     messages.map(function(message) {
-                                        return /* @__PURE__ */ jsx27("div", {
+                                        return /* @__PURE__ */ jsx28("div", {
                                             className: cn("mb-3 max-w-[80%] rounded-lg p-3", message.role === "user" ? "ml-auto bg-primary text-primary-foreground" : "bg-muted"),
                                             children: message.content
                                         }, message.id);
                                     }),
-                                    /* @__PURE__ */ jsx27("div", {
+                                    /* @__PURE__ */ jsx28("div", {
                                         ref: messagesEndRef
                                     })
                                 ]
                             }),
-                            /* @__PURE__ */ jsx27("form", {
+                            /* @__PURE__ */ jsx28("form", {
                                 onSubmit: handleSendMessage,
                                 className: "border-t p-3",
                                 children: /* @__PURE__ */ jsxs16("div", {
                                     className: "flex gap-2",
                                     children: [
-                                        /* @__PURE__ */ jsx27(Input, {
+                                        /* @__PURE__ */ jsx28(Input, {
                                             placeholder: "Type a message...",
                                             value: input,
                                             onChange: function(e) {
@@ -3917,11 +3931,11 @@ function AiAssistant() {
                                             },
                                             className: "flex-1"
                                         }),
-                                        /* @__PURE__ */ jsx27(Button, {
+                                        /* @__PURE__ */ jsx28(Button, {
                                             type: "submit",
                                             size: "icon",
                                             className: "bg-primary",
-                                            children: /* @__PURE__ */ jsx27(Send, {
+                                            children: /* @__PURE__ */ jsx28(Send, {
                                                 className: "h-4 w-4"
                                             })
                                         })
@@ -3932,12 +3946,12 @@ function AiAssistant() {
                     })
                 ]
             }),
-            /* @__PURE__ */ jsx27(Button, {
+            /* @__PURE__ */ jsx28(Button, {
                 onClick: function() {
                     return setIsOpen(!isOpen);
                 },
                 className: "h-12 w-12 rounded-full bg-primary shadow-lg",
-                children: /* @__PURE__ */ jsx27(Bot, {
+                children: /* @__PURE__ */ jsx28(Bot, {
                     className: "h-6 w-6"
                 })
             })
@@ -3946,12 +3960,12 @@ function AiAssistant() {
 }
 // src/components/new-navbar/theme-provider.tsx
 import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { jsx as jsx28 } from "react/jsx-runtime";
+import { jsx as jsx29 } from "react/jsx-runtime";
 function ThemeProvider(_param) {
     var children = _param.children, props = _object_without_properties(_param, [
         "children"
     ]);
-    return /* @__PURE__ */ jsx28(NextThemesProvider, _object_spread_props(_object_spread({}, props), {
+    return /* @__PURE__ */ jsx29(NextThemesProvider, _object_spread_props(_object_spread({}, props), {
         themes: [
             "light",
             "dark",
@@ -3964,24 +3978,24 @@ function ThemeProvider(_param) {
 // src/components/new-navbar/theme-toggle.tsx
 import { Moon as Moon4, Sun as Sun4 } from "lucide-react";
 import { useTheme as useTheme5 } from "next-themes";
-import { jsx as jsx29, jsxs as jsxs17 } from "react/jsx-runtime";
+import { jsx as jsx30, jsxs as jsxs17 } from "react/jsx-runtime";
 function ThemeToggle2() {
     var setTheme = useTheme5().setTheme;
     return /* @__PURE__ */ jsxs17(DropdownMenu, {
         children: [
-            /* @__PURE__ */ jsx29(DropdownMenuTrigger, {
+            /* @__PURE__ */ jsx30(DropdownMenuTrigger, {
                 asChild: true,
                 children: /* @__PURE__ */ jsxs17(Button, {
                     variant: "ghost",
                     size: "icon",
                     children: [
-                        /* @__PURE__ */ jsx29(Sun4, {
+                        /* @__PURE__ */ jsx30(Sun4, {
                             className: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                         }),
-                        /* @__PURE__ */ jsx29(Moon4, {
+                        /* @__PURE__ */ jsx30(Moon4, {
                             className: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
                         }),
-                        /* @__PURE__ */ jsx29("span", {
+                        /* @__PURE__ */ jsx30("span", {
                             className: "sr-only",
                             children: "Toggle theme"
                         })
@@ -3991,19 +4005,19 @@ function ThemeToggle2() {
             /* @__PURE__ */ jsxs17(DropdownMenuContent, {
                 align: "end",
                 children: [
-                    /* @__PURE__ */ jsx29(DropdownMenuItem, {
+                    /* @__PURE__ */ jsx30(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("light");
                         },
                         children: "Light"
                     }),
-                    /* @__PURE__ */ jsx29(DropdownMenuItem, {
+                    /* @__PURE__ */ jsx30(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("dark");
                         },
                         children: "Dark"
                     }),
-                    /* @__PURE__ */ jsx29(DropdownMenuItem, {
+                    /* @__PURE__ */ jsx30(DropdownMenuItem, {
                         onClick: function() {
                             return setTheme("system");
                         },
@@ -4014,5 +4028,5 @@ function ThemeToggle2() {
         ]
     });
 }
-export { AiAssistant, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label2 as Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, NewNavbar, RevaLogo2 as RevaLogo, RevaNavbar, Separator2 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeProvider, ThemeToggle2 as ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
+export { AiAssistant, Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label2 as Label, LoginForm, LoginModal, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, NewNavbar, RevaLogo2 as RevaLogo, RevaNavbar, Separator2 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeProvider, ThemeToggle2 as ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
 //# sourceMappingURL=index.mjs.map

@@ -187,6 +187,19 @@ interface LoginFormProps extends React.ComponentProps<"div"> {
 }
 declare function LoginForm({ className, onEmailLogin, onGoogleLogin, onForgotPassword, onSignUp, backgroundImage, title, subtitle, ...props }: LoginFormProps): react_jsx_runtime.JSX.Element;
 
+interface LoginModalProps extends React.ComponentProps<"div"> {
+    onEmailLogin?: (email: string, password: string) => Promise<void>;
+    onGoogleLogin?: () => Promise<void>;
+    onForgotPassword?: () => void;
+    onSignUp?: () => void;
+    redirectAfterLogin?: string;
+    backgroundImage?: string;
+    title?: string;
+    subtitle?: string;
+    showLoginModal?: boolean;
+}
+declare function LoginModal(props: LoginModalProps): react_jsx_runtime.JSX.Element | null;
+
 interface NavItem$1 {
     title: string;
     href?: string;
@@ -354,4 +367,4 @@ declare function useIsMobile(): boolean;
 declare function cn(...inputs: ClassValue[]): string;
 declare function formatDateTime(date: Date | string | null): string;
 
-export { AiAssistant, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, NewNavbar, RevaLogo, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeProvider, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
+export { AiAssistant, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, LoginModal, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, NewNavbar, RevaLogo, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeProvider, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
