@@ -2,6 +2,7 @@
 export * from './components/navbar';
 export * from './components/sidebar';
 export * from './components/login';
+export * from './components/reva-navbar';
 
 // Export UI components
 export * from './components/ui/button';
