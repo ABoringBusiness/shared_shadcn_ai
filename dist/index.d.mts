@@ -1,58 +1,49 @@
 import * as react_jsx_runtime from 'react/jsx-runtime';
 import * as React$1 from 'react';
+import React__default from 'react';
 import * as class_variance_authority_dist_types from 'class-variance-authority/dist/types';
 import * as _radix_ui_react_separator from '@radix-ui/react-separator';
 import { VariantProps } from 'class-variance-authority';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import { LucideIcon } from 'lucide-react';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { ClassValue } from 'clsx';
 
-interface NavItem {
-    title: string;
-    href?: string;
-    disabled?: boolean;
-    external?: boolean;
-    icon?: React$1.ReactNode;
-    label?: string;
-    description?: string;
-    children?: NavItem[];
+interface NavbarProps$1 {
+    onSelectPrompt?: (prompt: string) => void;
+    onWriteClick?: () => void;
+    logoLight?: string;
+    logoDark?: string;
+    navItems?: {
+        href: string;
+        label: string;
+    }[];
+    actionButtons?: React__default.ReactNode;
+    promptMenuComponent?: React__default.ReactNode;
 }
-interface NavbarProps {
-    logo?: React$1.ReactNode;
-    items?: NavItem[];
-    showSearch?: boolean;
-    showThemeToggle?: boolean;
-    showLanguageSelector?: boolean;
-    showUserMenu?: boolean;
-    showBalance?: boolean;
-    showCreateButton?: boolean;
-    showNotifications?: boolean;
-    showMessages?: boolean;
-    balance?: number;
-    user?: {
-        name?: string;
-        email?: string;
-        image?: string;
-        initials?: string;
-    };
-    languages?: {
-        current: string;
-        options: {
-            label: string;
-            value: string;
-        }[];
-    };
-    onThemeToggle?: (theme?: string) => void;
-    onLanguageChange?: (language: string) => void;
-    onLogout?: () => void;
-    onSearch?: (query: string) => void;
+declare function Navbar({ onSelectPrompt, onWriteClick, logoLight, logoDark, navItems, actionButtons, promptMenuComponent }: NavbarProps$1): react_jsx_runtime.JSX.Element;
+
+interface NavbarWrapperProps {
+    logoLight?: string;
+    logoDark?: string;
+    navItems?: {
+        href: string;
+        label: string;
+    }[];
+    actionButtons?: React.ReactNode;
+    promptModalComponent?: React.ReactNode;
+    promptMenuComponent?: React.ReactNode;
+}
+declare function NavbarWrapper({ logoLight, logoDark, navItems, actionButtons, promptModalComponent, promptMenuComponent }: NavbarWrapperProps): react_jsx_runtime.JSX.Element;
+
+interface ThemeToggleProps {
     className?: string;
-    isDark?: boolean;
+    collapsed?: boolean;
 }
-declare function RevaNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps): react_jsx_runtime.JSX.Element;
+declare function ThemeToggle({ className, collapsed }: ThemeToggleProps): react_jsx_runtime.JSX.Element | null;
 
 declare const buttonVariants: (props?: ({
     variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null | undefined;
@@ -146,6 +137,49 @@ interface SidebarLeftProps extends React$1.ComponentProps<typeof Sidebar> {
 }
 declare function SidebarLeft({ logoLight, logoDark, navMainItems, navSecondaryItems, historyItems, listingItems, maxMainItems, maxSecondaryItems, maxHistoryItems, maxListingCategories, maxPropertiesPerCategory, ...props }: SidebarLeftProps): react_jsx_runtime.JSX.Element;
 
+declare function NavMain({ items, maxItems, }: {
+    items: {
+        title: string;
+        url: string;
+        icon: LucideIcon;
+        isActive?: boolean;
+    }[];
+    maxItems?: number;
+}): react_jsx_runtime.JSX.Element;
+
+declare function NavSecondary({ items, maxItems, ...props }: {
+    items: {
+        title: string;
+        url: string;
+        icon: LucideIcon;
+        badge?: React__default.ReactNode;
+    }[];
+    maxItems?: number;
+} & React__default.ComponentPropsWithoutRef<typeof SidebarGroup>): react_jsx_runtime.JSX.Element;
+
+declare function NavHistory({ history, maxItems, }: {
+    history: {
+        name: string;
+        url: string;
+        date?: string;
+    }[];
+    maxItems?: number;
+}): react_jsx_runtime.JSX.Element;
+
+declare function NavListings({ listings, maxCategories, maxPropertiesPerCategory, }: {
+    listings: {
+        name: string;
+        icon?: React.ReactNode;
+        properties: {
+            name: string;
+            url: string;
+            icon?: React.ReactNode;
+        }[];
+    }[];
+    maxCategories?: number;
+    maxPropertiesPerCategory?: number;
+}): react_jsx_runtime.JSX.Element;
+
 interface LoginFormProps extends React.ComponentProps<"div"> {
     onEmailLogin?: (email: string, password: string) => Promise<void>;
     onGoogleLogin?: () => Promise<void>;
@@ -157,6 +191,52 @@ interface LoginFormProps extends React.ComponentProps<"div"> {
     subtitle?: string;
 }
 declare function LoginForm({ className, onEmailLogin, onGoogleLogin, onForgotPassword, onSignUp, backgroundImage, title, subtitle, ...props }: LoginFormProps): react_jsx_runtime.JSX.Element;
+
+interface NavItem {
+    title: string;
+    href?: string;
+    disabled?: boolean;
+    external?: boolean;
+    icon?: React$1.ReactNode;
+    label?: string;
+    description?: string;
+    children?: NavItem[];
+}
+interface NavbarProps {
+    logo?: React$1.ReactNode;
+    items?: NavItem[];
+    showSearch?: boolean;
+    showThemeToggle?: boolean;
+    showLanguageSelector?: boolean;
+    showUserMenu?: boolean;
+    showBalance?: boolean;
+    showCreateButton?: boolean;
+    showNotifications?: boolean;
+    showMessages?: boolean;
+    balance?: number;
+    user?: {
+        name?: string;
+        email?: string;
+        image?: string;
+        initials?: string;
+    };
+    languages?: {
+        current: string;
+        options: {
+            label: string;
+            value: string;
+        }[];
+    };
+    onThemeToggle?: (theme?: string) => void;
+    onLanguageChange?: (language: string) => void;
+    onLogout?: () => void;
+    onSearch?: (query: string) => void;
+    className?: string;
+    isDark?: boolean;
+}
+declare function RevaNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps): react_jsx_runtime.JSX.Element;
+
+declare function RevaLogo(): react_jsx_runtime.JSX.Element;
 
 declare const Card: React$1.ForwardRefExoticComponent<React$1.HTMLAttributes<HTMLDivElement> & React$1.RefAttributes<HTMLDivElement>>;
 declare const CardHeader: React$1.ForwardRefExoticComponent<React$1.HTMLAttributes<HTMLDivElement> & React$1.RefAttributes<HTMLDivElement>>;
@@ -206,7 +286,7 @@ declare const SheetClose: React$1.ForwardRefExoticComponent<SheetPrimitive.Dialo
 declare const SheetPortal: React$1.FC<SheetPrimitive.DialogPortalProps>;
 declare const SheetOverlay: React$1.ForwardRefExoticComponent<Omit<SheetPrimitive.DialogOverlayProps & React$1.RefAttributes<HTMLDivElement>, "ref"> & React$1.RefAttributes<HTMLDivElement>>;
 declare const sheetVariants: (props?: ({
-    side?: "top" | "right" | "bottom" | "left" | null | undefined;
+    side?: "top" | "bottom" | "left" | "right" | null | undefined;
 } & class_variance_authority_dist_types.ClassProp) | undefined) => string;
 interface SheetContentProps extends React$1.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>, VariantProps<typeof sheetVariants> {
 }
@@ -229,4 +309,4 @@ declare function useIsMobile(): boolean;
 declare function cn(...inputs: ClassValue[]): string;
 declare function formatDateTime(date: Date | string | null): string;
 
-export { Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
+export { Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, RevaLogo, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };

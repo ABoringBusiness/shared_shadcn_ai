@@ -1,10 +1,8 @@
-// Export individual components
-export { RevaNavbar } from './components/reva-navbar/reva-navbar';
-export { SidebarLeft } from './components/sidebar/sidebar-left';
-export { SidebarProvider, SidebarInset } from './components/ui/sidebar';
-
 // Export components
+export * from './components/navbar';
+export * from './components/sidebar';
 export * from './components/login';
+export * from './components/reva-navbar';
 
 // Export UI components
 export * from './components/ui/button';

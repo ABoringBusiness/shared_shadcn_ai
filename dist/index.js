@@ -427,6 +427,27 @@ __export(index_exports, {
     LoginForm: function() {
         return LoginForm;
     },
+    NavHistory: function() {
+        return NavHistory;
+    },
+    NavListings: function() {
+        return NavListings;
+    },
+    NavMain: function() {
+        return NavMain;
+    },
+    NavSecondary: function() {
+        return NavSecondary;
+    },
+    Navbar: function() {
+        return Navbar;
+    },
+    NavbarWrapper: function() {
+        return NavbarWrapper;
+    },
+    RevaLogo: function() {
+        return RevaLogo;
+    },
     RevaNavbar: function() {
         return RevaNavbar;
     },
@@ -538,6 +559,9 @@ __export(index_exports, {
     Skeleton: function() {
         return Skeleton;
     },
+    ThemeToggle: function() {
+        return ThemeToggle;
+    },
     Tooltip: function() {
         return Tooltip;
     },
@@ -567,11 +591,12 @@ __export(index_exports, {
     }
 });
 module.exports = __toCommonJS(index_exports);
-// src/components/reva-navbar/reva-navbar.tsx
-var React7 = __toESM(require("react"));
-var import_link2 = __toESM(require("next/link"));
+// src/components/navbar/navbar.tsx
+var import_react = require("react");
+var import_link = __toESM(require("next/link"));
 var import_navigation = require("next/navigation");
-var import_lucide_react3 = require("lucide-react");
+var import_framer_motion = require("framer-motion");
+var import_lucide_react4 = require("lucide-react");
 // src/lib/utils.ts
 var import_clsx = require("clsx");
 var import_tailwind_merge = require("tailwind-merge");
@@ -639,263 +664,28 @@ var Button = React.forwardRef(function(_param, ref) {
     }, props));
 });
 Button.displayName = "Button";
-// src/components/ui/dropdown-menu.tsx
+// src/components/ui/sheet.tsx
 var React2 = __toESM(require("react"));
-var DropdownMenuPrimitive = __toESM(require("@radix-ui/react-dropdown-menu"));
+var SheetPrimitive = __toESM(require("@radix-ui/react-dialog"));
+var import_class_variance_authority2 = require("class-variance-authority");
 var import_lucide_react = require("lucide-react");
 var import_jsx_runtime2 = require("react/jsx-runtime");
-var DropdownMenu = DropdownMenuPrimitive.Root;
-var DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
-var DropdownMenuGroup = DropdownMenuPrimitive.Group;
-var DropdownMenuPortal = DropdownMenuPrimitive.Portal;
-var DropdownMenuSub = DropdownMenuPrimitive.Sub;
-var DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
-var DropdownMenuSubTrigger = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, inset = _param.inset, children = _param.children, props = _object_without_properties(_param, [
-        "className",
-        "inset",
-        "children"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(DropdownMenuPrimitive.SubTrigger, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn("flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0", inset && "pl-8", className)
-    }, props), {
-        children: [
-            children,
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_lucide_react.ChevronRight, {
-                className: "ml-auto"
-            })
-        ]
-    }));
-});
-DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
-var DropdownMenuSubContent = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.SubContent, _object_spread({
-        ref: ref,
-        className: cn("z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", className)
-    }, props));
-});
-DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
-var DropdownMenuContent = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, _param_sideOffset = _param.sideOffset, sideOffset = _param_sideOffset === void 0 ? 4 : _param_sideOffset, props = _object_without_properties(_param, [
-        "className",
-        "sideOffset"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.Portal, {
-        children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.Content, _object_spread({
-            ref: ref,
-            sideOffset: sideOffset,
-            className: cn("z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md", "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", className)
-        }, props))
-    });
-});
-DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
-var DropdownMenuItem = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, inset = _param.inset, props = _object_without_properties(_param, [
-        "className",
-        "inset"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.Item, _object_spread({
-        ref: ref,
-        className: cn("relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0", inset && "pl-8", className)
-    }, props));
-});
-DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
-var DropdownMenuCheckboxItem = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, children = _param.children, checked = _param.checked, props = _object_without_properties(_param, [
-        "className",
-        "children",
-        "checked"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(DropdownMenuPrimitive.CheckboxItem, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn("relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50", className),
-        checked: checked
-    }, props), {
-        children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
-                className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
-                children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.ItemIndicator, {
-                    children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_lucide_react.Check, {
-                        className: "h-4 w-4"
-                    })
-                })
-            }),
-            children
-        ]
-    }));
-});
-DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
-var DropdownMenuRadioItem = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
-        "className",
-        "children"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(DropdownMenuPrimitive.RadioItem, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn("relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50", className)
-    }, props), {
-        children: [
-            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
-                className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
-                children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.ItemIndicator, {
-                    children: /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_lucide_react.Circle, {
-                        className: "h-2 w-2 fill-current"
-                    })
-                })
-            }),
-            children
-        ]
-    }));
-});
-DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
-var DropdownMenuLabel = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, inset = _param.inset, props = _object_without_properties(_param, [
-        "className",
-        "inset"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.Label, _object_spread({
-        ref: ref,
-        className: cn("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)
-    }, props));
-});
-DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
-var DropdownMenuSeparator = React2.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(DropdownMenuPrimitive.Separator, _object_spread({
-        ref: ref,
-        className: cn("-mx-1 my-1 h-px bg-muted", className)
-    }, props));
-});
-DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
-var DropdownMenuShortcut = function(_param) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", _object_spread({
-        className: cn("ml-auto text-xs tracking-widest opacity-60", className)
-    }, props));
-};
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
-// src/components/ui/navigation-menu.tsx
-var React3 = __toESM(require("react"));
-var NavigationMenuPrimitive = __toESM(require("@radix-ui/react-navigation-menu"));
-var import_class_variance_authority2 = require("class-variance-authority");
-var import_react_icons = require("@radix-ui/react-icons");
-var import_jsx_runtime3 = require("react/jsx-runtime");
-var NavigationMenu = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
-        "className",
-        "children"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(NavigationMenuPrimitive.Root, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn("relative z-10 flex max-w-max flex-1 items-center justify-center", className)
-    }, props), {
-        children: [
-            children,
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(NavigationMenuViewport, {})
-        ]
-    }));
-});
-NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
-var NavigationMenuList = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(NavigationMenuPrimitive.List, _object_spread({
-        ref: ref,
-        className: cn("group flex flex-1 list-none items-center justify-center space-x-1", className)
-    }, props));
-});
-NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
-var NavigationMenuItem = NavigationMenuPrimitive.Item;
-var navigationMenuTriggerStyle = (0, import_class_variance_authority2.cva)("group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground data-[state=open]:bg-accent/50 data-[state=open]:hover:bg-accent data-[state=open]:focus:bg-accent");
-var NavigationMenuTrigger = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
-        "className",
-        "children"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(NavigationMenuPrimitive.Trigger, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn(navigationMenuTriggerStyle(), "group", className)
-    }, props), {
-        children: [
-            children,
-            " ",
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_react_icons.ChevronDownIcon, {
-                className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
-                "aria-hidden": "true"
-            })
-        ]
-    }));
-});
-NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
-var NavigationMenuContent = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(NavigationMenuPrimitive.Content, _object_spread({
-        ref: ref,
-        className: cn("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", className)
-    }, props));
-});
-NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
-var NavigationMenuLink = NavigationMenuPrimitive.Link;
-var NavigationMenuViewport = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", {
-        className: cn("absolute left-0 top-full flex justify-center"),
-        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(NavigationMenuPrimitive.Viewport, _object_spread({
-            className: cn("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", className),
-            ref: ref
-        }, props))
-    });
-});
-NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
-var NavigationMenuIndicator = React3.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
-        ref: ref,
-        className: cn("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", className)
-    }, props), {
-        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", {
-            className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
-        })
-    }));
-});
-NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
-// src/components/ui/sheet.tsx
-var React4 = __toESM(require("react"));
-var SheetPrimitive = __toESM(require("@radix-ui/react-dialog"));
-var import_class_variance_authority3 = require("class-variance-authority");
-var import_lucide_react2 = require("lucide-react");
-var import_jsx_runtime4 = require("react/jsx-runtime");
 var Sheet = SheetPrimitive.Root;
 var SheetTrigger = SheetPrimitive.Trigger;
 var SheetClose = SheetPrimitive.Close;
 var SheetPortal = SheetPrimitive.Portal;
-var SheetOverlay = React4.forwardRef(function(_param, ref) {
+var SheetOverlay = React2.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SheetPrimitive.Overlay, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SheetPrimitive.Overlay, _object_spread_props(_object_spread({
         className: cn("fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0", className)
     }, props), {
         ref: ref
     }));
 });
 SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
-var sheetVariants = (0, import_class_variance_authority3.cva)("fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out", {
+var sheetVariants = (0, import_class_variance_authority2.cva)("fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out", {
     variants: {
         side: {
             top: "inset-x-0 top-0 border-b data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top",
@@ -908,29 +698,29 @@ var sheetVariants = (0, import_class_variance_authority3.cva)("fixed z-50 gap-4 
         side: "right"
     }
 });
-var SheetContent = React4.forwardRef(function(_param, ref) {
+var SheetContent = React2.forwardRef(function(_param, ref) {
     var _param_side = _param.side, side = _param_side === void 0 ? "right" : _param_side, className = _param.className, children = _param.children, props = _object_without_properties(_param, [
         "side",
         "className",
         "children"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(SheetPortal, {
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(SheetPortal, {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SheetOverlay, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(SheetPrimitive.Content, _object_spread_props(_object_spread({
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SheetOverlay, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(SheetPrimitive.Content, _object_spread_props(_object_spread({
                 ref: ref,
                 className: cn(sheetVariants({
                     side: side
                 }), className)
             }, props), {
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(SheetPrimitive.Close, {
+                    /* @__PURE__ */ (0, import_jsx_runtime2.jsxs)(SheetPrimitive.Close, {
                         className: "absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary",
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react2.X, {
+                            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(import_lucide_react.X, {
                                 className: "h-4 w-4"
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", {
+                            /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("span", {
                                 className: "sr-only",
                                 children: "Close"
                             })
@@ -947,7 +737,7 @@ var SheetHeader = function(_param) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", _object_spread({
         className: cn("flex flex-col space-y-2 text-center sm:text-left", className)
     }, props));
 };
@@ -956,681 +746,685 @@ var SheetFooter = function(_param) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)("div", _object_spread({
         className: cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)
     }, props));
 };
 SheetFooter.displayName = "SheetFooter";
-var SheetTitle = React4.forwardRef(function(_param, ref) {
+var SheetTitle = React2.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SheetPrimitive.Title, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SheetPrimitive.Title, _object_spread({
         ref: ref,
         className: cn("text-lg font-semibold text-foreground", className)
     }, props));
 });
 SheetTitle.displayName = SheetPrimitive.Title.displayName;
-var SheetDescription = React4.forwardRef(function(_param, ref) {
+var SheetDescription = React2.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(SheetPrimitive.Description, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(SheetPrimitive.Description, _object_spread({
         ref: ref,
         className: cn("text-sm text-muted-foreground", className)
     }, props));
 });
 SheetDescription.displayName = SheetPrimitive.Description.displayName;
+// src/components/navbar/theme-toggle.tsx
+var React4 = __toESM(require("react"));
+var import_lucide_react3 = require("lucide-react");
+var import_next_themes = require("next-themes");
+// src/components/ui/dropdown-menu.tsx
+var React3 = __toESM(require("react"));
+var DropdownMenuPrimitive = __toESM(require("@radix-ui/react-dropdown-menu"));
+var import_lucide_react2 = require("lucide-react");
+var import_jsx_runtime3 = require("react/jsx-runtime");
+var DropdownMenu = DropdownMenuPrimitive.Root;
+var DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
+var DropdownMenuGroup = DropdownMenuPrimitive.Group;
+var DropdownMenuPortal = DropdownMenuPrimitive.Portal;
+var DropdownMenuSub = DropdownMenuPrimitive.Sub;
+var DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
+var DropdownMenuSubTrigger = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, inset = _param.inset, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "inset",
+        "children"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(DropdownMenuPrimitive.SubTrigger, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("flex cursor-default gap-2 select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0", inset && "pl-8", className)
+    }, props), {
+        children: [
+            children,
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react2.ChevronRight, {
+                className: "ml-auto"
+            })
+        ]
+    }));
+});
+DropdownMenuSubTrigger.displayName = DropdownMenuPrimitive.SubTrigger.displayName;
+var DropdownMenuSubContent = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.SubContent, _object_spread({
+        ref: ref,
+        className: cn("z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-lg data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", className)
+    }, props));
+});
+DropdownMenuSubContent.displayName = DropdownMenuPrimitive.SubContent.displayName;
+var DropdownMenuContent = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, _param_sideOffset = _param.sideOffset, sideOffset = _param_sideOffset === void 0 ? 4 : _param_sideOffset, props = _object_without_properties(_param, [
+        "className",
+        "sideOffset"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.Portal, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.Content, _object_spread({
+            ref: ref,
+            sideOffset: sideOffset,
+            className: cn("z-50 min-w-[8rem] overflow-hidden rounded-md border bg-popover p-1 text-popover-foreground shadow-md", "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", className)
+        }, props))
+    });
+});
+DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
+var DropdownMenuItem = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, inset = _param.inset, props = _object_without_properties(_param, [
+        "className",
+        "inset"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.Item, _object_spread({
+        ref: ref,
+        className: cn("relative flex cursor-default select-none items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0", inset && "pl-8", className)
+    }, props));
+});
+DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
+var DropdownMenuCheckboxItem = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, checked = _param.checked, props = _object_without_properties(_param, [
+        "className",
+        "children",
+        "checked"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(DropdownMenuPrimitive.CheckboxItem, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50", className),
+        checked: checked
+    }, props), {
+        children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", {
+                className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
+                children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.ItemIndicator, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react2.Check, {
+                        className: "h-4 w-4"
+                    })
+                })
+            }),
+            children
+        ]
+    }));
+});
+DropdownMenuCheckboxItem.displayName = DropdownMenuPrimitive.CheckboxItem.displayName;
+var DropdownMenuRadioItem = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "children"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)(DropdownMenuPrimitive.RadioItem, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("relative flex cursor-default select-none items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none transition-colors focus:bg-accent focus:text-accent-foreground data-[disabled]:pointer-events-none data-[disabled]:opacity-50", className)
+    }, props), {
+        children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", {
+                className: "absolute left-2 flex h-3.5 w-3.5 items-center justify-center",
+                children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.ItemIndicator, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(import_lucide_react2.Circle, {
+                        className: "h-2 w-2 fill-current"
+                    })
+                })
+            }),
+            children
+        ]
+    }));
+});
+DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
+var DropdownMenuLabel = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, inset = _param.inset, props = _object_without_properties(_param, [
+        "className",
+        "inset"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.Label, _object_spread({
+        ref: ref,
+        className: cn("px-2 py-1.5 text-sm font-semibold", inset && "pl-8", className)
+    }, props));
+});
+DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
+var DropdownMenuSeparator = React3.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(DropdownMenuPrimitive.Separator, _object_spread({
+        ref: ref,
+        className: cn("-mx-1 my-1 h-px bg-muted", className)
+    }, props));
+});
+DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
+var DropdownMenuShortcut = function(_param) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", _object_spread({
+        className: cn("ml-auto text-xs tracking-widest opacity-60", className)
+    }, props));
+};
+DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
+// src/components/navbar/theme-toggle.tsx
+var import_jsx_runtime4 = require("react/jsx-runtime");
+function ThemeToggle(param) {
+    var className = param.className, _param_collapsed = param.collapsed, collapsed = _param_collapsed === void 0 ? false : _param_collapsed;
+    var _ref = (0, import_next_themes.useTheme)(), theme = _ref.theme, setTheme = _ref.setTheme;
+    var _React4_useState = _sliced_to_array(React4.useState(false), 2), mounted = _React4_useState[0], setMounted = _React4_useState[1];
+    React4.useEffect(function() {
+        setMounted(true);
+    }, []);
+    if (!mounted) {
+        return null;
+    }
+    var Icon = theme === "dark" ? import_lucide_react3.Moon : theme === "system" ? import_lucide_react3.Monitor : import_lucide_react3.Sun;
+    return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DropdownMenu, {
+        children: [
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(DropdownMenuTrigger, {
+                asChild: true,
+                children: collapsed ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button, {
+                    variant: "ghost",
+                    size: "sm",
+                    className: "flex justify-center",
+                    children: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Icon, {
+                        className: "h-4 w-4"
+                    })
+                }) : /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(Button, {
+                    variant: "ghost",
+                    size: "sm",
+                    className: className,
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Icon, {
+                            className: "h-[1.2rem] w-[1.2rem]"
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", {
+                            className: "ml-2",
+                            children: "Theme"
+                        })
+                    ]
+                })
+            }),
+            /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DropdownMenuContent, {
+                align: "end",
+                children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("light");
+                        },
+                        children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Sun, {
+                                className: "mr-2 h-4 w-4"
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", {
+                                children: "Light"
+                            }),
+                            theme === "light" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Check, {
+                                className: "ml-2 h-4 w-4"
+                            })
+                        ]
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("dark");
+                        },
+                        children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Moon, {
+                                className: "mr-2 h-4 w-4"
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", {
+                                children: "Dark"
+                            }),
+                            theme === "dark" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Check, {
+                                className: "ml-2 h-4 w-4"
+                            })
+                        ]
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("system");
+                        },
+                        children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Monitor, {
+                                className: "mr-2 h-4 w-4"
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", {
+                                children: "System"
+                            }),
+                            theme === "system" && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_lucide_react3.Check, {
+                                className: "ml-2 h-4 w-4"
+                            })
+                        ]
+                    })
+                ]
+            })
+        ]
+    });
+}
+// src/components/navbar/navbar.tsx
+var import_next_themes2 = require("next-themes");
+var import_image = __toESM(require("next/image"));
+var import_jsx_runtime5 = require("react/jsx-runtime");
+function Navbar(param) {
+    var onSelectPrompt = param.onSelectPrompt, onWriteClick = param.onWriteClick, _param_logoLight = param.logoLight, logoLight = _param_logoLight === void 0 ? "/REVA - dark.svg" : _param_logoLight, _param_logoDark = param.logoDark, logoDark = _param_logoDark === void 0 ? "/reVA.svg" : _param_logoDark, _param_navItems = param.navItems, navItems = _param_navItems === void 0 ? [
+        {
+            href: "/",
+            label: "Home"
+        },
+        {
+            href: "/about",
+            label: "About"
+        },
+        {
+            href: "/services",
+            label: "Services"
+        },
+        {
+            href: "/contact",
+            label: "Contact"
+        }
+    ] : _param_navItems, actionButtons = param.actionButtons, promptMenuComponent = param.promptMenuComponent;
+    var _ref = _sliced_to_array((0, import_react.useState)(false), 2), isScrolled = _ref[0], setIsScrolled = _ref[1];
+    var _ref1 = _sliced_to_array((0, import_react.useState)(false), 2), isPromptMenuOpen = _ref1[0], setIsPromptMenuOpen = _ref1[1];
+    var _ref2 = _sliced_to_array((0, import_react.useState)(false), 2), isLoggedIn = _ref2[0], setIsLoggedIn = _ref2[1];
+    var theme = (0, import_next_themes2.useTheme)().theme;
+    var promptMenuRef = (0, import_react.useRef)(null);
+    var pathname = (0, import_navigation.usePathname)();
+    (0, import_react.useEffect)(function() {
+        var handleScroll = function() {
+            setIsScrolled(window.scrollY > 10);
+        };
+        window.addEventListener("scroll", handleScroll);
+        return function() {
+            return window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+    (0, import_react.useEffect)(function() {
+        var handleClickOutside = function(event) {
+            if (promptMenuRef.current && !promptMenuRef.current.contains(event.target)) {
+                setIsPromptMenuOpen(false);
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return function() {
+            return document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+    var handlePromptSelect = function(prompt) {
+        if (onSelectPrompt) {
+            onSelectPrompt(prompt);
+            setIsPromptMenuOpen(false);
+        }
+    };
+    var handleAuthClick = function() {
+        setIsLoggedIn(!isLoggedIn);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("header", {
+        className: cn("fixed top-0 left-0 right-0 z-50 transition-all duration-300", isScrolled ? "bg-background/80 backdrop-blur-lg border-b shadow-sm" : "bg-transparent"),
+        children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
+            className: "px-4 pr-8",
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                className: "flex h-16 items-center justify-between",
+                children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_link.default, {
+                        href: "/",
+                        className: "flex items-center space-x-2",
+                        children: theme === "light" ? /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_image.default, {
+                            src: logoLight,
+                            alt: "Logo",
+                            width: 100,
+                            height: 50
+                        }) : /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_image.default, {
+                            src: logoDark,
+                            alt: "Logo",
+                            width: 100,
+                            height: 50
+                        })
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                        className: "hidden md:flex items-center space-x-1",
+                        children: [
+                            navItems.map(function(item) {
+                                return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(NavItem, {
+                                    href: item.href,
+                                    isActive: pathname === item.href,
+                                    children: item.label
+                                }, item.href);
+                            }),
+                            promptMenuComponent && /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                                ref: promptMenuRef,
+                                className: "relative",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("button", {
+                                        className: cn("relative px-3 py-2 rounded-md text-sm font-medium transition-colors flex items-center", isPromptMenuOpen ? "text-primary" : "text-foreground/70 hover:text-foreground hover:bg-accent"),
+                                        onClick: function() {
+                                            return setIsPromptMenuOpen(!isPromptMenuOpen);
+                                        },
+                                        onMouseEnter: function() {
+                                            return setIsPromptMenuOpen(true);
+                                        },
+                                        children: [
+                                            "GPT Prompts",
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.ChevronDown, {
+                                                className: "ml-1 h-4 w-4"
+                                            })
+                                        ]
+                                    }),
+                                    isPromptMenuOpen && promptMenuComponent
+                                ]
+                            })
+                        ]
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                        className: "flex items-center space-x-2",
+                        children: [
+                            actionButtons || /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, {
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                        variant: "outline",
+                                        size: "icon",
+                                        onClick: onWriteClick,
+                                        className: "hidden md:flex relative group",
+                                        "data-write-button": "true",
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.PenLine, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Write"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg",
+                                                children: "Prompt Library"
+                                            })
+                                        ]
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                        variant: "outline",
+                                        size: "icon",
+                                        className: "relative group",
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.Phone, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Lead Calling"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "absolute -top-2 -right-2 w-4 h-4 bg-destructive rounded-full flex items-center justify-center text-[10px] text-destructive-foreground",
+                                                children: "3"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg",
+                                                children: "Lead Calling"
+                                            })
+                                        ]
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                        variant: "outline",
+                                        size: "icon",
+                                        className: "relative group",
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.Sofa, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Virtual Staging"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg",
+                                                children: "Virtual Staging"
+                                            })
+                                        ]
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                        variant: "outline",
+                                        size: "icon",
+                                        className: "relative group",
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.Camera, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Headshots"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg",
+                                                children: "Headshots"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                                className: "flex pl-8",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ThemeToggle, {
+                                        className: "w-full justify-start",
+                                        collapsed: true
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Button, {
+                                        variant: "default",
+                                        size: "sm",
+                                        className: "ml-2 hidden sm:flex items-center gap-1.5",
+                                        onClick: handleAuthClick,
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, {
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.LogOut, {
+                                                    className: "h-4 w-4"
+                                                }),
+                                                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                    children: "Log Out"
+                                                })
+                                            ]
+                                        })
+                                    })
+                                ]
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
+                                className: "md:hidden",
+                                children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Sheet, {
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SheetTrigger, {
+                                            asChild: true,
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                                variant: "ghost",
+                                                size: "icon",
+                                                children: [
+                                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.Menu, {
+                                                        className: "h-5 w-5"
+                                                    }),
+                                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                        className: "sr-only",
+                                                        children: "Menu"
+                                                    })
+                                                ]
+                                            })
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(SheetContent, {
+                                            side: "right",
+                                            className: "w-[300px] sm:w-[400px]",
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(SheetHeader, {
+                                                    children: [
+                                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SheetTitle, {
+                                                            children: "Menu"
+                                                        }),
+                                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(SheetDescription, {
+                                                            children: "Navigate to different sections of the site."
+                                                        })
+                                                    ]
+                                                }),
+                                                /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("div", {
+                                                    className: "py-6 space-y-4",
+                                                    children: [
+                                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                                            variant: "outline",
+                                                            className: "w-full justify-start gap-2",
+                                                            onClick: onWriteClick,
+                                                            "data-write-button": "true",
+                                                            children: [
+                                                                /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.PenLine, {
+                                                                    className: "h-4 w-4"
+                                                                }),
+                                                                "Prompt Library"
+                                                            ]
+                                                        }),
+                                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)("nav", {
+                                                            className: "flex flex-col space-y-1",
+                                                            children: [
+                                                                navItems.map(function(item) {
+                                                                    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(MobileNavItem, {
+                                                                        href: item.href,
+                                                                        isActive: pathname === item.href,
+                                                                        children: item.label
+                                                                    }, item.href);
+                                                                }),
+                                                                promptMenuComponent && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(MobileNavItem, {
+                                                                    href: "/gpt-prompts",
+                                                                    isActive: pathname === "/gpt-prompts",
+                                                                    children: "GPT Prompts"
+                                                                })
+                                                            ]
+                                                        }),
+                                                        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("div", {
+                                                            className: "pt-4 border-t",
+                                                            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Button, {
+                                                                variant: "default",
+                                                                className: "w-full flex items-center justify-center gap-1.5",
+                                                                onClick: handleAuthClick,
+                                                                children: [
+                                                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(ThemeToggle, {
+                                                                        className: "w-full justify-start",
+                                                                        collapsed: true
+                                                                    }),
+                                                                    /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, {
+                                                                        children: [
+                                                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react4.LogOut, {
+                                                                                className: "h-4 w-4"
+                                                                            }),
+                                                                            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("span", {
+                                                                                children: "Log Out"
+                                                                            })
+                                                                        ]
+                                                                    })
+                                                                ]
+                                                            })
+                                                        })
+                                                    ]
+                                                })
+                                            ]
+                                        })
+                                    ]
+                                })
+                            })
+                        ]
+                    })
+                ]
+            })
+        })
+    });
+}
+function NavItem(param) {
+    var href = param.href, isActive = param.isActive, children = param.children;
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_link.default, {
+        href: href,
+        className: cn("relative px-3 py-2 rounded-md text-sm font-medium transition-colors", isActive ? "text-primary" : "text-foreground/70 hover:text-foreground hover:bg-accent"),
+        children: [
+            children,
+            isActive && /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_framer_motion.motion.div, {
+                className: "absolute bottom-0 left-0 right-0 h-0.5 bg-primary",
+                layoutId: "navbar-indicator",
+                transition: {
+                    type: "spring",
+                    bounce: 0.2,
+                    duration: 0.6
+                }
+            })
+        ]
+    });
+}
+function MobileNavItem(param) {
+    var href = param.href, isActive = param.isActive, children = param.children;
+    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_link.default, {
+        href: href,
+        className: cn("flex items-center px-3 py-2 rounded-md text-sm font-medium transition-colors", isActive ? "bg-accent text-accent-foreground" : "hover:bg-accent hover:text-accent-foreground"),
+        children: children
+    });
+}
+// src/components/navbar/navbar-wrapper.tsx
+var import_react2 = require("react");
+var import_jsx_runtime6 = require("react/jsx-runtime");
+function NavbarWrapper(param) {
+    var logoLight = param.logoLight, logoDark = param.logoDark, navItems = param.navItems, actionButtons = param.actionButtons, promptModalComponent = param.promptModalComponent, promptMenuComponent = param.promptMenuComponent;
+    var _ref = _sliced_to_array((0, import_react2.useState)(false), 2), isPromptModalOpen = _ref[0], setPromptModalOpen = _ref[1];
+    return /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(import_jsx_runtime6.Fragment, {
+        children: [
+            /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Navbar, {
+                onWriteClick: function() {
+                    return setPromptModalOpen(true);
+                },
+                logoLight: logoLight,
+                logoDark: logoDark,
+                navItems: navItems,
+                actionButtons: actionButtons,
+                promptMenuComponent: promptMenuComponent
+            }),
+            promptModalComponent && /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("div", {
+                className: isPromptModalOpen ? "block" : "hidden",
+                children: promptModalComponent
+            })
+        ]
+    });
+}
+// src/components/sidebar/sidebar-left.tsx
+var import_image2 = __toESM(require("next/image"));
+// src/components/ui/sidebar.tsx
+var React9 = __toESM(require("react"));
+var import_react_slot2 = require("@radix-ui/react-slot");
+var import_class_variance_authority3 = require("class-variance-authority");
 // src/components/ui/input.tsx
 var React5 = __toESM(require("react"));
-var import_jsx_runtime5 = require("react/jsx-runtime");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 var Input = React5.forwardRef(function(_param, ref) {
     var className = _param.className, type = _param.type, props = _object_without_properties(_param, [
         "className",
         "type"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)("input", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("input", _object_spread({
         type: type,
         className: cn("flex h-9 w-full rounded-md border border-input bg-transparent px-3 py-1 text-base shadow-sm transition-colors file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 md:text-sm", className),
         ref: ref
     }, props));
 });
 Input.displayName = "Input";
-// src/components/ui/avatar.tsx
-var React6 = __toESM(require("react"));
-var AvatarPrimitive = __toESM(require("@radix-ui/react-avatar"));
-var import_jsx_runtime6 = require("react/jsx-runtime");
-var Avatar = React6.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AvatarPrimitive.Root, _object_spread({
-        ref: ref,
-        className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)
-    }, props));
-});
-Avatar.displayName = AvatarPrimitive.Root.displayName;
-var AvatarImage = React6.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AvatarPrimitive.Image, _object_spread({
-        ref: ref,
-        className: cn("aspect-square h-full w-full", className)
-    }, props));
-});
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
-var AvatarFallback = React6.forwardRef(function(_param, ref) {
-    var className = _param.className, props = _object_without_properties(_param, [
-        "className"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(AvatarPrimitive.Fallback, _object_spread({
-        ref: ref,
-        className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)
-    }, props));
-});
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
-// src/components/ui/badge.tsx
-var import_class_variance_authority4 = require("class-variance-authority");
-var import_jsx_runtime7 = require("react/jsx-runtime");
-var badgeVariants = (0, import_class_variance_authority4.cva)("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", {
-    variants: {
-        variant: {
-            default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
-            secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
-            destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-            outline: "text-foreground"
-        }
-    },
-    defaultVariants: {
-        variant: "default"
-    }
-});
-function Badge(_param) {
-    var className = _param.className, variant = _param.variant, props = _object_without_properties(_param, [
-        "className",
-        "variant"
-    ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("div", _object_spread({
-        className: cn(badgeVariants({
-            variant: variant
-        }), className)
-    }, props));
-}
-// src/components/reva-navbar/reva-logo-dark.tsx
-var import_next_themes = require("next-themes");
-var import_image = __toESM(require("next/image"));
-var import_link = __toESM(require("next/link"));
-var import_jsx_runtime8 = require("react/jsx-runtime");
-function RevaLogo() {
-    var resolvedTheme = (0, import_next_themes.useTheme)().resolvedTheme;
-    var isDarkTheme = resolvedTheme === "dark";
-    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_link.default, {
-        href: "/",
-        className: "flex items-center",
-        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_image.default, {
-            src: "/images/reva-logo-dark.svg",
-            alt: "REVA",
-            width: 100,
-            height: 30,
-            className: "h-8 w-auto",
-            priority: true
-        }) : /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(import_image.default, {
-            src: "/images/reva-logo.png",
-            alt: "REVA",
-            width: 100,
-            height: 30,
-            className: "h-8 w-auto",
-            priority: true
-        })
-    });
-}
-// src/components/reva-navbar/reva-navbar.tsx
-var import_jsx_runtime9 = require("react/jsx-runtime");
-function RevaNavbar(param) {
-    var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
-        current: "Eng",
-        options: [
-            {
-                label: "English",
-                value: "en"
-            },
-            {
-                label: "Fran\xE7ais",
-                value: "fr"
-            },
-            {
-                label: "Espa\xF1ol",
-                value: "es"
-            }
-        ]
-    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark;
-    var pathname = (0, import_navigation.usePathname)();
-    var _React7_useState = _sliced_to_array(React7.useState(false), 2), isSearchOpen = _React7_useState[0], setIsSearchOpen = _React7_useState[1];
-    var _React7_useState1 = _sliced_to_array(React7.useState(""), 2), searchQuery = _React7_useState1[0], setSearchQuery = _React7_useState1[1];
-    var handleSearch = function(e) {
-        e.preventDefault();
-        if (onSearch) {
-            onSearch(searchQuery);
-        }
-        setIsSearchOpen(false);
-    };
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("header", {
-        className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className),
-        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", {
-            className: "container flex h-16 items-center",
-            children: [
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Sheet, {
-                    children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(SheetTrigger, {
-                            asChild: true,
-                            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                variant: "ghost",
-                                size: "icon",
-                                className: "mr-2 md:hidden",
-                                children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Menu, {
-                                        className: "h-5 w-5"
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                        className: "sr-only",
-                                        children: "Toggle menu"
-                                    })
-                                ]
-                            })
-                        }),
-                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(SheetContent, {
-                            side: "left",
-                            className: "pr-0",
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                                    className: "px-7",
-                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RevaLogo, {})
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                                    className: "mt-8 flex flex-col gap-4",
-                                    children: items.map(function(item, index) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(MobileNavItem, {
-                                            item: item,
-                                            pathname: pathname
-                                        }, index);
-                                    })
-                                })
-                            ]
-                        })
-                    ]
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                    className: "mr-4 hidden md:flex",
-                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(RevaLogo, {})
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                    className: "hidden md:flex",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenu, {
-                        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuList, {
-                            children: items.map(function(item, index) {
-                                return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavbarItem, {
-                                    item: item,
-                                    pathname: pathname
-                                }, index);
-                            })
-                        })
-                    })
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", {
-                    className: "flex flex-1 items-center justify-end gap-2",
-                    children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", {
-                            className: "hidden md:flex items-center gap-2 mr-2",
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Camera, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Camera"
-                                        })
-                                    ]
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Sofa, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Room"
-                                        })
-                                    ]
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Phone, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Phone"
-                                        })
-                                    ]
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.PenLine, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Pen"
-                                        })
-                                    ]
-                                })
-                            ]
-                        }),
-                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                            className: "relative hidden md:flex",
-                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("form", {
-                                onSubmit: handleSearch,
-                                className: "relative",
-                                children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Input, {
-                                        type: "search",
-                                        placeholder: "Search...",
-                                        className: "h-9 w-[200px] lg:w-[300px]",
-                                        value: searchQuery,
-                                        onChange: function(e) {
-                                            return setSearchQuery(e.target.value);
-                                        }
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                        type: "button",
-                                        variant: "ghost",
-                                        size: "icon",
-                                        className: "absolute right-0 top-0",
-                                        onClick: function() {
-                                            return setIsSearchOpen(false);
-                                        },
-                                        children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.X, {
-                                                className: "h-4 w-4"
-                                            }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                                className: "sr-only",
-                                                children: "Close search"
-                                            })
-                                        ]
-                                    })
-                                ]
-                            }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                variant: "ghost",
-                                size: "icon",
-                                onClick: function() {
-                                    return setIsSearchOpen(true);
-                                },
-                                children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Search, {
-                                        className: "h-5 w-5"
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                        className: "sr-only",
-                                        children: "Search"
-                                    })
-                                ]
-                            })
-                        }),
-                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenu, {
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuTrigger, {
-                                    asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                        variant: "ghost",
-                                        size: "sm",
-                                        className: "gap-1 text-sm font-medium",
-                                        children: [
-                                            languages.current,
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.ChevronDown, {
-                                                className: "h-4 w-4"
-                                            })
-                                        ]
-                                    })
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuContent, {
-                                    align: "end",
-                                    children: languages.options.map(function(language) {
-                                        return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuItem, {
-                                            onClick: function() {
-                                                return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
-                                            },
-                                            children: language.label
-                                        }, language.value);
-                                    })
-                                })
-                            ]
-                        }),
-                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenu, {
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuTrigger, {
-                                    asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                                        variant: "ghost",
-                                        size: "icon",
-                                        children: [
-                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Sun, {
-                                                className: "h-5 w-5"
-                                            }) : /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Moon, {
-                                                className: "h-5 w-5"
-                                            }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                                className: "sr-only",
-                                                children: "Toggle theme"
-                                            })
-                                        ]
-                                    })
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuContent, {
-                                    align: "end",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            onClick: function() {
-                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
-                                            },
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Sun, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "Light"
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            onClick: function() {
-                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
-                                            },
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Moon, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "Dark"
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            onClick: function() {
-                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
-                                            },
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Settings, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "System"
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            onClick: function() {
-                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("contrast");
-                                            },
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Bell, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "High Contrast"
-                                            ]
-                                        })
-                                    ]
-                                })
-                            ]
-                        }),
-                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                            variant: "ghost",
-                            size: "icon",
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Bell, {
-                                    className: "h-5 w-5"
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                    className: "sr-only",
-                                    children: "Notifications"
-                                })
-                            ]
-                        }),
-                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Button, {
-                            variant: "ghost",
-                            size: "icon",
-                            className: "relative",
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.MessageSquare, {
-                                    className: "h-5 w-5"
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Badge, {
-                                    className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
-                                    children: "3"
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("span", {
-                                    className: "sr-only",
-                                    children: "Messages"
-                                })
-                            ]
-                        }),
-                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", {
-                            className: "hidden items-center gap-2 md:flex",
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Wallet, {
-                                    className: "h-4 w-4"
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("span", {
-                                    className: cn("text-sm font-medium", balance < 0 ? "text-destructive" : ""),
-                                    children: [
-                                        balance > 0 ? "+" : "",
-                                        balance.toLocaleString()
-                                    ]
-                                })
-                            ]
-                        }),
-                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Button, {
-                            className: "bg-black hover:bg-black/90 text-white",
-                            children: "Create"
-                        }),
-                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenu, {
-                            children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuTrigger, {
-                                    asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(Button, {
-                                        variant: "ghost",
-                                        size: "icon",
-                                        className: "rounded-full",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(Avatar, {
-                                            className: "h-8 w-8",
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AvatarImage, {
-                                                    src: user.image,
-                                                    alt: user.name || "User"
-                                                }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(AvatarFallback, {
-                                                    children: user.initials || "U"
-                                                })
-                                            ]
-                                        })
-                                    })
-                                }),
-                                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuContent, {
-                                    align: "end",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuLabel, {
-                                            children: [
-                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", {
-                                                    children: user.name
-                                                }),
-                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", {
-                                                    className: "text-xs text-muted-foreground",
-                                                    children: user.email
-                                                })
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.User, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "Profile"
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.Settings, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "Settings"
-                                            ]
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(DropdownMenuSeparator, {}),
-                                        /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(DropdownMenuItem, {
-                                            onClick: onLogout,
-                                            children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.LogOut, {
-                                                    className: "mr-2 h-4 w-4"
-                                                }),
-                                                "Log out"
-                                            ]
-                                        })
-                                    ]
-                                })
-                            ]
-                        })
-                    ]
-                })
-            ]
-        })
-    });
-}
-function NavbarItem(param) {
-    var item = param.item, pathname = param.pathname;
-    if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(NavigationMenuItem, {
-            children: [
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuTrigger, {
-                    children: item.title
-                }),
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuContent, {
-                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("ul", {
-                        className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
-                        children: item.children.map(function(child) {
-                            return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("li", {
-                                className: "row-span-3",
-                                children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuLink, {
-                                    asChild: true,
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(import_link2.default, {
-                                        href: child.href || "#",
-                                        className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
-                                        children: [
-                                            child.icon,
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                                                className: "mb-2 mt-4 text-lg font-medium",
-                                                children: child.title
-                                            }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("p", {
-                                                className: "text-sm leading-tight text-muted-foreground",
-                                                children: child.description
-                                            })
-                                        ]
-                                    })
-                                })
-                            }, child.title);
-                        })
-                    })
-                })
-            ]
-        });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuItem, {
-        children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_link2.default, {
-            href: item.href || "#",
-            legacyBehavior: true,
-            passHref: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(NavigationMenuLink, {
-                className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
-                children: item.title
-            })
-        })
-    });
-}
-function MobileNavItem(param) {
-    var item = param.item, pathname = param.pathname;
-    var _React7_useState = _sliced_to_array(React7.useState(false), 2), isOpen = _React7_useState[0], setIsOpen = _React7_useState[1];
-    if (item.children) {
-        return /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("div", {
-            className: "flex flex-col",
-            children: [
-                /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)("button", {
-                    className: "flex items-center justify-between py-2 text-base font-medium",
-                    onClick: function() {
-                        return setIsOpen(!isOpen);
-                    },
-                    children: [
-                        item.title,
-                        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_lucide_react3.ChevronDown, {
-                            className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
-                        })
-                    ]
-                }),
-                isOpen && /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", {
-                    className: "ml-4 mt-2 flex flex-col gap-2",
-                    children: item.children.map(function(child) {
-                        return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_link2.default, {
-                            href: child.href || "#",
-                            className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
-                            children: child.title
-                        }, child.title);
-                    })
-                })
-            ]
-        });
-    }
-    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(import_link2.default, {
-        href: item.href || "#",
-        className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
-        children: item.title
-    });
-}
-var defaultNavItems = [
-    {
-        title: "About",
-        href: "/about"
-    },
-    {
-        title: "Pricing",
-        href: "/pricing"
-    },
-    {
-        title: "Contact",
-        href: "/contact"
-    }
-];
-// src/components/sidebar/sidebar-left.tsx
-var import_image2 = __toESM(require("next/image"));
-// src/components/ui/sidebar.tsx
-var React11 = __toESM(require("react"));
-var import_react_slot2 = require("@radix-ui/react-slot");
-var import_class_variance_authority5 = require("class-variance-authority");
 // src/components/ui/separator.tsx
-var React8 = __toESM(require("react"));
+var React6 = __toESM(require("react"));
 var SeparatorPrimitive = __toESM(require("@radix-ui/react-separator"));
-var import_jsx_runtime10 = require("react/jsx-runtime");
-var Separator2 = React8.forwardRef(function(_param, ref) {
+var import_jsx_runtime8 = require("react/jsx-runtime");
+var Separator2 = React6.forwardRef(function(_param, ref) {
     var className = _param.className, _param_orientation = _param.orientation, orientation = _param_orientation === void 0 ? "horizontal" : _param_orientation, _param_decorative = _param.decorative, decorative = _param_decorative === void 0 ? true : _param_decorative, props = _object_without_properties(_param, [
         "className",
         "orientation",
         "decorative"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SeparatorPrimitive.Root, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(SeparatorPrimitive.Root, _object_spread({
         ref: ref,
         decorative: decorative,
         orientation: orientation,
@@ -1639,29 +1433,29 @@ var Separator2 = React8.forwardRef(function(_param, ref) {
 });
 Separator2.displayName = SeparatorPrimitive.Root.displayName;
 // src/components/ui/skeleton.tsx
-var import_jsx_runtime11 = require("react/jsx-runtime");
+var import_jsx_runtime9 = require("react/jsx-runtime");
 function Skeleton(_param) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("div", _object_spread({
         className: cn("animate-pulse rounded-md bg-primary/10", className)
     }, props));
 }
 // src/components/ui/tooltip.tsx
-var React9 = __toESM(require("react"));
+var React7 = __toESM(require("react"));
 var TooltipPrimitive = __toESM(require("@radix-ui/react-tooltip"));
-var import_jsx_runtime12 = require("react/jsx-runtime");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 var TooltipProvider = TooltipPrimitive.Provider;
 var Tooltip = TooltipPrimitive.Root;
 var TooltipTrigger = TooltipPrimitive.Trigger;
-var TooltipContent = React9.forwardRef(function(_param, ref) {
+var TooltipContent = React7.forwardRef(function(_param, ref) {
     var className = _param.className, _param_sideOffset = _param.sideOffset, sideOffset = _param_sideOffset === void 0 ? 4 : _param_sideOffset, props = _object_without_properties(_param, [
         "className",
         "sideOffset"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(TooltipPrimitive.Portal, {
-        children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(TooltipPrimitive.Content, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(TooltipPrimitive.Portal, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(TooltipPrimitive.Content, _object_spread({
             ref: ref,
             sideOffset: sideOffset,
             className: cn("z-50 overflow-hidden rounded-md bg-primary px-3 py-1.5 text-xs text-primary-foreground animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2", className)
@@ -1670,13 +1464,13 @@ var TooltipContent = React9.forwardRef(function(_param, ref) {
 });
 TooltipContent.displayName = TooltipPrimitive.Content.displayName;
 // src/components/ui/sidebar.tsx
-var import_react_icons2 = require("@radix-ui/react-icons");
+var import_react_icons = require("@radix-ui/react-icons");
 // src/hooks/use-mobile.tsx
-var React10 = __toESM(require("react"));
+var React8 = __toESM(require("react"));
 var MOBILE_BREAKPOINT = 768;
 function useIsMobile() {
-    var _React10_useState = _sliced_to_array(React10.useState(void 0), 2), isMobile = _React10_useState[0], setIsMobile = _React10_useState[1];
-    React10.useEffect(function() {
+    var _React8_useState = _sliced_to_array(React8.useState(void 0), 2), isMobile = _React8_useState[0], setIsMobile = _React8_useState[1];
+    React8.useEffect(function() {
         var mql = window.matchMedia("(max-width: ".concat(MOBILE_BREAKPOINT - 1, "px)"));
         var onChange = function() {
             setIsMobile(window.innerWidth < MOBILE_BREAKPOINT);
@@ -1690,22 +1484,22 @@ function useIsMobile() {
     return !!isMobile;
 }
 // src/components/ui/sidebar.tsx
-var import_jsx_runtime13 = require("react/jsx-runtime");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 var SIDEBAR_COOKIE_NAME = "sidebar_state";
 var SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
 var SIDEBAR_WIDTH = "16rem";
 var SIDEBAR_WIDTH_MOBILE = "18rem";
 var SIDEBAR_WIDTH_ICON = "3rem";
 var SIDEBAR_KEYBOARD_SHORTCUT = "b";
-var SidebarContext = React11.createContext(null);
+var SidebarContext = React9.createContext(null);
 function useSidebar() {
-    var context = React11.useContext(SidebarContext);
+    var context = React9.useContext(SidebarContext);
     if (!context) {
         throw new Error("useSidebar must be used within a SidebarProvider.");
     }
     return context;
 }
-var SidebarProvider = React11.forwardRef(function(_param, ref) {
+var SidebarProvider = React9.forwardRef(function(_param, ref) {
     var _param_defaultOpen = _param.defaultOpen, defaultOpen = _param_defaultOpen === void 0 ? true : _param_defaultOpen, openProp = _param.open, setOpenProp = _param.onOpenChange, className = _param.className, style = _param.style, children = _param.children, props = _object_without_properties(_param, [
         "defaultOpen",
         "open",
@@ -1715,10 +1509,10 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
         "children"
     ]);
     var isMobile = useIsMobile();
-    var _React11_useState = _sliced_to_array(React11.useState(false), 2), openMobile = _React11_useState[0], setOpenMobile = _React11_useState[1];
-    var _React11_useState1 = _sliced_to_array(React11.useState(defaultOpen), 2), _open = _React11_useState1[0], _setOpen = _React11_useState1[1];
+    var _React9_useState = _sliced_to_array(React9.useState(false), 2), openMobile = _React9_useState[0], setOpenMobile = _React9_useState[1];
+    var _React9_useState1 = _sliced_to_array(React9.useState(defaultOpen), 2), _open = _React9_useState1[0], _setOpen = _React9_useState1[1];
     var open = openProp !== null && openProp !== void 0 ? openProp : _open;
-    var setOpen = React11.useCallback(function(value) {
+    var setOpen = React9.useCallback(function(value) {
         var openState = typeof value === "function" ? value(open) : value;
         if (setOpenProp) {
             setOpenProp(openState);
@@ -1730,7 +1524,7 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
         setOpenProp,
         open
     ]);
-    var toggleSidebar = React11.useCallback(function() {
+    var toggleSidebar = React9.useCallback(function() {
         return isMobile ? setOpenMobile(function(open2) {
             return !open2;
         }) : setOpen(function(open2) {
@@ -1741,7 +1535,7 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
         setOpen,
         setOpenMobile
     ]);
-    React11.useEffect(function() {
+    React9.useEffect(function() {
         var handleKeyDown = function(event) {
             if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
                 event.preventDefault();
@@ -1756,7 +1550,7 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
         toggleSidebar
     ]);
     var state = open ? "expanded" : "collapsed";
-    var contextValue = React11.useMemo(function() {
+    var contextValue = React9.useMemo(function() {
         return {
             state: state,
             open: open,
@@ -1775,11 +1569,11 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
         setOpenMobile,
         toggleSidebar
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarContext.Provider, {
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SidebarContext.Provider, {
         value: contextValue,
-        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(TooltipProvider, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipProvider, {
             delayDuration: 0,
-            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread_props(_object_spread({
+            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread_props(_object_spread({
                 style: _object_spread({
                     "--sidebar-width": SIDEBAR_WIDTH,
                     "--sidebar-width-icon": SIDEBAR_WIDTH_ICON
@@ -1793,7 +1587,7 @@ var SidebarProvider = React11.forwardRef(function(_param, ref) {
     });
 });
 SidebarProvider.displayName = "SidebarProvider";
-var Sidebar = React11.forwardRef(function(_param, ref) {
+var Sidebar = React9.forwardRef(function(_param, ref) {
     var _param_side = _param.side, side = _param_side === void 0 ? "left" : _param_side, _param_variant = _param.variant, variant = _param_variant === void 0 ? "sidebar" : _param_variant, _param_collapsible = _param.collapsible, collapsible = _param_collapsible === void 0 ? "offcanvas" : _param_collapsible, className = _param.className, children = _param.children, props = _object_without_properties(_param, [
         "side",
         "variant",
@@ -1803,7 +1597,7 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
     ]);
     var _useSidebar = useSidebar(), isMobile = _useSidebar.isMobile, state = _useSidebar.state, openMobile = _useSidebar.openMobile, setOpenMobile = _useSidebar.setOpenMobile;
     if (collapsible === "none") {
-        return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread_props(_object_spread({
+        return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread_props(_object_spread({
             className: cn("flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground", className),
             ref: ref
         }, props), {
@@ -1811,11 +1605,11 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
         }));
     }
     if (isMobile) {
-        return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Sheet, _object_spread_props(_object_spread({
+        return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Sheet, _object_spread_props(_object_spread({
             open: openMobile,
             onOpenChange: setOpenMobile
         }, props), {
-            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(SheetContent, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(SheetContent, {
                 "data-sidebar": "sidebar",
                 "data-mobile": "true",
                 className: "w-[--sidebar-width] bg-sidebar p-0 text-sidebar-foreground [&>button]:hidden",
@@ -1824,18 +1618,18 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
                 },
                 side: side,
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(SheetHeader, {
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(SheetHeader, {
                         className: "sr-only",
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SheetTitle, {
+                            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SheetTitle, {
                                 children: "Sidebar"
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SheetDescription, {
+                            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(SheetDescription, {
                                 children: "Displays the mobile sidebar."
                             })
                         ]
                     }),
-                    /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", {
+                    /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", {
                         className: "flex h-full w-full flex-col",
                         children: children
                     })
@@ -1843,7 +1637,7 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
             })
         }));
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", {
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", {
         ref: ref,
         className: "group peer hidden text-sidebar-foreground md:block",
         "data-state": state,
@@ -1851,14 +1645,14 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
         "data-variant": variant,
         "data-side": side,
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", {
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", {
                 className: cn("relative w-[--sidebar-width] bg-transparent transition-[width] duration-200 ease-linear", "group-data-[collapsible=offcanvas]:w-0", "group-data-[side=right]:rotate-180", variant === "floating" || variant === "inset" ? "group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4))]" : "group-data-[collapsible=icon]:w-[--sidebar-width-icon]")
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread_props(_object_spread({
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread_props(_object_spread({
                 className: cn("fixed inset-y-0 z-10 hidden h-svh w-[--sidebar-width] transition-[left,right,width] duration-200 ease-linear md:flex", side === "left" ? "left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)]" : "right-0 group-data-[collapsible=offcanvas]:right-[calc(var(--sidebar-width)*-1)]", // Adjust the padding for floating and inset variants.
                 variant === "floating" || variant === "inset" ? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)_+_theme(spacing.4)_+2px)]" : "group-data-[collapsible=icon]:w-[--sidebar-width-icon] group-data-[side=left]:border-r group-data-[side=right]:border-l", className)
             }, props), {
-                children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", {
+                children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", {
                     "data-sidebar": "sidebar",
                     className: "flex h-full w-full flex-col bg-sidebar group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:border-sidebar-border group-data-[variant=floating]:shadow",
                     children: children
@@ -1868,13 +1662,13 @@ var Sidebar = React11.forwardRef(function(_param, ref) {
     });
 });
 Sidebar.displayName = "Sidebar";
-var SidebarTrigger = React11.forwardRef(function(_param, ref) {
+var SidebarTrigger = React9.forwardRef(function(_param, ref) {
     var className = _param.className, onClick = _param.onClick, props = _object_without_properties(_param, [
         "className",
         "onClick"
     ]);
     var toggleSidebar = useSidebar().toggleSidebar;
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Button, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Button, _object_spread_props(_object_spread({
         ref: ref,
         "data-sidebar": "trigger",
         variant: "ghost",
@@ -1886,8 +1680,8 @@ var SidebarTrigger = React11.forwardRef(function(_param, ref) {
         }
     }, props), {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(import_react_icons2.ViewVerticalIcon, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", {
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_react_icons.ViewVerticalIcon, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("span", {
                 className: "sr-only",
                 children: "Toggle Sidebar"
             })
@@ -1895,12 +1689,12 @@ var SidebarTrigger = React11.forwardRef(function(_param, ref) {
     }));
 });
 SidebarTrigger.displayName = "SidebarTrigger";
-var SidebarRail = React11.forwardRef(function(_param, ref) {
+var SidebarRail = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
     var toggleSidebar = useSidebar().toggleSidebar;
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("button", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("button", _object_spread({
         ref: ref,
         "data-sidebar": "rail",
         "aria-label": "Toggle Sidebar",
@@ -1911,102 +1705,102 @@ var SidebarRail = React11.forwardRef(function(_param, ref) {
     }, props));
 });
 SidebarRail.displayName = "SidebarRail";
-var SidebarInset = React11.forwardRef(function(_param, ref) {
+var SidebarInset = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("main", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("main", _object_spread({
         ref: ref,
         className: cn("relative flex w-full flex-1 flex-col bg-background", "md:peer-data-[variant=inset]:m-2 md:peer-data-[state=collapsed]:peer-data-[variant=inset]:ml-2 md:peer-data-[variant=inset]:ml-0 md:peer-data-[variant=inset]:rounded-xl md:peer-data-[variant=inset]:shadow", className)
     }, props));
 });
 SidebarInset.displayName = "SidebarInset";
-var SidebarInput = React11.forwardRef(function(_param, ref) {
+var SidebarInput = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Input, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Input, _object_spread({
         ref: ref,
         "data-sidebar": "input",
         className: cn("h-8 w-full bg-background shadow-none focus-visible:ring-2 focus-visible:ring-sidebar-ring", className)
     }, props));
 });
 SidebarInput.displayName = "SidebarInput";
-var SidebarHeader = React11.forwardRef(function(_param, ref) {
+var SidebarHeader = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "header",
         className: cn("flex flex-col gap-2 p-2", className)
     }, props));
 });
 SidebarHeader.displayName = "SidebarHeader";
-var SidebarFooter = React11.forwardRef(function(_param, ref) {
+var SidebarFooter = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "footer",
         className: cn("flex flex-col gap-2 p-2", className)
     }, props));
 });
 SidebarFooter.displayName = "SidebarFooter";
-var SidebarSeparator = React11.forwardRef(function(_param, ref) {
+var SidebarSeparator = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Separator2, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Separator2, _object_spread({
         ref: ref,
         "data-sidebar": "separator",
         className: cn("mx-2 w-auto bg-sidebar-border", className)
     }, props));
 });
 SidebarSeparator.displayName = "SidebarSeparator";
-var SidebarContent = React11.forwardRef(function(_param, ref) {
+var SidebarContent = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "content",
         className: cn("flex min-h-0 flex-1 flex-col gap-2 overflow-auto group-data-[collapsible=icon]:overflow-hidden", className)
     }, props));
 });
 SidebarContent.displayName = "SidebarContent";
-var SidebarGroup = React11.forwardRef(function(_param, ref) {
+var SidebarGroup = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "group",
         className: cn("relative flex w-full min-w-0 flex-col p-2", className)
     }, props));
 });
 SidebarGroup.displayName = "SidebarGroup";
-var SidebarGroupLabel = React11.forwardRef(function(_param, ref) {
+var SidebarGroupLabel = React9.forwardRef(function(_param, ref) {
     var className = _param.className, _param_asChild = _param.asChild, asChild = _param_asChild === void 0 ? false : _param_asChild, props = _object_without_properties(_param, [
         "className",
         "asChild"
     ]);
     var Comp = asChild ? import_react_slot2.Slot : "div";
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Comp, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, _object_spread({
         ref: ref,
         "data-sidebar": "group-label",
         className: cn("flex h-8 shrink-0 items-center rounded-md px-2 text-xs font-medium text-sidebar-foreground/70 outline-none ring-sidebar-ring transition-[margin,opacity] duration-200 ease-linear focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", "group-data-[collapsible=icon]:-mt-8 group-data-[collapsible=icon]:opacity-0", className)
     }, props));
 });
 SidebarGroupLabel.displayName = "SidebarGroupLabel";
-var SidebarGroupAction = React11.forwardRef(function(_param, ref) {
+var SidebarGroupAction = React9.forwardRef(function(_param, ref) {
     var className = _param.className, _param_asChild = _param.asChild, asChild = _param_asChild === void 0 ? false : _param_asChild, props = _object_without_properties(_param, [
         "className",
         "asChild"
     ]);
     var Comp = asChild ? import_react_slot2.Slot : "button";
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Comp, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, _object_spread({
         ref: ref,
         "data-sidebar": "group-action",
         className: cn("absolute right-3 top-3.5 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 [&>svg]:size-4 [&>svg]:shrink-0", // Increases the hit area of the button on mobile.
@@ -2014,40 +1808,40 @@ var SidebarGroupAction = React11.forwardRef(function(_param, ref) {
     }, props));
 });
 SidebarGroupAction.displayName = "SidebarGroupAction";
-var SidebarGroupContent = React11.forwardRef(function(_param, ref) {
+var SidebarGroupContent = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "group-content",
         className: cn("w-full text-sm", className)
     }, props));
 });
 SidebarGroupContent.displayName = "SidebarGroupContent";
-var SidebarMenu = React11.forwardRef(function(_param, ref) {
+var SidebarMenu = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", _object_spread({
         ref: ref,
         "data-sidebar": "menu",
         className: cn("flex w-full min-w-0 flex-col gap-1", className)
     }, props));
 });
 SidebarMenu.displayName = "SidebarMenu";
-var SidebarMenuItem = React11.forwardRef(function(_param, ref) {
+var SidebarMenuItem = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("li", _object_spread({
         ref: ref,
         "data-sidebar": "menu-item",
         className: cn("group/menu-item relative", className)
     }, props));
 });
 SidebarMenuItem.displayName = "SidebarMenuItem";
-var sidebarMenuButtonVariants = (0, import_class_variance_authority5.cva)("peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0", {
+var sidebarMenuButtonVariants = (0, import_class_variance_authority3.cva)("peer/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-left text-sm outline-none ring-sidebar-ring transition-[width,height,padding] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 group-has-[[data-sidebar=menu-action]]/menu-item:pr-8 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-[active=true]:bg-sidebar-accent data-[active=true]:font-medium data-[active=true]:text-sidebar-accent-foreground data-[state=open]:hover:bg-sidebar-accent data-[state=open]:hover:text-sidebar-accent-foreground group-data-[collapsible=icon]:!size-8 group-data-[collapsible=icon]:!p-2 [&>span:last-child]:truncate [&>svg]:size-4 [&>svg]:shrink-0", {
     variants: {
         variant: {
             default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
@@ -2064,7 +1858,7 @@ var sidebarMenuButtonVariants = (0, import_class_variance_authority5.cva)("peer/
         size: "default"
     }
 });
-var SidebarMenuButton = React11.forwardRef(function(_param, ref) {
+var SidebarMenuButton = React9.forwardRef(function(_param, ref) {
     var _param_asChild = _param.asChild, asChild = _param_asChild === void 0 ? false : _param_asChild, _param_isActive = _param.isActive, isActive = _param_isActive === void 0 ? false : _param_isActive, _param_variant = _param.variant, variant = _param_variant === void 0 ? "default" : _param_variant, _param_size = _param.size, size = _param_size === void 0 ? "default" : _param_size, tooltip = _param.tooltip, className = _param.className, props = _object_without_properties(_param, [
         "asChild",
         "isActive",
@@ -2075,7 +1869,7 @@ var SidebarMenuButton = React11.forwardRef(function(_param, ref) {
     ]);
     var Comp = asChild ? import_react_slot2.Slot : "button";
     var _useSidebar = useSidebar(), isMobile = _useSidebar.isMobile, state = _useSidebar.state;
-    var button = /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Comp, _object_spread({
+    var button = /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, _object_spread({
         ref: ref,
         "data-sidebar": "menu-button",
         "data-size": size,
@@ -2093,13 +1887,13 @@ var SidebarMenuButton = React11.forwardRef(function(_param, ref) {
             children: tooltip
         };
     }
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(Tooltip, {
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Tooltip, {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(TooltipTrigger, {
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipTrigger, {
                 asChild: true,
                 children: button
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(TooltipContent, _object_spread({
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(TooltipContent, _object_spread({
                 side: "right",
                 align: "center",
                 hidden: state !== "collapsed" || isMobile
@@ -2108,14 +1902,14 @@ var SidebarMenuButton = React11.forwardRef(function(_param, ref) {
     });
 });
 SidebarMenuButton.displayName = "SidebarMenuButton";
-var SidebarMenuAction = React11.forwardRef(function(_param, ref) {
+var SidebarMenuAction = React9.forwardRef(function(_param, ref) {
     var className = _param.className, _param_asChild = _param.asChild, asChild = _param_asChild === void 0 ? false : _param_asChild, _param_showOnHover = _param.showOnHover, showOnHover = _param_showOnHover === void 0 ? false : _param_showOnHover, props = _object_without_properties(_param, [
         "className",
         "asChild",
         "showOnHover"
     ]);
     var Comp = asChild ? import_react_slot2.Slot : "button";
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Comp, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, _object_spread({
         ref: ref,
         "data-sidebar": "menu-action",
         className: cn("absolute right-1 top-1.5 flex aspect-square w-5 items-center justify-center rounded-md p-0 text-sidebar-foreground outline-none ring-sidebar-ring transition-transform hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 peer-hover/menu-button:text-sidebar-accent-foreground [&>svg]:size-4 [&>svg]:shrink-0", // Increases the hit area of the button on mobile.
@@ -2123,36 +1917,36 @@ var SidebarMenuAction = React11.forwardRef(function(_param, ref) {
     }, props));
 });
 SidebarMenuAction.displayName = "SidebarMenuAction";
-var SidebarMenuBadge = React11.forwardRef(function(_param, ref) {
+var SidebarMenuBadge = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("div", _object_spread({
         ref: ref,
         "data-sidebar": "menu-badge",
         className: cn("pointer-events-none absolute right-1 flex h-5 min-w-5 select-none items-center justify-center rounded-md px-1 text-xs font-medium tabular-nums text-sidebar-foreground", "peer-hover/menu-button:text-sidebar-accent-foreground peer-data-[active=true]/menu-button:text-sidebar-accent-foreground", "peer-data-[size=sm]/menu-button:top-1", "peer-data-[size=default]/menu-button:top-1.5", "peer-data-[size=lg]/menu-button:top-2.5", "group-data-[collapsible=icon]:hidden", className)
     }, props));
 });
 SidebarMenuBadge.displayName = "SidebarMenuBadge";
-var SidebarMenuSkeleton = React11.forwardRef(function(_param, ref) {
+var SidebarMenuSkeleton = React9.forwardRef(function(_param, ref) {
     var className = _param.className, _param_showIcon = _param.showIcon, showIcon = _param_showIcon === void 0 ? false : _param_showIcon, props = _object_without_properties(_param, [
         "className",
         "showIcon"
     ]);
-    var width = React11.useMemo(function() {
+    var width = React9.useMemo(function() {
         return "".concat(Math.floor(Math.random() * 40) + 50, "%");
     }, []);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)("div", _object_spread_props(_object_spread({
         ref: ref,
         "data-sidebar": "menu-skeleton",
         className: cn("flex h-8 items-center gap-2 rounded-md px-2", className)
     }, props), {
         children: [
-            showIcon && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Skeleton, {
+            showIcon && /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Skeleton, {
                 className: "size-4 rounded-md",
                 "data-sidebar": "menu-skeleton-icon"
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Skeleton, {
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Skeleton, {
                 className: "h-4 max-w-[--skeleton-width] flex-1",
                 "data-sidebar": "menu-skeleton-text",
                 style: {
@@ -2163,25 +1957,25 @@ var SidebarMenuSkeleton = React11.forwardRef(function(_param, ref) {
     }));
 });
 SidebarMenuSkeleton.displayName = "SidebarMenuSkeleton";
-var SidebarMenuSub = React11.forwardRef(function(_param, ref) {
+var SidebarMenuSub = React9.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("ul", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("ul", _object_spread({
         ref: ref,
         "data-sidebar": "menu-sub",
         className: cn("mx-3.5 flex min-w-0 translate-x-px flex-col gap-1 border-l border-sidebar-border px-2.5 py-0.5", "group-data-[collapsible=icon]:hidden", className)
     }, props));
 });
 SidebarMenuSub.displayName = "SidebarMenuSub";
-var SidebarMenuSubItem = React11.forwardRef(function(_param, ref) {
+var SidebarMenuSubItem = React9.forwardRef(function(_param, ref) {
     var props = _extends({}, _object_destructuring_empty(_param));
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("li", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)("li", _object_spread({
         ref: ref
     }, props));
 });
 SidebarMenuSubItem.displayName = "SidebarMenuSubItem";
-var SidebarMenuSubButton = React11.forwardRef(function(_param, ref) {
+var SidebarMenuSubButton = React9.forwardRef(function(_param, ref) {
     var _param_asChild = _param.asChild, asChild = _param_asChild === void 0 ? false : _param_asChild, _param_size = _param.size, size = _param_size === void 0 ? "md" : _param_size, isActive = _param.isActive, className = _param.className, props = _object_without_properties(_param, [
         "asChild",
         "size",
@@ -2189,7 +1983,7 @@ var SidebarMenuSubButton = React11.forwardRef(function(_param, ref) {
         "className"
     ]);
     var Comp = asChild ? import_react_slot2.Slot : "a";
-    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(Comp, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Comp, _object_spread({
         ref: ref,
         "data-sidebar": "menu-sub-button",
         "data-size": size,
@@ -2199,25 +1993,25 @@ var SidebarMenuSubButton = React11.forwardRef(function(_param, ref) {
 });
 SidebarMenuSubButton.displayName = "SidebarMenuSubButton";
 // src/components/sidebar/nav-main.tsx
-var import_jsx_runtime14 = require("react/jsx-runtime");
+var import_jsx_runtime12 = require("react/jsx-runtime");
 function NavMain(param) {
     var items = param.items, maxItems = param.maxItems;
     var displayItems = maxItems ? items.slice(0, maxItems) : items;
-    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SidebarMenu, {
+    return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SidebarMenu, {
         children: displayItems.map(function(item) {
-            return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SidebarMenuItem, {
-                children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SidebarMenuButton, {
+            return /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SidebarMenuItem, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(SidebarMenuButton, {
                     asChild: true,
                     isActive: item.isActive,
                     className: "py-1.5",
-                    children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("a", {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)("a", {
                         href: item.url,
                         title: item.title,
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(item.icon, {
+                            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(item.icon, {
                                 className: "h-4 w-4"
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
+                            /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("span", {
                                 className: "truncate",
                                 children: item.title
                             })
@@ -2229,37 +2023,37 @@ function NavMain(param) {
     });
 }
 // src/components/sidebar/nav-secondary.tsx
-var import_jsx_runtime15 = require("react/jsx-runtime");
+var import_jsx_runtime13 = require("react/jsx-runtime");
 function NavSecondary(_param) {
     var items = _param.items, maxItems = _param.maxItems, props = _object_without_properties(_param, [
         "items",
         "maxItems"
     ]);
     var displayItems = maxItems ? items.slice(0, maxItems) : items;
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarGroup, _object_spread_props(_object_spread({}, props), {
-        children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarGroupContent, {
-            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenu, {
+    return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarGroup, _object_spread_props(_object_spread({}, props), {
+        children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarGroupContent, {
+            children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarMenu, {
                 children: displayItems.map(function(item) {
-                    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenuItem, {
+                    return /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)(SidebarMenuItem, {
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuButton, {
+                            /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarMenuButton, {
                                 asChild: true,
                                 className: "py-1.5",
-                                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", {
+                                children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("a", {
                                     href: item.url,
                                     title: item.title,
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(item.icon, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(item.icon, {
                                             className: "h-4 w-4"
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {
+                                        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("span", {
                                             className: "truncate",
                                             children: item.title
                                         })
                                     ]
                                 })
                             }),
-                            item.badge && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuBadge, {
+                            item.badge && /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(SidebarMenuBadge, {
                                 children: item.badge
                             })
                         ]
@@ -2270,24 +2064,24 @@ function NavSecondary(_param) {
     }));
 }
 // src/components/sidebar/nav-history.tsx
-var import_lucide_react4 = require("lucide-react");
-var import_react_icons3 = require("@radix-ui/react-icons");
-var import_jsx_runtime16 = require("react/jsx-runtime");
+var import_lucide_react5 = require("lucide-react");
+var import_react_icons2 = require("@radix-ui/react-icons");
+var import_jsx_runtime14 = require("react/jsx-runtime");
 function NavHistory(param) {
     var history = param.history, _param_maxItems = param.maxItems, maxItems = _param_maxItems === void 0 ? 5 : _param_maxItems;
     var isMobile = useSidebar().isMobile;
     var displayHistory = history.slice(0, maxItems);
     var remainingCount = Math.max(0, history.length - maxItems);
-    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarGroup, {
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarGroup, {
         className: "group-data-[collapsible=icon]:hidden",
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarGroupLabel, {
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarGroupLabel, {
                 className: "flex justify-between items-center",
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                         children: "History"
                     }),
-                    remainingCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", {
+                    remainingCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", {
                         className: "text-xs text-muted-foreground",
                         children: [
                             history.length,
@@ -2296,87 +2090,87 @@ function NavHistory(param) {
                     })
                 ]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarMenu, {
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarMenu, {
                 children: [
                     displayHistory.map(function(item) {
-                        return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarMenuItem, {
+                        return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarMenuItem, {
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(SidebarMenuButton, {
+                                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SidebarMenuButton, {
                                     asChild: true,
                                     className: "py-1.5",
-                                    children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("a", {
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("a", {
                                         href: item.url,
                                         title: item.name,
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                 className: "truncate",
                                                 children: item.name
                                             }),
-                                            item.date && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                            item.date && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                 className: "ml-auto text-xs text-muted-foreground hidden sm:inline-block",
                                                 children: item.date
                                             })
                                         ]
                                     })
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenu, {
+                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenu, {
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(DropdownMenuTrigger, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(DropdownMenuTrigger, {
                                             asChild: true,
-                                            children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarMenuAction, {
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarMenuAction, {
                                                 showOnHover: true,
                                                 children: [
-                                                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_react_icons3.DotsHorizontalIcon, {}),
-                                                    /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                                    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_react_icons2.DotsHorizontalIcon, {}),
+                                                    /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                         className: "sr-only",
                                                         children: "More"
                                                     })
                                                 ]
                                             })
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenuContent, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuContent, {
                                             className: "w-56 rounded-lg",
                                             side: isMobile ? "bottom" : "right",
                                             align: isMobile ? "end" : "start",
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenuItem, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuItem, {
                                                     children: [
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_lucide_react4.Clock, {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Clock, {
                                                             className: "text-muted-foreground"
                                                         }),
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                             children: "Remove from History"
                                                         })
                                                     ]
                                                 }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(DropdownMenuSeparator, {}),
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenuItem, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(DropdownMenuSeparator, {}),
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuItem, {
                                                     children: [
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_lucide_react4.Link, {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Link, {
                                                             className: "text-muted-foreground"
                                                         }),
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                             children: "Copy Link"
                                                         })
                                                     ]
                                                 }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenuItem, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuItem, {
                                                     children: [
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_lucide_react4.ArrowUpRight, {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.ArrowUpRight, {
                                                             className: "text-muted-foreground"
                                                         }),
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                             children: "Open in New Tab"
                                                         })
                                                     ]
                                                 }),
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(DropdownMenuSeparator, {}),
-                                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(DropdownMenuItem, {
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(DropdownMenuSeparator, {}),
+                                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuItem, {
                                                     children: [
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_lucide_react4.Trash2, {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.Trash2, {
                                                             className: "text-muted-foreground"
                                                         }),
-                                                        /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("span", {
+                                                        /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", {
                                                             children: "Delete"
                                                         })
                                                     ]
@@ -2388,14 +2182,14 @@ function NavHistory(param) {
                             ]
                         }, item.name);
                     }),
-                    remainingCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(SidebarMenuItem, {
-                        children: /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarMenuButton, {
+                    remainingCount > 0 && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(SidebarMenuItem, {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(SidebarMenuButton, {
                             className: "text-sidebar-foreground/70 py-1.5",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_lucide_react4.ChevronRight, {
+                                /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(import_lucide_react5.ChevronRight, {
                                     className: "h-3.5 w-3.5 mr-2"
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("span", {
+                                /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("span", {
                                     children: [
                                         "View ",
                                         remainingCount,
@@ -2416,13 +2210,13 @@ var Collapsible = CollapsiblePrimitive.Root;
 var CollapsibleTrigger2 = CollapsiblePrimitive.CollapsibleTrigger;
 var CollapsibleContent2 = CollapsiblePrimitive.CollapsibleContent;
 // src/components/sidebar/nav-listings.tsx
-var import_react_icons4 = require("@radix-ui/react-icons");
-var import_lucide_react5 = require("lucide-react");
-var import_react = require("react");
-var import_jsx_runtime17 = require("react/jsx-runtime");
+var import_react_icons3 = require("@radix-ui/react-icons");
+var import_lucide_react6 = require("lucide-react");
+var import_react3 = require("react");
+var import_jsx_runtime15 = require("react/jsx-runtime");
 function NavListings(param) {
     var listings = param.listings, _param_maxCategories = param.maxCategories, maxCategories = _param_maxCategories === void 0 ? 3 : _param_maxCategories, _param_maxPropertiesPerCategory = param.maxPropertiesPerCategory, maxPropertiesPerCategory = _param_maxPropertiesPerCategory === void 0 ? 3 : _param_maxPropertiesPerCategory;
-    var _ref = _sliced_to_array((0, import_react.useState)([]), 2), expandedCategories = _ref[0], setExpandedCategories = _ref[1];
+    var _ref = _sliced_to_array((0, import_react3.useState)([]), 2), expandedCategories = _ref[0], setExpandedCategories = _ref[1];
     var toggleCategory = function(categoryName) {
         setExpandedCategories(function(prev) {
             return prev.includes(categoryName) ? prev.filter(function(name) {
@@ -2434,15 +2228,15 @@ function NavListings(param) {
     };
     var displayListings = listings.slice(0, maxCategories);
     var remainingCategories = Math.max(0, listings.length - maxCategories);
-    return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarGroup, {
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarGroup, {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarGroupLabel, {
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarGroupLabel, {
                 className: "flex justify-between items-center",
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", {
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {
                         children: "Listings"
                     }),
-                    remainingCategories > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", {
+                    remainingCategories > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", {
                         className: "text-xs text-muted-foreground",
                         children: [
                             listings.length,
@@ -2451,63 +2245,63 @@ function NavListings(param) {
                     })
                 ]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarGroupContent, {
-                children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarMenu, {
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarGroupContent, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenu, {
                     children: [
                         displayListings.map(function(category) {
-                            return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Collapsible, {
+                            return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Collapsible, {
                                 open: expandedCategories.includes(category.name),
-                                children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarMenuItem, {
+                                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenuItem, {
                                     children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuButton, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuButton, {
                                             asChild: true,
                                             className: "py-1.5",
                                             onClick: function() {
                                                 return toggleCategory(category.name);
                                             },
-                                            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("a", {
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", {
                                                 href: "#",
                                                 children: [
-                                                    category.icon || /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_lucide_react5.Building, {
+                                                    category.icon || /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_lucide_react6.Building, {
                                                         className: "h-3.5 w-3.5 mr-2 text-muted-foreground"
                                                     }),
-                                                    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", {
+                                                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {
                                                         className: "truncate",
                                                         children: category.name
                                                     }),
-                                                    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", {
+                                                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {
                                                         className: "ml-auto text-xs text-muted-foreground",
                                                         children: category.properties.length
                                                     })
                                                 ]
                                             })
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(CollapsibleTrigger2, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(CollapsibleTrigger2, {
                                             asChild: true,
-                                            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuAction, {
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuAction, {
                                                 className: "left-2 bg-sidebar-accent text-sidebar-accent-foreground data-[state=open]:rotate-90",
                                                 showOnHover: true,
                                                 onClick: function() {
                                                     return toggleCategory(category.name);
                                                 },
-                                                children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react_icons4.ChevronRightIcon, {})
+                                                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_react_icons3.ChevronRightIcon, {})
                                             })
                                         }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(CollapsibleContent2, {
-                                            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarMenuSub, {
+                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(CollapsibleContent2, {
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenuSub, {
                                                 children: [
                                                     category.properties.slice(0, maxPropertiesPerCategory).map(function(property) {
-                                                        return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuSubItem, {
-                                                            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuSubButton, {
+                                                        return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuSubItem, {
+                                                            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuSubButton, {
                                                                 asChild: true,
                                                                 className: "py-1",
-                                                                children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("a", {
+                                                                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("a", {
                                                                     href: property.url,
                                                                     children: [
-                                                                        property.icon || /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_lucide_react5.Home, {
+                                                                        property.icon || /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_lucide_react6.Home, {
                                                                             className: "h-3 w-3 mr-2 text-muted-foreground"
                                                                         }),
-                                                                        /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", {
+                                                                        /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", {
                                                                             className: "truncate",
                                                                             children: property.name
                                                                         })
@@ -2516,14 +2310,14 @@ function NavListings(param) {
                                                             })
                                                         }, property.name);
                                                     }),
-                                                    category.properties.length > maxPropertiesPerCategory && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuSubItem, {
-                                                        children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarMenuSubButton, {
+                                                    category.properties.length > maxPropertiesPerCategory && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuSubItem, {
+                                                        children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenuSubButton, {
                                                             className: "text-sidebar-foreground/70 py-1",
                                                             children: [
-                                                                /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react_icons4.ChevronRightIcon, {
+                                                                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_react_icons3.ChevronRightIcon, {
                                                                     className: "mr-2"
                                                                 }),
-                                                                /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", {
+                                                                /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", {
                                                                     children: [
                                                                         "View",
                                                                         " ",
@@ -2542,14 +2336,14 @@ function NavListings(param) {
                                 })
                             }, category.name);
                         }),
-                        remainingCategories > 0 && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(SidebarMenuItem, {
-                            children: /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(SidebarMenuButton, {
+                        remainingCategories > 0 && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(SidebarMenuItem, {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(SidebarMenuButton, {
                                 className: "text-sidebar-foreground/70 py-1.5",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(import_react_icons4.ChevronRightIcon, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(import_react_icons3.ChevronRightIcon, {
                                         className: "mr-2"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("span", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("span", {
                                         children: [
                                             "View ",
                                             remainingCategories,
@@ -2566,7 +2360,7 @@ function NavListings(param) {
     });
 }
 // src/components/sidebar/sidebar-left.tsx
-var import_jsx_runtime18 = require("react/jsx-runtime");
+var import_jsx_runtime16 = require("react/jsx-runtime");
 function SidebarLeft(_param) {
     var _param_logoLight = _param.logoLight, logoLight = _param_logoLight === void 0 ? "/logo.svg" : _param_logoLight, _param_logoDark = _param.logoDark, logoDark = _param_logoDark === void 0 ? "/logo-dark.svg" : _param_logoDark, navMainItems = _param.navMainItems, navSecondaryItems = _param.navSecondaryItems, historyItems = _param.historyItems, listingItems = _param.listingItems, _param_maxMainItems = _param.maxMainItems, maxMainItems = _param_maxMainItems === void 0 ? 6 : _param_maxMainItems, _param_maxSecondaryItems = _param.maxSecondaryItems, maxSecondaryItems = _param_maxSecondaryItems === void 0 ? 4 : _param_maxSecondaryItems, _param_maxHistoryItems = _param.maxHistoryItems, maxHistoryItems = _param_maxHistoryItems === void 0 ? 4 : _param_maxHistoryItems, _param_maxListingCategories = _param.maxListingCategories, maxListingCategories = _param_maxListingCategories === void 0 ? 3 : _param_maxListingCategories, _param_maxPropertiesPerCategory = _param.maxPropertiesPerCategory, maxPropertiesPerCategory = _param_maxPropertiesPerCategory === void 0 ? 2 : _param_maxPropertiesPerCategory, props = _object_without_properties(_param, [
         "logoLight",
@@ -2581,24 +2375,24 @@ function SidebarLeft(_param) {
         "maxListingCategories",
         "maxPropertiesPerCategory"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(Sidebar, _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(Sidebar, _object_spread_props(_object_spread({
         className: "border-r-0 w-64"
     }, props), {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(SidebarHeader, {
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarHeader, {
                 className: "h-auto py-2",
                 children: [
-                    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", {
+                    /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", {
                         className: "m-2",
                         children: [
-                            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_image2.default, {
+                            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_image2.default, {
                                 src: logoLight,
                                 alt: "Logo",
                                 width: 120,
                                 height: 40,
                                 className: "dark:hidden"
                             }),
-                            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(import_image2.default, {
+                            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(import_image2.default, {
                                 src: logoDark,
                                 alt: "Logo",
                                 width: 120,
@@ -2607,117 +2401,117 @@ function SidebarLeft(_param) {
                             })
                         ]
                     }),
-                    navMainItems && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(NavMain, {
+                    navMainItems && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(NavMain, {
                         items: navMainItems,
                         maxItems: maxMainItems
                     })
                 ]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)(SidebarContent, {
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(SidebarContent, {
                 className: "overflow-y-auto",
                 children: [
-                    historyItems && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(NavHistory, {
+                    historyItems && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(NavHistory, {
                         history: historyItems,
                         maxItems: maxHistoryItems
                     }),
-                    listingItems && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(NavListings, {
+                    listingItems && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(NavListings, {
                         listings: listingItems,
                         maxCategories: maxListingCategories,
                         maxPropertiesPerCategory: maxPropertiesPerCategory
                     }),
-                    navSecondaryItems && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(NavSecondary, {
+                    navSecondaryItems && /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(NavSecondary, {
                         items: navSecondaryItems,
                         maxItems: maxSecondaryItems,
                         className: "mt-auto"
                     })
                 ]
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(SidebarRail, {})
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(SidebarRail, {})
         ]
     }));
 }
 // src/components/ui/card.tsx
-var React12 = __toESM(require("react"));
-var import_jsx_runtime19 = require("react/jsx-runtime");
-var Card = React12.forwardRef(function(_param, ref) {
+var React10 = __toESM(require("react"));
+var import_jsx_runtime17 = require("react/jsx-runtime");
+var Card = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("rounded-xl border bg-card text-card-foreground shadow", className)
     }, props));
 });
 Card.displayName = "Card";
-var CardHeader = React12.forwardRef(function(_param, ref) {
+var CardHeader = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("flex flex-col space-y-1.5 p-6", className)
     }, props));
 });
 CardHeader.displayName = "CardHeader";
-var CardTitle = React12.forwardRef(function(_param, ref) {
+var CardTitle = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("font-semibold leading-none tracking-tight", className)
     }, props));
 });
 CardTitle.displayName = "CardTitle";
-var CardDescription = React12.forwardRef(function(_param, ref) {
+var CardDescription = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("text-sm text-muted-foreground", className)
     }, props));
 });
 CardDescription.displayName = "CardDescription";
-var CardContent = React12.forwardRef(function(_param, ref) {
+var CardContent = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("p-6 pt-0", className)
     }, props));
 });
 CardContent.displayName = "CardContent";
-var CardFooter = React12.forwardRef(function(_param, ref) {
+var CardFooter = React10.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", _object_spread({
         ref: ref,
         className: cn("flex items-center p-6 pt-0", className)
     }, props));
 });
 CardFooter.displayName = "CardFooter";
 // src/components/ui/label.tsx
-var React13 = __toESM(require("react"));
+var React11 = __toESM(require("react"));
 var LabelPrimitive = __toESM(require("@radix-ui/react-label"));
-var import_class_variance_authority6 = require("class-variance-authority");
-var import_jsx_runtime20 = require("react/jsx-runtime");
-var labelVariants = (0, import_class_variance_authority6.cva)("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
-var Label2 = React13.forwardRef(function(_param, ref) {
+var import_class_variance_authority4 = require("class-variance-authority");
+var import_jsx_runtime18 = require("react/jsx-runtime");
+var labelVariants = (0, import_class_variance_authority4.cva)("text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70");
+var Label2 = React11.forwardRef(function(_param, ref) {
     var className = _param.className, props = _object_without_properties(_param, [
         "className"
     ]);
-    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(LabelPrimitive.Root, _object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(LabelPrimitive.Root, _object_spread({
         ref: ref,
         className: cn(labelVariants(), className)
     }, props));
 });
 Label2.displayName = LabelPrimitive.Root.displayName;
 // src/components/login/login-form.tsx
-var import_react2 = require("react");
-var import_jsx_runtime21 = require("react/jsx-runtime");
+var import_react4 = require("react");
+var import_jsx_runtime19 = require("react/jsx-runtime");
 function LoginForm(_param) {
     var className = _param.className, onEmailLogin = _param.onEmailLogin, onGoogleLogin = _param.onGoogleLogin, onForgotPassword = _param.onForgotPassword, onSignUp = _param.onSignUp, _param_backgroundImage = _param.backgroundImage, backgroundImage = _param_backgroundImage === void 0 ? "/pic.avif" : _param_backgroundImage, _param_title = _param.title, title = _param_title === void 0 ? "Welcome back" : _param_title, _param_subtitle = _param.subtitle, subtitle = _param_subtitle === void 0 ? "Login to your account" : _param_subtitle, props = _object_without_properties(_param, [
         "className",
@@ -2729,10 +2523,10 @@ function LoginForm(_param) {
         "title",
         "subtitle"
     ]);
-    var _ref = _sliced_to_array((0, import_react2.useState)(""), 2), email = _ref[0], setEmail = _ref[1];
-    var _ref1 = _sliced_to_array((0, import_react2.useState)(""), 2), password = _ref1[0], setPassword = _ref1[1];
-    var _ref2 = _sliced_to_array((0, import_react2.useState)(false), 2), loading = _ref2[0], setLoading = _ref2[1];
-    var _ref3 = _sliced_to_array((0, import_react2.useState)(null), 2), error = _ref3[0], setError = _ref3[1];
+    var _ref = _sliced_to_array((0, import_react4.useState)(""), 2), email = _ref[0], setEmail = _ref[1];
+    var _ref1 = _sliced_to_array((0, import_react4.useState)(""), 2), password = _ref1[0], setPassword = _ref1[1];
+    var _ref2 = _sliced_to_array((0, import_react4.useState)(false), 2), loading = _ref2[0], setLoading = _ref2[1];
+    var _ref3 = _sliced_to_array((0, import_react4.useState)(null), 2), error = _ref3[0], setError = _ref3[1];
     var handleEmailLogin = /*#__PURE__*/ function() {
         var _ref = _async_to_generator(function(e) {
             var error2;
@@ -2831,46 +2625,46 @@ function LoginForm(_param) {
             return _ref.apply(this, arguments);
         };
     }();
-    return /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", _object_spread_props(_object_spread({
+    return /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", _object_spread_props(_object_spread({
         className: cn("flex flex-col gap-6", className)
     }, props), {
         children: [
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Card, {
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Card, {
                 className: "overflow-hidden",
-                children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(CardContent, {
+                children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(CardContent, {
                     className: "grid p-0 md:grid-cols-2",
                     children: [
-                        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("form", {
+                        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("form", {
                             className: "p-6 md:p-8",
                             onSubmit: handleEmailLogin,
-                            children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                 className: "flex flex-col gap-6",
                                 children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                         className: "flex flex-col items-center text-center",
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("h1", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("h1", {
                                                 className: "text-2xl font-bold",
                                                 children: title
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("p", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("p", {
                                                 className: "text-balance text-muted-foreground",
                                                 children: subtitle
                                             })
                                         ]
                                     }),
-                                    error && /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
+                                    error && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", {
                                         className: "bg-red-50 text-red-600 p-3 rounded-md text-sm",
                                         children: error
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                         className: "grid gap-2",
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Label2, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Label2, {
                                                 htmlFor: "email",
                                                 children: "Email"
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Input, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Input, {
                                                 id: "email",
                                                 type: "email",
                                                 placeholder: "m@example.com",
@@ -2882,17 +2676,17 @@ function LoginForm(_param) {
                                             })
                                         ]
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                         className: "grid gap-2",
                                         children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                                 className: "flex items-center",
                                                 children: [
-                                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Label2, {
+                                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Label2, {
                                                         htmlFor: "password",
                                                         children: "Password"
                                                     }),
-                                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("a", {
+                                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("a", {
                                                         href: "#",
                                                         className: "ml-auto text-sm underline-offset-2 hover:underline",
                                                         onClick: function(e) {
@@ -2903,7 +2697,7 @@ function LoginForm(_param) {
                                                     })
                                                 ]
                                             }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Input, {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Input, {
                                                 id: "password",
                                                 type: "password",
                                                 required: true,
@@ -2914,32 +2708,32 @@ function LoginForm(_param) {
                                             })
                                         ]
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(Button, {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(Button, {
                                         type: "submit",
                                         className: "w-full",
                                         disabled: loading,
                                         children: loading ? "Signing in..." : "Sign in"
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", {
                                         className: "relative text-center text-sm after:absolute after:inset-0 after:top-1/2 after:z-0 after:flex after:items-center after:border-t after:border-border",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("span", {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("span", {
                                             className: "relative z-10 bg-background px-2 text-muted-foreground",
                                             children: "Or continue with"
                                         })
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", {
                                         className: "grid grid-cols-1 gap-4",
-                                        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Button, {
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)(Button, {
                                             variant: "outline",
                                             className: "w-full",
                                             onClick: handleGoogleLogin,
                                             type: "button",
                                             children: [
-                                                /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("svg", {
+                                                /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("svg", {
                                                     xmlns: "http://www.w3.org/2000/svg",
                                                     viewBox: "0 0 24 24",
                                                     className: "w-5 h-5 mr-2",
-                                                    children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("path", {
+                                                    children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("path", {
                                                         d: "M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z",
                                                         fill: "currentColor"
                                                     })
@@ -2948,12 +2742,12 @@ function LoginForm(_param) {
                                             ]
                                         })
                                     }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+                                    /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                                         className: "text-center text-sm",
                                         children: [
                                             "Don't have an account?",
                                             " ",
-                                            /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("a", {
+                                            /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("a", {
                                                 href: "#",
                                                 className: "underline underline-offset-4",
                                                 onClick: function(e) {
@@ -2967,9 +2761,9 @@ function LoginForm(_param) {
                                 ]
                             })
                         }),
-                        /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", {
+                        /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", {
                             className: "relative hidden bg-muted md:block",
-                            children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("img", {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("img", {
                                 src: backgroundImage,
                                 alt: "Image",
                                 className: "absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
@@ -2978,17 +2772,17 @@ function LoginForm(_param) {
                     ]
                 })
             }),
-            /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)("div", {
+            /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", {
                 className: "text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 hover:[&_a]:text-primary",
                 children: [
                     "By clicking continue, you agree to our ",
-                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("a", {
+                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("a", {
                         href: "#",
                         children: "Terms of Service"
                     }),
                     " ",
                     "and ",
-                    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("a", {
+                    /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("a", {
                         href: "#",
                         children: "Privacy Policy"
                     }),
@@ -2998,6 +2792,721 @@ function LoginForm(_param) {
         ]
     }));
 }
+// src/components/reva-navbar/reva-navbar.tsx
+var React14 = __toESM(require("react"));
+var import_link3 = __toESM(require("next/link"));
+var import_navigation2 = require("next/navigation");
+var import_lucide_react7 = require("lucide-react");
+// src/components/ui/navigation-menu.tsx
+var React12 = __toESM(require("react"));
+var NavigationMenuPrimitive = __toESM(require("@radix-ui/react-navigation-menu"));
+var import_class_variance_authority5 = require("class-variance-authority");
+var import_react_icons4 = require("@radix-ui/react-icons");
+var import_jsx_runtime20 = require("react/jsx-runtime");
+var NavigationMenu = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "children"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(NavigationMenuPrimitive.Root, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("relative z-10 flex max-w-max flex-1 items-center justify-center", className)
+    }, props), {
+        children: [
+            children,
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuViewport, {})
+        ]
+    }));
+});
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+var NavigationMenuList = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.List, _object_spread({
+        ref: ref,
+        className: cn("group flex flex-1 list-none items-center justify-center space-x-1", className)
+    }, props));
+});
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+var NavigationMenuItem = NavigationMenuPrimitive.Item;
+var navigationMenuTriggerStyle = (0, import_class_variance_authority5.cva)("group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground data-[state=open]:bg-accent/50 data-[state=open]:hover:bg-accent data-[state=open]:focus:bg-accent");
+var NavigationMenuTrigger = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "children"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(NavigationMenuPrimitive.Trigger, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn(navigationMenuTriggerStyle(), "group", className)
+    }, props), {
+        children: [
+            children,
+            " ",
+            /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(import_react_icons4.ChevronDownIcon, {
+                className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
+                "aria-hidden": "true"
+            })
+        ]
+    }));
+});
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
+var NavigationMenuContent = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Content, _object_spread({
+        ref: ref,
+        className: cn("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", className)
+    }, props));
+});
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
+var NavigationMenuLink = NavigationMenuPrimitive.Link;
+var NavigationMenuViewport = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", {
+        className: cn("absolute left-0 top-full flex justify-center"),
+        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Viewport, _object_spread({
+            className: cn("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", className),
+            ref: ref
+        }, props))
+    });
+});
+NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
+var NavigationMenuIndicator = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime20.jsx)(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", className)
+    }, props), {
+        children: /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("div", {
+            className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
+        })
+    }));
+});
+NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+// src/components/ui/avatar.tsx
+var React13 = __toESM(require("react"));
+var AvatarPrimitive = __toESM(require("@radix-ui/react-avatar"));
+var import_jsx_runtime21 = require("react/jsx-runtime");
+var Avatar = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Root, _object_spread({
+        ref: ref,
+        className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)
+    }, props));
+});
+Avatar.displayName = AvatarPrimitive.Root.displayName;
+var AvatarImage = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Image, _object_spread({
+        ref: ref,
+        className: cn("aspect-square h-full w-full", className)
+    }, props));
+});
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+var AvatarFallback = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(AvatarPrimitive.Fallback, _object_spread({
+        ref: ref,
+        className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)
+    }, props));
+});
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+// src/components/ui/badge.tsx
+var import_class_variance_authority6 = require("class-variance-authority");
+var import_jsx_runtime22 = require("react/jsx-runtime");
+var badgeVariants = (0, import_class_variance_authority6.cva)("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", {
+    variants: {
+        variant: {
+            default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+            secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+            destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+            outline: "text-foreground"
+        }
+    },
+    defaultVariants: {
+        variant: "default"
+    }
+});
+function Badge(_param) {
+    var className = _param.className, variant = _param.variant, props = _object_without_properties(_param, [
+        "className",
+        "variant"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", _object_spread({
+        className: cn(badgeVariants({
+            variant: variant
+        }), className)
+    }, props));
+}
+// src/components/reva-navbar/reva-logo-dark.tsx
+var import_next_themes3 = require("next-themes");
+var import_image3 = __toESM(require("next/image"));
+var import_link2 = __toESM(require("next/link"));
+var import_jsx_runtime23 = require("react/jsx-runtime");
+function RevaLogo() {
+    var resolvedTheme = (0, import_next_themes3.useTheme)().resolvedTheme;
+    var isDarkTheme = resolvedTheme === "dark";
+    return /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_link2.default, {
+        href: "/",
+        className: "flex items-center",
+        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_image3.default, {
+            src: "/images/reva-logo-dark.svg",
+            alt: "REVA",
+            width: 100,
+            height: 30,
+            className: "h-8 w-auto",
+            priority: true
+        }) : /* @__PURE__ */ (0, import_jsx_runtime23.jsx)(import_image3.default, {
+            src: "/images/reva-logo.png",
+            alt: "REVA",
+            width: 100,
+            height: 30,
+            className: "h-8 w-auto",
+            priority: true
+        })
+    });
+}
+// src/components/reva-navbar/reva-navbar.tsx
+var import_jsx_runtime24 = require("react/jsx-runtime");
+function RevaNavbar(param) {
+    var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
+        current: "Eng",
+        options: [
+            {
+                label: "English",
+                value: "en"
+            },
+            {
+                label: "Fran\xE7ais",
+                value: "fr"
+            },
+            {
+                label: "Espa\xF1ol",
+                value: "es"
+            }
+        ]
+    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark;
+    var pathname = (0, import_navigation2.usePathname)();
+    var _React14_useState = _sliced_to_array(React14.useState(false), 2), isSearchOpen = _React14_useState[0], setIsSearchOpen = _React14_useState[1];
+    var _React14_useState1 = _sliced_to_array(React14.useState(""), 2), searchQuery = _React14_useState1[0], setSearchQuery = _React14_useState1[1];
+    var handleSearch = function(e) {
+        e.preventDefault();
+        if (onSearch) {
+            onSearch(searchQuery);
+        }
+        setIsSearchOpen(false);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("header", {
+        className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className),
+        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+            className: "container flex h-16 items-center",
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Sheet, {
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(SheetTrigger, {
+                            asChild: true,
+                            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                className: "mr-2 md:hidden",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Menu, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Toggle menu"
+                                    })
+                                ]
+                            })
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(SheetContent, {
+                            side: "left",
+                            className: "pr-0",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                    className: "px-7",
+                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RevaLogo, {})
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                    className: "mt-8 flex flex-col gap-4",
+                                    children: items.map(function(item, index) {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(MobileNavItem2, {
+                                            item: item,
+                                            pathname: pathname
+                                        }, index);
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                    className: "mr-4 hidden md:flex",
+                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(RevaLogo, {})
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                    className: "hidden md:flex",
+                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenu, {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuList, {
+                            children: items.map(function(item, index) {
+                                return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavbarItem, {
+                                    item: item,
+                                    pathname: pathname
+                                }, index);
+                            })
+                        })
+                    })
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                    className: "flex flex-1 items-center justify-end gap-2",
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                            className: "hidden md:flex items-center gap-2 mr-2",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Camera, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Camera"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sofa, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Room"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Phone, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Phone"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.PenLine, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Pen"
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                            className: "relative hidden md:flex",
+                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("form", {
+                                onSubmit: handleSearch,
+                                className: "relative",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Input, {
+                                        type: "search",
+                                        placeholder: "Search...",
+                                        className: "h-9 w-[200px] lg:w-[300px]",
+                                        value: searchQuery,
+                                        onChange: function(e) {
+                                            return setSearchQuery(e.target.value);
+                                        }
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                        type: "button",
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "absolute right-0 top-0",
+                                        onClick: function() {
+                                            return setIsSearchOpen(false);
+                                        },
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.X, {
+                                                className: "h-4 w-4"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Close search"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                onClick: function() {
+                                    return setIsSearchOpen(true);
+                                },
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Search, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Search"
+                                    })
+                                ]
+                            })
+                        }),
+                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                        variant: "ghost",
+                                        size: "sm",
+                                        className: "gap-1 text-sm font-medium",
+                                        children: [
+                                            languages.current,
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.ChevronDown, {
+                                                className: "h-4 w-4"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: languages.options.map(function(language) {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
+                                            },
+                                            children: language.label
+                                        }, language.value);
+                                    })
+                                })
+                            ]
+                        }),
+                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        children: [
+                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sun, {
+                                                className: "h-5 w-5"
+                                            }) : /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Moon, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Toggle theme"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Sun, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Light"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Moon, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Dark"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "System"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("contrast");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Bell, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "High Contrast"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Bell, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                    className: "sr-only",
+                                    children: "Notifications"
+                                })
+                            ]
+                        }),
+                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            className: "relative",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.MessageSquare, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Badge, {
+                                    className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
+                                    children: "3"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("span", {
+                                    className: "sr-only",
+                                    children: "Messages"
+                                })
+                            ]
+                        }),
+                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+                            className: "hidden items-center gap-2 md:flex",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Wallet, {
+                                    className: "h-4 w-4"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("span", {
+                                    className: cn("text-sm font-medium", balance < 0 ? "text-destructive" : ""),
+                                    children: [
+                                        balance > 0 ? "+" : "",
+                                        balance.toLocaleString()
+                                    ]
+                                })
+                            ]
+                        }),
+                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, {
+                            className: "bg-black hover:bg-black/90 text-white",
+                            children: "Create"
+                        }),
+                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "rounded-full",
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(Avatar, {
+                                            className: "h-8 w-8",
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AvatarImage, {
+                                                    src: user.image,
+                                                    alt: user.name || "User"
+                                                }),
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(AvatarFallback, {
+                                                    children: user.initials || "U"
+                                                })
+                                            ]
+                                        })
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuLabel, {
+                                            children: [
+                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                                    children: user.name
+                                                }),
+                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                                    className: "text-xs text-muted-foreground",
+                                                    children: user.email
+                                                })
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.User, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Profile"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Settings"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(DropdownMenuItem, {
+                                            onClick: onLogout,
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.LogOut, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Log out"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        })
+                    ]
+                })
+            ]
+        })
+    });
+}
+function NavbarItem(param) {
+    var item = param.item, pathname = param.pathname;
+    if (item.children) {
+        return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(NavigationMenuItem, {
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuTrigger, {
+                    children: item.title
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuContent, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("ul", {
+                        className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
+                        children: item.children.map(function(child) {
+                            return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("li", {
+                                className: "row-span-3",
+                                children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuLink, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)(import_link3.default, {
+                                        href: child.href || "#",
+                                        className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
+                                        children: [
+                                            child.icon,
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                                                className: "mb-2 mt-4 text-lg font-medium",
+                                                children: child.title
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("p", {
+                                                className: "text-sm leading-tight text-muted-foreground",
+                                                children: child.description
+                                            })
+                                        ]
+                                    })
+                                })
+                            }, child.title);
+                        })
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuItem, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+            href: item.href || "#",
+            legacyBehavior: true,
+            passHref: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(NavigationMenuLink, {
+                className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
+                children: item.title
+            })
+        })
+    });
+}
+function MobileNavItem2(param) {
+    var item = param.item, pathname = param.pathname;
+    var _React14_useState = _sliced_to_array(React14.useState(false), 2), isOpen = _React14_useState[0], setIsOpen = _React14_useState[1];
+    if (item.children) {
+        return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", {
+            className: "flex flex-col",
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("button", {
+                    className: "flex items-center justify-between py-2 text-base font-medium",
+                    onClick: function() {
+                        return setIsOpen(!isOpen);
+                    },
+                    children: [
+                        item.title,
+                        /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_lucide_react7.ChevronDown, {
+                            className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
+                        })
+                    ]
+                }),
+                isOpen && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", {
+                    className: "ml-4 mt-2 flex flex-col gap-2",
+                    children: item.children.map(function(child) {
+                        return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+                            href: child.href || "#",
+                            className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
+                            children: child.title
+                        }, child.title);
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)(import_link3.default, {
+        href: item.href || "#",
+        className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
+        children: item.title
+    });
+}
+var defaultNavItems = [
+    {
+        title: "About",
+        href: "/about"
+    },
+    {
+        title: "Pricing",
+        href: "/pricing"
+    },
+    {
+        title: "Contact",
+        href: "/contact"
+    }
+];
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
     Button: Button,
@@ -3028,6 +3537,13 @@ function LoginForm(_param) {
     Input: Input,
     Label: Label,
     LoginForm: LoginForm,
+    NavHistory: NavHistory,
+    NavListings: NavListings,
+    NavMain: NavMain,
+    NavSecondary: NavSecondary,
+    Navbar: Navbar,
+    NavbarWrapper: NavbarWrapper,
+    RevaLogo: RevaLogo,
     RevaNavbar: RevaNavbar,
     Separator: Separator,
     Sheet: Sheet,
@@ -3065,6 +3581,7 @@ function LoginForm(_param) {
     SidebarSeparator: SidebarSeparator,
     SidebarTrigger: SidebarTrigger,
     Skeleton: Skeleton,
+    ThemeToggle: ThemeToggle,
     Tooltip: Tooltip,
     TooltipContent: TooltipContent,
     TooltipProvider: TooltipProvider,
