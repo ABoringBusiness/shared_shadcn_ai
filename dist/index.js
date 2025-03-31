@@ -343,6 +343,9 @@ var __toCommonJS = function(mod) {
 // src/index.ts
 var index_exports = {};
 __export(index_exports, {
+    AiAssistant: function() {
+        return AiAssistant;
+    },
     Button: function() {
         return Button;
     },
@@ -445,8 +448,11 @@ __export(index_exports, {
     NavbarWrapper: function() {
         return NavbarWrapper;
     },
+    NewNavbar: function() {
+        return NewNavbar;
+    },
     RevaLogo: function() {
-        return RevaLogo;
+        return RevaLogo2;
     },
     RevaNavbar: function() {
         return RevaNavbar;
@@ -559,8 +565,11 @@ __export(index_exports, {
     Skeleton: function() {
         return Skeleton;
     },
+    ThemeProvider: function() {
+        return ThemeProvider;
+    },
     ThemeToggle: function() {
-        return ThemeToggle;
+        return ThemeToggle2;
     },
     Tooltip: function() {
         return Tooltip;
@@ -3507,8 +3516,830 @@ var defaultNavItems = [
         href: "/contact"
     }
 ];
+// src/components/new-navbar/new-navbar.tsx
+var React15 = __toESM(require("react"));
+var import_link5 = __toESM(require("next/link"));
+var import_navigation3 = require("next/navigation");
+var import_lucide_react8 = require("lucide-react");
+// src/components/new-navbar/reva-logo-dark.tsx
+var import_next_themes4 = require("next-themes");
+var import_image4 = __toESM(require("next/image"));
+var import_link4 = __toESM(require("next/link"));
+var import_jsx_runtime25 = require("react/jsx-runtime");
+function RevaLogo2() {
+    var resolvedTheme = (0, import_next_themes4.useTheme)().resolvedTheme;
+    var isDarkTheme = resolvedTheme === "dark";
+    return /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_link4.default, {
+        href: "/",
+        className: "flex items-center",
+        children: isDarkTheme ? /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_image4.default, {
+            src: "/images/reva-logo.svg",
+            alt: "REVA",
+            width: 141,
+            height: 27,
+            className: "h-5 w-auto",
+            priority: true
+        }) : /* @__PURE__ */ (0, import_jsx_runtime25.jsx)(import_image4.default, {
+            src: "/images/reva-logo-dark.svg",
+            alt: "REVA",
+            width: 160,
+            height: 31,
+            className: "h-5 w-auto",
+            priority: true
+        })
+    });
+}
+// src/components/new-navbar/new-navbar.tsx
+var import_jsx_runtime26 = require("react/jsx-runtime");
+function NewNavbar(param) {
+    var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems2 : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
+        current: "Eng",
+        options: [
+            {
+                label: "English",
+                value: "en"
+            },
+            {
+                label: "Fran\xE7ais",
+                value: "fr"
+            },
+            {
+                label: "Espa\xF1ol",
+                value: "es"
+            }
+        ]
+    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark;
+    var pathname = (0, import_navigation3.usePathname)();
+    var _React15_useState = _sliced_to_array(React15.useState(false), 2), isSearchOpen = _React15_useState[0], setIsSearchOpen = _React15_useState[1];
+    var _React15_useState1 = _sliced_to_array(React15.useState(""), 2), searchQuery = _React15_useState1[0], setSearchQuery = _React15_useState1[1];
+    var handleSearch = function(e) {
+        e.preventDefault();
+        if (onSearch) {
+            onSearch(searchQuery);
+        }
+        setIsSearchOpen(false);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("header", {
+        className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 navbar-glass", className),
+        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+            className: "container flex h-16 items-center",
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Sheet, {
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(SheetTrigger, {
+                            asChild: true,
+                            children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                className: "mr-2 md:hidden",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Menu, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Toggle menu"
+                                    })
+                                ]
+                            })
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(SheetContent, {
+                            side: "left",
+                            className: "pr-0",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                    className: "px-7",
+                                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RevaLogo2, {})
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                    className: "mt-8 flex flex-col gap-4",
+                                    children: items.map(function(item, index) {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(MobileNavItem3, {
+                                            item: item,
+                                            pathname: pathname
+                                        }, index);
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                    className: "mr-4 hidden md:flex",
+                    children: logo || /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(RevaLogo2, {})
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                    className: "hidden md:flex",
+                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenu, {
+                        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuList, {
+                            children: items.map(function(item, index) {
+                                return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavbarItem2, {
+                                    item: item,
+                                    pathname: pathname
+                                }, index);
+                            })
+                        })
+                    })
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                    className: "flex flex-1 items-center justify-end gap-2",
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                            className: "hidden md:flex items-center gap-2 mr-2",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Camera, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Camera"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sofa, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Room"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Phone, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Phone"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.PenLine, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Pen"
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showSearch && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                            className: "relative hidden md:flex",
+                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("form", {
+                                onSubmit: handleSearch,
+                                className: "relative",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Input, {
+                                        type: "search",
+                                        placeholder: "Search...",
+                                        className: "h-9 w-[200px] lg:w-[300px]",
+                                        value: searchQuery,
+                                        onChange: function(e) {
+                                            return setSearchQuery(e.target.value);
+                                        }
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                        type: "button",
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "absolute right-0 top-0",
+                                        onClick: function() {
+                                            return setIsSearchOpen(false);
+                                        },
+                                        children: [
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.X, {
+                                                className: "h-4 w-4"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Close search"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                onClick: function() {
+                                    return setIsSearchOpen(true);
+                                },
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Search, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Search"
+                                    })
+                                ]
+                            })
+                        }),
+                        showLanguageSelector && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                        variant: "ghost",
+                                        size: "sm",
+                                        className: "gap-1 text-sm font-medium",
+                                        children: [
+                                            languages.current,
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.ChevronDown, {
+                                                className: "h-4 w-4"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: languages.options.map(function(language) {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
+                                            },
+                                            children: language.label
+                                        }, language.value);
+                                    })
+                                })
+                            ]
+                        }),
+                        showThemeToggle && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        children: [
+                                            isDark ? /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sun, {
+                                                className: "h-5 w-5"
+                                            }) : /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Moon, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                                className: "sr-only",
+                                                children: "Toggle theme"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Sun, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Light"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Moon, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Dark"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("glass");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Glasses, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Glass"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "System"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showNotifications && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Bell, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                    className: "sr-only",
+                                    children: "Notifications"
+                                })
+                            ]
+                        }),
+                        showMessages && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            className: "relative",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.MessageSquare, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Badge, {
+                                    className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
+                                    children: "3"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                    className: "sr-only",
+                                    children: "Messages"
+                                })
+                            ]
+                        }),
+                        showBalance && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+                            className: "hidden items-center gap-2 md:flex",
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Wallet, {
+                                    className: "h-4 w-4"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("span", {
+                                    className: "text-sm font-medium text-green-600",
+                                    children: [
+                                        "+",
+                                        balance.toLocaleString()
+                                    ]
+                                })
+                            ]
+                        }),
+                        showCreateButton && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, {
+                            className: "bg-black hover:bg-black/90 text-white",
+                            children: "Create"
+                        }),
+                        showUserMenu && user && /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "rounded-full",
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Avatar, {
+                                            className: "h-8 w-8",
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AvatarImage, {
+                                                    src: user.image,
+                                                    alt: user.name || "User"
+                                                }),
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(AvatarFallback, {
+                                                    children: user.initials || "U"
+                                                })
+                                            ]
+                                        })
+                                    })
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuLabel, {
+                                            children: [
+                                                user.name && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                                    children: user.name
+                                                }),
+                                                user.email && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                                    className: "text-xs text-muted-foreground",
+                                                    children: user.email
+                                                })
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.User, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Profile"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Settings"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(DropdownMenuItem, {
+                                            onClick: onLogout,
+                                            children: [
+                                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.LogOut, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Log out"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            className: "ml-2",
+                            onClick: onLogout,
+                            children: [
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.LogOut, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("span", {
+                                    className: "sr-only",
+                                    children: "Logout"
+                                })
+                            ]
+                        })
+                    ]
+                })
+            ]
+        })
+    });
+}
+function NavbarItem2(param) {
+    var item = param.item, pathname = param.pathname;
+    if (item.children) {
+        return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(NavigationMenuItem, {
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuTrigger, {
+                    children: item.title
+                }),
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuContent, {
+                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("ul", {
+                        className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
+                        children: item.children.map(function(child) {
+                            return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("li", {
+                                className: "row-span-3",
+                                children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuLink, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(import_link5.default, {
+                                        href: child.href || "#",
+                                        className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
+                                        children: [
+                                            child.icon,
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                                                className: "mb-2 mt-4 text-lg font-medium",
+                                                children: child.title
+                                            }),
+                                            /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("p", {
+                                                className: "text-sm leading-tight text-muted-foreground",
+                                                children: child.description
+                                            })
+                                        ]
+                                    })
+                                })
+                            }, child.title);
+                        })
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuItem, {
+        children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+            href: item.href || "#",
+            legacyBehavior: true,
+            passHref: true,
+            children: /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(NavigationMenuLink, {
+                className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
+                children: item.title
+            })
+        })
+    });
+}
+function MobileNavItem3(param) {
+    var item = param.item, pathname = param.pathname;
+    var _React15_useState = _sliced_to_array(React15.useState(false), 2), isOpen = _React15_useState[0], setIsOpen = _React15_useState[1];
+    if (item.children) {
+        return /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
+            className: "flex flex-col",
+            children: [
+                /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("button", {
+                    className: "flex items-center justify-between py-2 text-base font-medium",
+                    onClick: function() {
+                        return setIsOpen(!isOpen);
+                    },
+                    children: [
+                        item.title,
+                        /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_lucide_react8.ChevronDown, {
+                            className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
+                        })
+                    ]
+                }),
+                isOpen && /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("div", {
+                    className: "ml-4 mt-2 flex flex-col gap-2",
+                    children: item.children.map(function(child) {
+                        return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+                            href: child.href || "#",
+                            className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
+                            children: child.title
+                        }, child.title);
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)(import_link5.default, {
+        href: item.href || "#",
+        className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
+        children: item.title
+    });
+}
+var defaultNavItems2 = [
+    {
+        title: "About",
+        href: "/about"
+    },
+    {
+        title: "Pricing",
+        href: "/pricing"
+    },
+    {
+        title: "Contact",
+        href: "/contact"
+    }
+];
+// src/components/new-navbar/ai-assistant.tsx
+var React16 = __toESM(require("react"));
+var import_lucide_react9 = require("lucide-react");
+var import_jsx_runtime27 = require("react/jsx-runtime");
+function AiAssistant() {
+    var _React16_useState = _sliced_to_array(React16.useState(false), 2), isOpen = _React16_useState[0], setIsOpen = _React16_useState[1];
+    var _React16_useState1 = _sliced_to_array(React16.useState(false), 2), isMinimized = _React16_useState1[0], setIsMinimized = _React16_useState1[1];
+    var _React16_useState2 = _sliced_to_array(React16.useState(""), 2), input = _React16_useState2[0], setInput = _React16_useState2[1];
+    var _React16_useState3 = _sliced_to_array(React16.useState([
+        {
+            id: "1",
+            content: "Hello! How can I help you today?",
+            role: "assistant",
+            timestamp: /* @__PURE__ */ new Date()
+        }
+    ]), 2), messages = _React16_useState3[0], setMessages = _React16_useState3[1];
+    var messagesEndRef = React16.useRef(null);
+    var scrollToBottom = function() {
+        var _messagesEndRef_current;
+        (_messagesEndRef_current = messagesEndRef.current) === null || _messagesEndRef_current === void 0 ? void 0 : _messagesEndRef_current.scrollIntoView({
+            behavior: "smooth"
+        });
+    };
+    React16.useEffect(function() {
+        if (isOpen && !isMinimized) {
+            scrollToBottom();
+        }
+    }, [
+        messages,
+        isOpen,
+        isMinimized
+    ]);
+    var handleSendMessage = function(e) {
+        e.preventDefault();
+        if (!input.trim()) return;
+        var userMessage = {
+            id: Date.now().toString(),
+            content: input,
+            role: "user",
+            timestamp: /* @__PURE__ */ new Date()
+        };
+        setMessages(function(prev) {
+            return _to_consumable_array(prev).concat([
+                userMessage
+            ]);
+        });
+        setInput("");
+        setTimeout(function() {
+            var assistantMessage = {
+                id: (Date.now() + 1).toString(),
+                content: "I'm your AI assistant. I'm here to help with any questions about REVA.",
+                role: "assistant",
+                timestamp: /* @__PURE__ */ new Date()
+            };
+            setMessages(function(prev) {
+                return _to_consumable_array(prev).concat([
+                    assistantMessage
+                ]);
+            });
+        }, 1e3);
+    };
+    return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+        className: "fixed bottom-4 right-4 z-50 flex flex-col items-end",
+        children: [
+            isOpen && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                className: cn("mb-2 w-80 rounded-lg border bg-background shadow-lg transition-all duration-200 ease-in-out", isMinimized ? "h-14" : "h-96"),
+                children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                        className: "flex items-center justify-between border-b p-3",
+                        children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                                className: "flex items-center gap-2",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Avatar, {
+                                        className: "h-6 w-6",
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(AvatarFallback, {
+                                            className: "bg-primary text-primary-foreground",
+                                            children: "AI"
+                                        })
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                        className: "font-medium",
+                                        children: "REVA Assistant"
+                                    })
+                                ]
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                                className: "flex items-center gap-1",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "h-6 w-6",
+                                        onClick: function() {
+                                            return setIsMinimized(!isMinimized);
+                                        },
+                                        children: isMinimized ? /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Maximize2, {
+                                            className: "h-4 w-4"
+                                        }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Minimize2, {
+                                            className: "h-4 w-4"
+                                        })
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "h-6 w-6",
+                                        onClick: function() {
+                                            return setIsOpen(false);
+                                        },
+                                        children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.X, {
+                                            className: "h-4 w-4"
+                                        })
+                                    })
+                                ]
+                            })
+                        ]
+                    }),
+                    !isMinimized && /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(import_jsx_runtime27.Fragment, {
+                        children: [
+                            /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                                className: "flex-1 overflow-y-auto p-3 h-[calc(100%-7rem)]",
+                                children: [
+                                    messages.map(function(message) {
+                                        return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
+                                            className: cn("mb-3 max-w-[80%] rounded-lg p-3", message.role === "user" ? "ml-auto bg-primary text-primary-foreground" : "bg-muted"),
+                                            children: message.content
+                                        }, message.id);
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
+                                        ref: messagesEndRef
+                                    })
+                                ]
+                            }),
+                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("form", {
+                                onSubmit: handleSendMessage,
+                                className: "border-t p-3",
+                                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
+                                    className: "flex gap-2",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Input, {
+                                            placeholder: "Type a message...",
+                                            value: input,
+                                            onChange: function(e) {
+                                                return setInput(e.target.value);
+                                            },
+                                            className: "flex-1"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                                            type: "submit",
+                                            size: "icon",
+                                            className: "bg-primary",
+                                            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Send, {
+                                                className: "h-4 w-4"
+                                            })
+                                        })
+                                    ]
+                                })
+                            })
+                        ]
+                    })
+                ]
+            }),
+            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Button, {
+                onClick: function() {
+                    return setIsOpen(!isOpen);
+                },
+                className: "h-12 w-12 rounded-full bg-primary shadow-lg",
+                children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react9.Bot, {
+                    className: "h-6 w-6"
+                })
+            })
+        ]
+    });
+}
+// src/components/new-navbar/theme-provider.tsx
+var import_next_themes5 = require("next-themes");
+var import_jsx_runtime28 = require("react/jsx-runtime");
+function ThemeProvider(_param) {
+    var children = _param.children, props = _object_without_properties(_param, [
+        "children"
+    ]);
+    return /* @__PURE__ */ (0, import_jsx_runtime28.jsx)(import_next_themes5.ThemeProvider, _object_spread_props(_object_spread({}, props), {
+        themes: [
+            "light",
+            "dark",
+            "system",
+            "glass"
+        ],
+        children: children
+    }));
+}
+// src/components/new-navbar/theme-toggle.tsx
+var import_lucide_react10 = require("lucide-react");
+var import_next_themes6 = require("next-themes");
+var import_jsx_runtime29 = require("react/jsx-runtime");
+function ThemeToggle2() {
+    var setTheme = (0, import_next_themes6.useTheme)().setTheme;
+    return /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(DropdownMenu, {
+        children: [
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuTrigger, {
+                asChild: true,
+                children: /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(Button, {
+                    variant: "ghost",
+                    size: "icon",
+                    children: [
+                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_lucide_react10.Sun, {
+                            className: "h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(import_lucide_react10.Moon, {
+                            className: "absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
+                        }),
+                        /* @__PURE__ */ (0, import_jsx_runtime29.jsx)("span", {
+                            className: "sr-only",
+                            children: "Toggle theme"
+                        })
+                    ]
+                })
+            }),
+            /* @__PURE__ */ (0, import_jsx_runtime29.jsxs)(DropdownMenuContent, {
+                align: "end",
+                children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("light");
+                        },
+                        children: "Light"
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("dark");
+                        },
+                        children: "Dark"
+                    }),
+                    /* @__PURE__ */ (0, import_jsx_runtime29.jsx)(DropdownMenuItem, {
+                        onClick: function() {
+                            return setTheme("system");
+                        },
+                        children: "System"
+                    })
+                ]
+            })
+        ]
+    });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
+    AiAssistant: AiAssistant,
     Button: Button,
     Card: Card,
     CardContent: CardContent,
@@ -3543,6 +4374,7 @@ var defaultNavItems = [
     NavSecondary: NavSecondary,
     Navbar: Navbar,
     NavbarWrapper: NavbarWrapper,
+    NewNavbar: NewNavbar,
     RevaLogo: RevaLogo,
     RevaNavbar: RevaNavbar,
     Separator: Separator,
@@ -3581,6 +4413,7 @@ var defaultNavItems = [
     SidebarSeparator: SidebarSeparator,
     SidebarTrigger: SidebarTrigger,
     Skeleton: Skeleton,
+    ThemeProvider: ThemeProvider,
     ThemeToggle: ThemeToggle,
     Tooltip: Tooltip,
     TooltipContent: TooltipContent,

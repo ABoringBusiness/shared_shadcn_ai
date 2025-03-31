@@ -6,13 +6,14 @@ import * as _radix_ui_react_separator from '@radix-ui/react-separator';
 import { VariantProps } from 'class-variance-authority';
 import * as TooltipPrimitive from '@radix-ui/react-tooltip';
 import { LucideIcon } from 'lucide-react';
+import { ThemeProviderProps } from 'next-themes';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu';
 import * as LabelPrimitive from '@radix-ui/react-label';
 import * as SheetPrimitive from '@radix-ui/react-dialog';
 import { ClassValue } from 'clsx';
 
-interface NavbarProps$1 {
+interface NavbarProps$2 {
     onSelectPrompt?: (prompt: string) => void;
     onWriteClick?: () => void;
     logoLight?: string;
@@ -24,7 +25,7 @@ interface NavbarProps$1 {
     actionButtons?: React__default.ReactNode;
     promptMenuComponent?: React__default.ReactNode;
 }
-declare function Navbar({ onSelectPrompt, onWriteClick, logoLight, logoDark, navItems, actionButtons, promptMenuComponent }: NavbarProps$1): react_jsx_runtime.JSX.Element;
+declare function Navbar({ onSelectPrompt, onWriteClick, logoLight, logoDark, navItems, actionButtons, promptMenuComponent }: NavbarProps$2): react_jsx_runtime.JSX.Element;
 
 interface NavbarWrapperProps {
     logoLight?: string;
@@ -38,12 +39,6 @@ interface NavbarWrapperProps {
     promptMenuComponent?: React.ReactNode;
 }
 declare function NavbarWrapper({ logoLight, logoDark, navItems, actionButtons, promptModalComponent, promptMenuComponent }: NavbarWrapperProps): react_jsx_runtime.JSX.Element;
-
-interface ThemeToggleProps {
-    className?: string;
-    collapsed?: boolean;
-}
-declare function ThemeToggle({ className, collapsed }: ThemeToggleProps): react_jsx_runtime.JSX.Element | null;
 
 declare const buttonVariants: (props?: ({
     variant?: "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | null | undefined;
@@ -192,6 +187,50 @@ interface LoginFormProps extends React.ComponentProps<"div"> {
 }
 declare function LoginForm({ className, onEmailLogin, onGoogleLogin, onForgotPassword, onSignUp, backgroundImage, title, subtitle, ...props }: LoginFormProps): react_jsx_runtime.JSX.Element;
 
+interface NavItem$1 {
+    title: string;
+    href?: string;
+    disabled?: boolean;
+    external?: boolean;
+    icon?: React$1.ReactNode;
+    label?: string;
+    description?: string;
+    children?: NavItem$1[];
+}
+interface NavbarProps$1 {
+    logo?: React$1.ReactNode;
+    items?: NavItem$1[];
+    showSearch?: boolean;
+    showThemeToggle?: boolean;
+    showLanguageSelector?: boolean;
+    showUserMenu?: boolean;
+    showBalance?: boolean;
+    showCreateButton?: boolean;
+    showNotifications?: boolean;
+    showMessages?: boolean;
+    balance?: number;
+    user?: {
+        name?: string;
+        email?: string;
+        image?: string;
+        initials?: string;
+    };
+    languages?: {
+        current: string;
+        options: {
+            label: string;
+            value: string;
+        }[];
+    };
+    onThemeToggle?: (theme?: string) => void;
+    onLanguageChange?: (language: string) => void;
+    onLogout?: () => void;
+    onSearch?: (query: string) => void;
+    className?: string;
+    isDark?: boolean;
+}
+declare function RevaNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps$1): react_jsx_runtime.JSX.Element;
+
 interface NavItem {
     title: string;
     href?: string;
@@ -234,9 +273,15 @@ interface NavbarProps {
     className?: string;
     isDark?: boolean;
 }
-declare function RevaNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps): react_jsx_runtime.JSX.Element;
+declare function NewNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps): react_jsx_runtime.JSX.Element;
+
+declare function AiAssistant(): react_jsx_runtime.JSX.Element;
 
 declare function RevaLogo(): react_jsx_runtime.JSX.Element;
+
+declare function ThemeProvider({ children, ...props }: ThemeProviderProps): react_jsx_runtime.JSX.Element;
+
+declare function ThemeToggle(): react_jsx_runtime.JSX.Element;
 
 declare const Card: React$1.ForwardRefExoticComponent<React$1.HTMLAttributes<HTMLDivElement> & React$1.RefAttributes<HTMLDivElement>>;
 declare const CardHeader: React$1.ForwardRefExoticComponent<React$1.HTMLAttributes<HTMLDivElement> & React$1.RefAttributes<HTMLDivElement>>;
@@ -309,4 +354,4 @@ declare function useIsMobile(): boolean;
 declare function cn(...inputs: ClassValue[]): string;
 declare function formatDateTime(date: Date | string | null): string;
 
-export { Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, RevaLogo, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
+export { AiAssistant, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent, CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, NewNavbar, RevaLogo, RevaNavbar, Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeProvider, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
