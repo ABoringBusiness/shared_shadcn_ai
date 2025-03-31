@@ -136,7 +136,7 @@ export function NewNavbar({
         className,
       )}
     >
-      <div className="container flex h-16 items-center">
+      <div className="flex p-4 justify-between w-full h-16 items-center">
         <Sheet>
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon" className="mr-2 md:hidden">
@@ -166,7 +166,7 @@ export function NewNavbar({
           </NavigationMenu>
         </div>
 
-        <div className="flex flex-1 items-center justify-end gap-2">
+        <div className="flex items-center justify-end gap-2">
           {/* Icon buttons */}
           <div className="hidden md:flex items-center gap-2 mr-2">
             <Button variant="ghost" size="icon">

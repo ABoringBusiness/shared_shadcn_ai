@@ -3582,7 +3582,7 @@ function NewNavbar(param) {
     return /* @__PURE__ */ (0, import_jsx_runtime26.jsx)("header", {
         className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 navbar-glass", className),
         children: /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
-            className: "container flex h-16 items-center",
+            className: "flex p-4 justify-between w-full h-16 items-center",
             children: [
                 /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)(Sheet, {
                     children: [
@@ -3642,7 +3642,7 @@ function NewNavbar(param) {
                     })
                 }),
                 /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
-                    className: "flex flex-1 items-center justify-end gap-2",
+                    className: "flex items-center justify-end gap-2",
                     children: [
                         /* @__PURE__ */ (0, import_jsx_runtime26.jsxs)("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",

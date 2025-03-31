@@ -1,6 +1,6 @@
 {
   "name": "shared-shadcn-ai",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Shared UI components for Shadcn-based projects",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
