@@ -88,7 +88,7 @@ interface NavbarProps {
   isDark?: boolean
 }
 
-export function Navbar({
+export function RevaNavbar({
   logo,
   items = defaultNavItems,
   showSearch = false,

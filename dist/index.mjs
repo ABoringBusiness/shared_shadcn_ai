@@ -2478,5 +2478,720 @@ function LoginForm(_param) {
         ]
     }));
 }
-export { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label2 as Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, Separator2 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
+// src/components/reva-navbar/navbar.tsx
+import * as React14 from "react";
+import Link5 from "next/link";
+import { usePathname as usePathname2 } from "next/navigation";
+import { Bell, Camera as Camera2, ChevronDown as ChevronDown2, LogOut as LogOut2, Menu as Menu2, MessageSquare, Moon as Moon2, PenLine as PenLine2, Phone as Phone2, Search, Settings, Sofa as Sofa2, Sun as Sun2, User, Wallet, X as X2 } from "lucide-react";
+// src/components/ui/navigation-menu.tsx
+import * as React12 from "react";
+import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
+import { cva as cva5 } from "class-variance-authority";
+import { ChevronDownIcon } from "@radix-ui/react-icons";
+import { jsx as jsx20, jsxs as jsxs13 } from "react/jsx-runtime";
+var NavigationMenu = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "children"
+    ]);
+    return /* @__PURE__ */ jsxs13(NavigationMenuPrimitive.Root, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("relative z-10 flex max-w-max flex-1 items-center justify-center", className)
+    }, props), {
+        children: [
+            children,
+            /* @__PURE__ */ jsx20(NavigationMenuViewport, {})
+        ]
+    }));
+});
+NavigationMenu.displayName = NavigationMenuPrimitive.Root.displayName;
+var NavigationMenuList = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.List, _object_spread({
+        ref: ref,
+        className: cn("group flex flex-1 list-none items-center justify-center space-x-1", className)
+    }, props));
+});
+NavigationMenuList.displayName = NavigationMenuPrimitive.List.displayName;
+var NavigationMenuItem = NavigationMenuPrimitive.Item;
+var navigationMenuTriggerStyle = cva5("group inline-flex h-9 w-max items-center justify-center rounded-md bg-background px-4 py-2 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[state=open]:text-accent-foreground data-[state=open]:bg-accent/50 data-[state=open]:hover:bg-accent data-[state=open]:focus:bg-accent");
+var NavigationMenuTrigger = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, children = _param.children, props = _object_without_properties(_param, [
+        "className",
+        "children"
+    ]);
+    return /* @__PURE__ */ jsxs13(NavigationMenuPrimitive.Trigger, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn(navigationMenuTriggerStyle(), "group", className)
+    }, props), {
+        children: [
+            children,
+            " ",
+            /* @__PURE__ */ jsx20(ChevronDownIcon, {
+                className: "relative top-[1px] ml-1 h-3 w-3 transition duration-300 group-data-[state=open]:rotate-180",
+                "aria-hidden": "true"
+            })
+        ]
+    }));
+});
+NavigationMenuTrigger.displayName = NavigationMenuPrimitive.Trigger.displayName;
+var NavigationMenuContent = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Content, _object_spread({
+        ref: ref,
+        className: cn("left-0 top-0 w-full data-[motion^=from-]:animate-in data-[motion^=to-]:animate-out data-[motion^=from-]:fade-in data-[motion^=to-]:fade-out data-[motion=from-end]:slide-in-from-right-52 data-[motion=from-start]:slide-in-from-left-52 data-[motion=to-end]:slide-out-to-right-52 data-[motion=to-start]:slide-out-to-left-52 md:absolute md:w-auto ", className)
+    }, props));
+});
+NavigationMenuContent.displayName = NavigationMenuPrimitive.Content.displayName;
+var NavigationMenuLink = NavigationMenuPrimitive.Link;
+var NavigationMenuViewport = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx20("div", {
+        className: cn("absolute left-0 top-full flex justify-center"),
+        children: /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Viewport, _object_spread({
+            className: cn("origin-top-center relative mt-1.5 h-[var(--radix-navigation-menu-viewport-height)] w-full overflow-hidden rounded-md border bg-popover text-popover-foreground shadow data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-90 md:w-[var(--radix-navigation-menu-viewport-width)]", className),
+            ref: ref
+        }, props))
+    });
+});
+NavigationMenuViewport.displayName = NavigationMenuPrimitive.Viewport.displayName;
+var NavigationMenuIndicator = React12.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx20(NavigationMenuPrimitive.Indicator, _object_spread_props(_object_spread({
+        ref: ref,
+        className: cn("top-full z-[1] flex h-1.5 items-end justify-center overflow-hidden data-[state=visible]:animate-in data-[state=hidden]:animate-out data-[state=hidden]:fade-out data-[state=visible]:fade-in", className)
+    }, props), {
+        children: /* @__PURE__ */ jsx20("div", {
+            className: "relative top-[60%] h-2 w-2 rotate-45 rounded-tl-sm bg-border shadow-md"
+        })
+    }));
+});
+NavigationMenuIndicator.displayName = NavigationMenuPrimitive.Indicator.displayName;
+// src/components/ui/avatar.tsx
+import * as React13 from "react";
+import * as AvatarPrimitive from "@radix-ui/react-avatar";
+import { jsx as jsx21 } from "react/jsx-runtime";
+var Avatar = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx21(AvatarPrimitive.Root, _object_spread({
+        ref: ref,
+        className: cn("relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full", className)
+    }, props));
+});
+Avatar.displayName = AvatarPrimitive.Root.displayName;
+var AvatarImage = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx21(AvatarPrimitive.Image, _object_spread({
+        ref: ref,
+        className: cn("aspect-square h-full w-full", className)
+    }, props));
+});
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+var AvatarFallback = React13.forwardRef(function(_param, ref) {
+    var className = _param.className, props = _object_without_properties(_param, [
+        "className"
+    ]);
+    return /* @__PURE__ */ jsx21(AvatarPrimitive.Fallback, _object_spread({
+        ref: ref,
+        className: cn("flex h-full w-full items-center justify-center rounded-full bg-muted", className)
+    }, props));
+});
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+// src/components/ui/badge.tsx
+import { cva as cva6 } from "class-variance-authority";
+import { jsx as jsx22 } from "react/jsx-runtime";
+var badgeVariants = cva6("inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2", {
+    variants: {
+        variant: {
+            default: "border-transparent bg-primary text-primary-foreground hover:bg-primary/80",
+            secondary: "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
+            destructive: "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
+            outline: "text-foreground"
+        }
+    },
+    defaultVariants: {
+        variant: "default"
+    }
+});
+function Badge(_param) {
+    var className = _param.className, variant = _param.variant, props = _object_without_properties(_param, [
+        "className",
+        "variant"
+    ]);
+    return /* @__PURE__ */ jsx22("div", _object_spread({
+        className: cn(badgeVariants({
+            variant: variant
+        }), className)
+    }, props));
+}
+// src/components/reva-navbar/reva-logo-dark.tsx
+import { useTheme as useTheme3 } from "next-themes";
+import Image4 from "next/image";
+import Link4 from "next/link";
+import { jsx as jsx23 } from "react/jsx-runtime";
+function RevaLogo() {
+    var resolvedTheme = useTheme3().resolvedTheme;
+    var isDarkTheme = resolvedTheme === "dark";
+    return /* @__PURE__ */ jsx23(Link4, {
+        href: "/",
+        className: "flex items-center",
+        children: isDarkTheme ? /* @__PURE__ */ jsx23(Image4, {
+            src: "/images/reva-logo-dark.svg",
+            alt: "REVA",
+            width: 100,
+            height: 30,
+            className: "h-8 w-auto",
+            priority: true
+        }) : /* @__PURE__ */ jsx23(Image4, {
+            src: "/images/reva-logo.png",
+            alt: "REVA",
+            width: 100,
+            height: 30,
+            className: "h-8 w-auto",
+            priority: true
+        })
+    });
+}
+// src/components/reva-navbar/navbar.tsx
+import { jsx as jsx24, jsxs as jsxs14 } from "react/jsx-runtime";
+function RevaNavbar(param) {
+    var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
+        current: "Eng",
+        options: [
+            {
+                label: "English",
+                value: "en"
+            },
+            {
+                label: "Fran\xE7ais",
+                value: "fr"
+            },
+            {
+                label: "Espa\xF1ol",
+                value: "es"
+            }
+        ]
+    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark;
+    var pathname = usePathname2();
+    var _React14_useState = _sliced_to_array(React14.useState(false), 2), isSearchOpen = _React14_useState[0], setIsSearchOpen = _React14_useState[1];
+    var _React14_useState1 = _sliced_to_array(React14.useState(""), 2), searchQuery = _React14_useState1[0], setSearchQuery = _React14_useState1[1];
+    var handleSearch = function(e) {
+        e.preventDefault();
+        if (onSearch) {
+            onSearch(searchQuery);
+        }
+        setIsSearchOpen(false);
+    };
+    return /* @__PURE__ */ jsx24("header", {
+        className: cn("sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60", className),
+        children: /* @__PURE__ */ jsxs14("div", {
+            className: "container flex h-16 items-center",
+            children: [
+                /* @__PURE__ */ jsxs14(Sheet, {
+                    children: [
+                        /* @__PURE__ */ jsx24(SheetTrigger, {
+                            asChild: true,
+                            children: /* @__PURE__ */ jsxs14(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                className: "mr-2 md:hidden",
+                                children: [
+                                    /* @__PURE__ */ jsx24(Menu2, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ jsx24("span", {
+                                        className: "sr-only",
+                                        children: "Toggle menu"
+                                    })
+                                ]
+                            })
+                        }),
+                        /* @__PURE__ */ jsxs14(SheetContent, {
+                            side: "left",
+                            className: "pr-0",
+                            children: [
+                                /* @__PURE__ */ jsx24("div", {
+                                    className: "px-7",
+                                    children: logo || /* @__PURE__ */ jsx24(RevaLogo, {})
+                                }),
+                                /* @__PURE__ */ jsx24("div", {
+                                    className: "mt-8 flex flex-col gap-4",
+                                    children: items.map(function(item, index) {
+                                        return /* @__PURE__ */ jsx24(MobileNavItem2, {
+                                            item: item,
+                                            pathname: pathname
+                                        }, index);
+                                    })
+                                })
+                            ]
+                        })
+                    ]
+                }),
+                /* @__PURE__ */ jsx24("div", {
+                    className: "mr-4 hidden md:flex",
+                    children: logo || /* @__PURE__ */ jsx24(RevaLogo, {})
+                }),
+                /* @__PURE__ */ jsx24("div", {
+                    className: "hidden md:flex",
+                    children: /* @__PURE__ */ jsx24(NavigationMenu, {
+                        children: /* @__PURE__ */ jsx24(NavigationMenuList, {
+                            children: items.map(function(item, index) {
+                                return /* @__PURE__ */ jsx24(NavbarItem, {
+                                    item: item,
+                                    pathname: pathname
+                                }, index);
+                            })
+                        })
+                    })
+                }),
+                /* @__PURE__ */ jsxs14("div", {
+                    className: "flex flex-1 items-center justify-end gap-2",
+                    children: [
+                        /* @__PURE__ */ jsxs14("div", {
+                            className: "hidden md:flex items-center gap-2 mr-2",
+                            children: [
+                                /* @__PURE__ */ jsxs14(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ jsx24(Camera2, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ jsx24("span", {
+                                            className: "sr-only",
+                                            children: "Camera"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ jsxs14(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ jsx24(Sofa2, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ jsx24("span", {
+                                            className: "sr-only",
+                                            children: "Room"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ jsxs14(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ jsx24(Phone2, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ jsx24("span", {
+                                            className: "sr-only",
+                                            children: "Phone"
+                                        })
+                                    ]
+                                }),
+                                /* @__PURE__ */ jsxs14(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    children: [
+                                        /* @__PURE__ */ jsx24(PenLine2, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ jsx24("span", {
+                                            className: "sr-only",
+                                            children: "Pen"
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showSearch && /* @__PURE__ */ jsx24("div", {
+                            className: "relative hidden md:flex",
+                            children: isSearchOpen ? /* @__PURE__ */ jsxs14("form", {
+                                onSubmit: handleSearch,
+                                className: "relative",
+                                children: [
+                                    /* @__PURE__ */ jsx24(Input, {
+                                        type: "search",
+                                        placeholder: "Search...",
+                                        className: "h-9 w-[200px] lg:w-[300px]",
+                                        value: searchQuery,
+                                        onChange: function(e) {
+                                            return setSearchQuery(e.target.value);
+                                        }
+                                    }),
+                                    /* @__PURE__ */ jsxs14(Button, {
+                                        type: "button",
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "absolute right-0 top-0",
+                                        onClick: function() {
+                                            return setIsSearchOpen(false);
+                                        },
+                                        children: [
+                                            /* @__PURE__ */ jsx24(X2, {
+                                                className: "h-4 w-4"
+                                            }),
+                                            /* @__PURE__ */ jsx24("span", {
+                                                className: "sr-only",
+                                                children: "Close search"
+                                            })
+                                        ]
+                                    })
+                                ]
+                            }) : /* @__PURE__ */ jsxs14(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                onClick: function() {
+                                    return setIsSearchOpen(true);
+                                },
+                                children: [
+                                    /* @__PURE__ */ jsx24(Search, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ jsx24("span", {
+                                        className: "sr-only",
+                                        children: "Search"
+                                    })
+                                ]
+                            })
+                        }),
+                        showLanguageSelector && /* @__PURE__ */ jsxs14(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ jsxs14(Button, {
+                                        variant: "ghost",
+                                        size: "sm",
+                                        className: "gap-1 text-sm font-medium",
+                                        children: [
+                                            languages.current,
+                                            /* @__PURE__ */ jsx24(ChevronDown2, {
+                                                className: "h-4 w-4"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ jsx24(DropdownMenuContent, {
+                                    align: "end",
+                                    children: languages.options.map(function(language) {
+                                        return /* @__PURE__ */ jsx24(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onLanguageChange === null || onLanguageChange === void 0 ? void 0 : onLanguageChange(language.value);
+                                            },
+                                            children: language.label
+                                        }, language.value);
+                                    })
+                                })
+                            ]
+                        }),
+                        showThemeToggle && /* @__PURE__ */ jsxs14(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ jsxs14(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        children: [
+                                            isDark ? /* @__PURE__ */ jsx24(Sun2, {
+                                                className: "h-5 w-5"
+                                            }) : /* @__PURE__ */ jsx24(Moon2, {
+                                                className: "h-5 w-5"
+                                            }),
+                                            /* @__PURE__ */ jsx24("span", {
+                                                className: "sr-only",
+                                                children: "Toggle theme"
+                                            })
+                                        ]
+                                    })
+                                }),
+                                /* @__PURE__ */ jsxs14(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("light");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ jsx24(Sun2, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Light"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("dark");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ jsx24(Moon2, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Dark"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("system");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ jsx24(Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "System"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            onClick: function() {
+                                                return onThemeToggle === null || onThemeToggle === void 0 ? void 0 : onThemeToggle("contrast");
+                                            },
+                                            children: [
+                                                /* @__PURE__ */ jsx24(Bell, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "High Contrast"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        }),
+                        showNotifications && /* @__PURE__ */ jsxs14(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            children: [
+                                /* @__PURE__ */ jsx24(Bell, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ jsx24("span", {
+                                    className: "sr-only",
+                                    children: "Notifications"
+                                })
+                            ]
+                        }),
+                        showMessages && /* @__PURE__ */ jsxs14(Button, {
+                            variant: "ghost",
+                            size: "icon",
+                            className: "relative",
+                            children: [
+                                /* @__PURE__ */ jsx24(MessageSquare, {
+                                    className: "h-5 w-5"
+                                }),
+                                /* @__PURE__ */ jsx24(Badge, {
+                                    className: "absolute -right-1 -top-1 h-5 w-5 rounded-full p-0 flex items-center justify-center",
+                                    children: "3"
+                                }),
+                                /* @__PURE__ */ jsx24("span", {
+                                    className: "sr-only",
+                                    children: "Messages"
+                                })
+                            ]
+                        }),
+                        showBalance && /* @__PURE__ */ jsxs14("div", {
+                            className: "hidden items-center gap-2 md:flex",
+                            children: [
+                                /* @__PURE__ */ jsx24(Wallet, {
+                                    className: "h-4 w-4"
+                                }),
+                                /* @__PURE__ */ jsxs14("span", {
+                                    className: cn("text-sm font-medium", balance < 0 ? "text-destructive" : ""),
+                                    children: [
+                                        balance > 0 ? "+" : "",
+                                        balance.toLocaleString()
+                                    ]
+                                })
+                            ]
+                        }),
+                        showCreateButton && /* @__PURE__ */ jsx24(Button, {
+                            className: "bg-black hover:bg-black/90 text-white",
+                            children: "Create"
+                        }),
+                        showUserMenu && user && /* @__PURE__ */ jsxs14(DropdownMenu, {
+                            children: [
+                                /* @__PURE__ */ jsx24(DropdownMenuTrigger, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ jsx24(Button, {
+                                        variant: "ghost",
+                                        size: "icon",
+                                        className: "rounded-full",
+                                        children: /* @__PURE__ */ jsxs14(Avatar, {
+                                            className: "h-8 w-8",
+                                            children: [
+                                                /* @__PURE__ */ jsx24(AvatarImage, {
+                                                    src: user.image,
+                                                    alt: user.name || "User"
+                                                }),
+                                                /* @__PURE__ */ jsx24(AvatarFallback, {
+                                                    children: user.initials || "U"
+                                                })
+                                            ]
+                                        })
+                                    })
+                                }),
+                                /* @__PURE__ */ jsxs14(DropdownMenuContent, {
+                                    align: "end",
+                                    children: [
+                                        /* @__PURE__ */ jsxs14(DropdownMenuLabel, {
+                                            children: [
+                                                user.name && /* @__PURE__ */ jsx24("p", {
+                                                    children: user.name
+                                                }),
+                                                user.email && /* @__PURE__ */ jsx24("p", {
+                                                    className: "text-xs text-muted-foreground",
+                                                    children: user.email
+                                                })
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsx24(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ jsx24(User, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Profile"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            children: [
+                                                /* @__PURE__ */ jsx24(Settings, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Settings"
+                                            ]
+                                        }),
+                                        /* @__PURE__ */ jsx24(DropdownMenuSeparator, {}),
+                                        /* @__PURE__ */ jsxs14(DropdownMenuItem, {
+                                            onClick: onLogout,
+                                            children: [
+                                                /* @__PURE__ */ jsx24(LogOut2, {
+                                                    className: "mr-2 h-4 w-4"
+                                                }),
+                                                "Log out"
+                                            ]
+                                        })
+                                    ]
+                                })
+                            ]
+                        })
+                    ]
+                })
+            ]
+        })
+    });
+}
+function NavbarItem(param) {
+    var item = param.item, pathname = param.pathname;
+    if (item.children) {
+        return /* @__PURE__ */ jsxs14(NavigationMenuItem, {
+            children: [
+                /* @__PURE__ */ jsx24(NavigationMenuTrigger, {
+                    children: item.title
+                }),
+                /* @__PURE__ */ jsx24(NavigationMenuContent, {
+                    children: /* @__PURE__ */ jsx24("ul", {
+                        className: "grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]",
+                        children: item.children.map(function(child) {
+                            return /* @__PURE__ */ jsx24("li", {
+                                className: "row-span-3",
+                                children: /* @__PURE__ */ jsx24(NavigationMenuLink, {
+                                    asChild: true,
+                                    children: /* @__PURE__ */ jsxs14(Link5, {
+                                        href: child.href || "#",
+                                        className: "flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md",
+                                        children: [
+                                            child.icon,
+                                            /* @__PURE__ */ jsx24("div", {
+                                                className: "mb-2 mt-4 text-lg font-medium",
+                                                children: child.title
+                                            }),
+                                            /* @__PURE__ */ jsx24("p", {
+                                                className: "text-sm leading-tight text-muted-foreground",
+                                                children: child.description
+                                            })
+                                        ]
+                                    })
+                                })
+                            }, child.title);
+                        })
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ jsx24(NavigationMenuItem, {
+        children: /* @__PURE__ */ jsx24(Link5, {
+            href: item.href || "#",
+            legacyBehavior: true,
+            passHref: true,
+            children: /* @__PURE__ */ jsx24(NavigationMenuLink, {
+                className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
+                children: item.title
+            })
+        })
+    });
+}
+function MobileNavItem2(param) {
+    var item = param.item, pathname = param.pathname;
+    var _React14_useState = _sliced_to_array(React14.useState(false), 2), isOpen = _React14_useState[0], setIsOpen = _React14_useState[1];
+    if (item.children) {
+        return /* @__PURE__ */ jsxs14("div", {
+            className: "flex flex-col",
+            children: [
+                /* @__PURE__ */ jsxs14("button", {
+                    className: "flex items-center justify-between py-2 text-base font-medium",
+                    onClick: function() {
+                        return setIsOpen(!isOpen);
+                    },
+                    children: [
+                        item.title,
+                        /* @__PURE__ */ jsx24(ChevronDown2, {
+                            className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
+                        })
+                    ]
+                }),
+                isOpen && /* @__PURE__ */ jsx24("div", {
+                    className: "ml-4 mt-2 flex flex-col gap-2",
+                    children: item.children.map(function(child) {
+                        return /* @__PURE__ */ jsx24(Link5, {
+                            href: child.href || "#",
+                            className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
+                            children: child.title
+                        }, child.title);
+                    })
+                })
+            ]
+        });
+    }
+    return /* @__PURE__ */ jsx24(Link5, {
+        href: item.href || "#",
+        className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
+        children: item.title
+    });
+}
+var defaultNavItems = [
+    {
+        title: "About",
+        href: "/about"
+    },
+    {
+        title: "Pricing",
+        href: "/pricing"
+    },
+    {
+        title: "Contact",
+        href: "/contact"
+    }
+];
+export { Button, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Collapsible, CollapsibleContent2 as CollapsibleContent, CollapsibleTrigger2 as CollapsibleTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, Label2 as Label, LoginForm, NavHistory, NavListings, NavMain, NavSecondary, Navbar, NavbarWrapper, RevaLogo, RevaNavbar, Separator2 as Separator, Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetOverlay, SheetPortal, SheetTitle, SheetTrigger, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupAction, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarInput, SidebarInset, SidebarLeft, SidebarMenu, SidebarMenuAction, SidebarMenuBadge, SidebarMenuButton, SidebarMenuItem, SidebarMenuSkeleton, SidebarMenuSub, SidebarMenuSubButton, SidebarMenuSubItem, SidebarProvider, SidebarRail, SidebarSeparator, SidebarTrigger, Skeleton, ThemeToggle, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, buttonVariants, cn, formatDateTime, useIsMobile, useSidebar };
 //# sourceMappingURL=index.mjs.map
