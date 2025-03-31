@@ -1,2 +1,2 @@
-export * from './navbar';
+export * from './reva-navbar';
 export * from './reva-logo-dark';

@@ -2792,7 +2792,7 @@ function LoginForm(_param) {
         ]
     }));
 }
-// src/components/reva-navbar/navbar.tsx
+// src/components/reva-navbar/reva-navbar.tsx
 var React14 = __toESM(require("react"));
 var import_link3 = __toESM(require("next/link"));
 var import_navigation2 = require("next/navigation");
@@ -2978,7 +2978,7 @@ function RevaLogo() {
         })
     });
 }
-// src/components/reva-navbar/navbar.tsx
+// src/components/reva-navbar/reva-navbar.tsx
 var import_jsx_runtime24 = require("react/jsx-runtime");
 function RevaNavbar(param) {
     var logo = param.logo, _param_items = param.items, items = _param_items === void 0 ? defaultNavItems : _param_items, _param_showSearch = param.showSearch, showSearch = _param_showSearch === void 0 ? false : _param_showSearch, _param_showThemeToggle = param.showThemeToggle, showThemeToggle = _param_showThemeToggle === void 0 ? true : _param_showThemeToggle, _param_showLanguageSelector = param.showLanguageSelector, showLanguageSelector = _param_showLanguageSelector === void 0 ? false : _param_showLanguageSelector, _param_showUserMenu = param.showUserMenu, showUserMenu = _param_showUserMenu === void 0 ? true : _param_showUserMenu, _param_showBalance = param.showBalance, showBalance = _param_showBalance === void 0 ? false : _param_showBalance, _param_showCreateButton = param.showCreateButton, showCreateButton = _param_showCreateButton === void 0 ? false : _param_showCreateButton, _param_showNotifications = param.showNotifications, showNotifications = _param_showNotifications === void 0 ? false : _param_showNotifications, _param_showMessages = param.showMessages, showMessages = _param_showMessages === void 0 ? false : _param_showMessages, _param_balance = param.balance, balance = _param_balance === void 0 ? 0 : _param_balance, user = param.user, _param_languages = param.languages, languages = _param_languages === void 0 ? {
