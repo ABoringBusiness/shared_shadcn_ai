@@ -87,6 +87,15 @@ interface NavbarProps {
   onSearch?: (query: string) => void
   className?: string
   isDark?: boolean
+  // Icon button links
+  iconLinks?: {
+    camera?: string
+    room?: string
+    phone?: string
+    pen?: string
+  }
+  // Whether to open links in a new tab
+  openLinksInNewTab?: boolean
 }
 
 export function NewNavbar({
@@ -116,6 +125,8 @@ export function NewNavbar({
   onSearch,
   className,
   isDark = false,
+  iconLinks = {},
+  openLinksInNewTab = true,
 }: NavbarProps) {
   const pathname = usePathname()
   const [isSearchOpen, setIsSearchOpen] = React.useState(false)
@@ -169,22 +180,100 @@ export function NewNavbar({
         <div className="flex items-center justify-end gap-2">
           {/* Icon buttons */}
           <div className="hidden md:flex items-center gap-2 mr-2">
-            <Button variant="ghost" size="icon">
-              <Camera className="h-5 w-5" />
-              <span className="sr-only">Camera</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Sofa className="h-5 w-5" />
-              <span className="sr-only">Room</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <Phone className="h-5 w-5" />
-              <span className="sr-only">Phone</span>
-            </Button>
-            <Button variant="ghost" size="icon">
-              <PenLine className="h-5 w-5" />
-              <span className="sr-only">Pen</span>
-            </Button>
+            {/* Camera button */}
+            {iconLinks.camera ? (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => window.open(iconLinks.camera, openLinksInNewTab ? '_blank' : '_self')}
+                className="relative group"
+              >
+                <Camera className="h-5 w-5" />
+                <span className="sr-only">Camera</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Headshots
+                </span>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon" className="relative group">
+                <Camera className="h-5 w-5" />
+                <span className="sr-only">Camera</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Headshots
+                </span>
+              </Button>
+            )}
+            {/* Room/Sofa button */}
+            {iconLinks.room ? (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => window.open(iconLinks.room, openLinksInNewTab ? '_blank' : '_self')}
+                className="relative group"
+              >
+                <Sofa className="h-5 w-5" />
+                <span className="sr-only">Room</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Virtual Staging
+                </span>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon" className="relative group">
+                <Sofa className="h-5 w-5" />
+                <span className="sr-only">Room</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Virtual Staging
+                </span>
+              </Button>
+            )}
+            
+            {/* Phone button */}
+            {iconLinks.phone ? (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => window.open(iconLinks.phone, openLinksInNewTab ? '_blank' : '_self')}
+                className="relative group"
+              >
+                <Phone className="h-5 w-5" />
+                <span className="sr-only">Phone</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Lead Calling
+                </span>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon" className="relative group">
+                <Phone className="h-5 w-5" />
+                <span className="sr-only">Phone</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Lead Calling
+                </span>
+              </Button>
+            )}
+            
+            {/* Pen button */}
+            {iconLinks.pen ? (
+              <Button 
+                variant="ghost" 
+                size="icon" 
+                onClick={() => window.open(iconLinks.pen, openLinksInNewTab ? '_blank' : '_self')}
+                className="relative group"
+              >
+                <PenLine className="h-5 w-5" />
+                <span className="sr-only">Pen</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Prompt Library
+                </span>
+              </Button>
+            ) : (
+              <Button variant="ghost" size="icon" className="relative group">
+                <PenLine className="h-5 w-5" />
+                <span className="sr-only">Pen</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Prompt Library
+                </span>
+              </Button>
+            )}
           </div>
           {showSearch && (
             <div className="relative hidden md:flex">
@@ -362,16 +451,16 @@ function NavbarItem({ item, pathname }: { item: NavItem; pathname: string | null
 
   return (
     <NavigationMenuItem>
-      <Link href={item.href || "#"} legacyBehavior passHref>
-        <NavigationMenuLink
-          className={cn(
-            navigationMenuTriggerStyle(),
-            pathname === item.href && "bg-accent text-accent-foreground",
-            item.disabled && "cursor-not-allowed opacity-60",
-          )}
-        >
-          {item.title}
-        </NavigationMenuLink>
+      <Link
+        href={item.disabled ? "#" : item.href || "#"}
+        className={cn(
+          navigationMenuTriggerStyle(),
+          "text-sm font-medium",
+          item.disabled && "cursor-not-allowed opacity-60",
+          pathname === item.href && "text-foreground font-semibold"
+        )}
+      >
+        {item.title}
       </Link>
     </NavigationMenuItem>
   )
@@ -382,24 +471,26 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string | n
 
   if (item.children) {
     return (
-      <div className="flex flex-col">
+      <div className="px-7">
         <button
-          className="flex items-center justify-between py-2 text-base font-medium"
+          className="flex w-full items-center justify-between py-2 text-sm font-medium"
           onClick={() => setIsOpen(!isOpen)}
         >
           {item.title}
-          <ChevronDown className={cn("h-4 w-4 transition-transform", isOpen && "rotate-180")} />
+          <ChevronDown
+            className={cn("h-4 w-4 transition-transform", isOpen ? "rotate-180" : "")}
+          />
         </button>
         {isOpen && (
-          <div className="ml-4 mt-2 flex flex-col gap-2">
+          <div className="mt-2 space-y-2 pl-4">
             {item.children.map((child) => (
               <Link
                 key={child.title}
-                href={child.href || "#"}
+                href={child.disabled ? "#" : child.href || "#"}
                 className={cn(
-                  "py-2 text-sm",
-                  pathname === child.href && "font-medium text-primary",
+                  "block py-2 text-sm",
                   child.disabled && "cursor-not-allowed opacity-60",
+                  pathname === child.href && "font-semibold"
                 )}
               >
                 {child.title}
@@ -413,11 +504,11 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string | n
 
   return (
     <Link
-      href={item.href || "#"}
+      href={item.disabled ? "#" : item.href || "#"}
       className={cn(
-        "py-2 text-base font-medium",
-        pathname === item.href && "text-primary",
+        "block px-7 py-2 text-sm font-medium",
         item.disabled && "cursor-not-allowed opacity-60",
+        pathname === item.href && "font-semibold"
       )}
     >
       {item.title}
@@ -425,19 +516,33 @@ function MobileNavItem({ item, pathname }: { item: NavItem; pathname: string | n
   )
 }
 
-// Replace the defaultNavItems array with this simplified version
 const defaultNavItems: NavItem[] = [
   {
-    title: "About",
-    href: "/about",
+    title: "Home",
+    href: "/",
+  },
+  {
+    title: "Features",
+    children: [
+      {
+        title: "Feature 1",
+        href: "/features/feature-1",
+        description: "This is feature 1",
+      },
+      {
+        title: "Feature 2",
+        href: "/features/feature-2",
+        description: "This is feature 2",
+      },
+    ],
   },
   {
     title: "Pricing",
     href: "/pricing",
   },
   {
-    title: "Contact",
-    href: "/contact",
+    title: "About",
+    href: "/about",
   },
 ]
 

@@ -3585,7 +3585,7 @@ function NewNavbar(param) {
                 value: "es"
             }
         ]
-    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark;
+    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark, _param_iconLinks = param.iconLinks, iconLinks = _param_iconLinks === void 0 ? {} : _param_iconLinks, _param_openLinksInNewTab = param.openLinksInNewTab, openLinksInNewTab = _param_openLinksInNewTab === void 0 ? true : _param_openLinksInNewTab;
     var pathname = (0, import_navigation3.usePathname)();
     var _React15_useState = _sliced_to_array(React15.useState(false), 2), isSearchOpen = _React15_useState[0], setIsSearchOpen = _React15_useState[1];
     var _React15_useState1 = _sliced_to_array(React15.useState(""), 2), searchQuery = _React15_useState1[0], setSearchQuery = _React15_useState1[1];
@@ -3664,9 +3664,13 @@ function NewNavbar(param) {
                         /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",
                             children: [
-                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                iconLinks.camera ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
+                                    onClick: function() {
+                                        return window.open(iconLinks.camera, openLinksInNewTab ? "_blank" : "_self");
+                                    },
+                                    className: "relative group",
                                     children: [
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Camera, {
                                             className: "h-5 w-5"
@@ -3674,12 +3678,37 @@ function NewNavbar(param) {
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Camera"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Headshots"
+                                        })
+                                    ]
+                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    className: "relative group",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Camera, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Camera"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Headshots"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                iconLinks.room ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
+                                    onClick: function() {
+                                        return window.open(iconLinks.room, openLinksInNewTab ? "_blank" : "_self");
+                                    },
+                                    className: "relative group",
                                     children: [
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sofa, {
                                             className: "h-5 w-5"
@@ -3687,12 +3716,37 @@ function NewNavbar(param) {
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Room"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Virtual Staging"
+                                        })
+                                    ]
+                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    className: "relative group",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sofa, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Room"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Virtual Staging"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                iconLinks.phone ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
+                                    onClick: function() {
+                                        return window.open(iconLinks.phone, openLinksInNewTab ? "_blank" : "_self");
+                                    },
+                                    className: "relative group",
                                     children: [
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Phone, {
                                             className: "h-5 w-5"
@@ -3700,12 +3754,37 @@ function NewNavbar(param) {
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Phone"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Lead Calling"
+                                        })
+                                    ]
+                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    className: "relative group",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Phone, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Phone"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Lead Calling"
                                         })
                                     ]
                                 }),
-                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                iconLinks.pen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
+                                    onClick: function() {
+                                        return window.open(iconLinks.pen, openLinksInNewTab ? "_blank" : "_self");
+                                    },
+                                    className: "relative group",
                                     children: [
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.PenLine, {
                                             className: "h-5 w-5"
@@ -3713,6 +3792,27 @@ function NewNavbar(param) {
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                             className: "sr-only",
                                             children: "Pen"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Prompt Library"
+                                        })
+                                    ]
+                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                    variant: "ghost",
+                                    size: "icon",
+                                    className: "relative group",
+                                    children: [
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.PenLine, {
+                                            className: "h-5 w-5"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "sr-only",
+                                            children: "Pen"
+                                        }),
+                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                            children: "Prompt Library"
                                         })
                                     ]
                                 })
@@ -4048,13 +4148,9 @@ function NavbarItem2(param) {
     }
     return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuItem, {
         children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
-            href: item.href || "#",
-            legacyBehavior: true,
-            passHref: true,
-            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(NavigationMenuLink, {
-                className: cn(navigationMenuTriggerStyle(), pathname === item.href && "bg-accent text-accent-foreground", item.disabled && "cursor-not-allowed opacity-60"),
-                children: item.title
-            })
+            href: item.disabled ? "#" : item.href || "#",
+            className: cn(navigationMenuTriggerStyle(), "text-sm font-medium", item.disabled && "cursor-not-allowed opacity-60", pathname === item.href && "text-foreground font-semibold"),
+            children: item.title
         })
     });
 }
@@ -4063,26 +4159,26 @@ function MobileNavItem3(param) {
     var _React15_useState = _sliced_to_array(React15.useState(false), 2), isOpen = _React15_useState[0], setIsOpen = _React15_useState[1];
     if (item.children) {
         return /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
-            className: "flex flex-col",
+            className: "px-7",
             children: [
                 /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("button", {
-                    className: "flex items-center justify-between py-2 text-base font-medium",
+                    className: "flex w-full items-center justify-between py-2 text-sm font-medium",
                     onClick: function() {
                         return setIsOpen(!isOpen);
                     },
                     children: [
                         item.title,
                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.ChevronDown, {
-                            className: cn("h-4 w-4 transition-transform", isOpen && "rotate-180")
+                            className: cn("h-4 w-4 transition-transform", isOpen ? "rotate-180" : "")
                         })
                     ]
                 }),
                 isOpen && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
-                    className: "ml-4 mt-2 flex flex-col gap-2",
+                    className: "mt-2 space-y-2 pl-4",
                     children: item.children.map(function(child) {
                         return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
-                            href: child.href || "#",
-                            className: cn("py-2 text-sm", pathname === child.href && "font-medium text-primary", child.disabled && "cursor-not-allowed opacity-60"),
+                            href: child.disabled ? "#" : child.href || "#",
+                            className: cn("block py-2 text-sm", child.disabled && "cursor-not-allowed opacity-60", pathname === child.href && "font-semibold"),
                             children: child.title
                         }, child.title);
                     })
@@ -4091,23 +4187,38 @@ function MobileNavItem3(param) {
         });
     }
     return /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_link5.default, {
-        href: item.href || "#",
-        className: cn("py-2 text-base font-medium", pathname === item.href && "text-primary", item.disabled && "cursor-not-allowed opacity-60"),
+        href: item.disabled ? "#" : item.href || "#",
+        className: cn("block px-7 py-2 text-sm font-medium", item.disabled && "cursor-not-allowed opacity-60", pathname === item.href && "font-semibold"),
         children: item.title
     });
 }
 var defaultNavItems2 = [
     {
-        title: "About",
-        href: "/about"
+        title: "Home",
+        href: "/"
+    },
+    {
+        title: "Features",
+        children: [
+            {
+                title: "Feature 1",
+                href: "/features/feature-1",
+                description: "This is feature 1"
+            },
+            {
+                title: "Feature 2",
+                href: "/features/feature-2",
+                description: "This is feature 2"
+            }
+        ]
     },
     {
         title: "Pricing",
         href: "/pricing"
     },
     {
-        title: "Contact",
-        href: "/contact"
+        title: "About",
+        href: "/about"
     }
 ];
 // src/components/new-navbar/ai-assistant.tsx

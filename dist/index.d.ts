@@ -285,8 +285,15 @@ interface NavbarProps {
     onSearch?: (query: string) => void;
     className?: string;
     isDark?: boolean;
+    iconLinks?: {
+        camera?: string;
+        room?: string;
+        phone?: string;
+        pen?: string;
+    };
+    openLinksInNewTab?: boolean;
 }
-declare function NewNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, }: NavbarProps): react_jsx_runtime.JSX.Element;
+declare function NewNavbar({ logo, items, showSearch, showThemeToggle, showLanguageSelector, showUserMenu, showBalance, showCreateButton, showNotifications, showMessages, balance, user, languages, onThemeToggle, onLanguageChange, onLogout, onSearch, className, isDark, iconLinks, openLinksInNewTab, }: NavbarProps): react_jsx_runtime.JSX.Element;
 
 declare function AiAssistant(): react_jsx_runtime.JSX.Element;
 
