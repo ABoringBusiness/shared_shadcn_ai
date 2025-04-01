@@ -3259,7 +3259,7 @@ function NewNavbar(param) {
                 value: "es"
             }
         ]
-    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark, _param_iconLinks = param.iconLinks, iconLinks = _param_iconLinks === void 0 ? {} : _param_iconLinks, _param_openLinksInNewTab = param.openLinksInNewTab, openLinksInNewTab = _param_openLinksInNewTab === void 0 ? true : _param_openLinksInNewTab;
+    } : _param_languages, onThemeToggle = param.onThemeToggle, onLanguageChange = param.onLanguageChange, onLogout = param.onLogout, onSearch = param.onSearch, className = param.className, _param_isDark = param.isDark, isDark = _param_isDark === void 0 ? false : _param_isDark, _param_iconLinks = param.iconLinks, iconLinks = _param_iconLinks === void 0 ? {} : _param_iconLinks, _param_openLinksInNewTab = param.openLinksInNewTab, openLinksInNewTab = _param_openLinksInNewTab === void 0 ? false : _param_openLinksInNewTab;
     var pathname = usePathname3();
     var _React15_useState = _sliced_to_array(React15.useState(false), 2), isSearchOpen = _React15_useState[0], setIsSearchOpen = _React15_useState[1];
     var _React15_useState1 = _sliced_to_array(React15.useState(""), 2), searchQuery = _React15_useState1[0], setSearchQuery = _React15_useState1[1];

@@ -127,7 +127,7 @@ export function NewNavbar({
   className,
   isDark = false,
   iconLinks = {},
-  openLinksInNewTab = true,
+  openLinksInNewTab = false,
 }: NavbarProps) {
   const pathname = usePathname()
   const [isSearchOpen, setIsSearchOpen] = React.useState(false)
