@@ -93,6 +93,7 @@ interface NavbarProps {
     room?: string
     phone?: string
     pen?: string
+    search?: string
   }
   // Whether to open links in a new tab
   openLinksInNewTab?: boolean
@@ -182,9 +183,9 @@ export function NewNavbar({
           <div className="hidden md:flex items-center gap-2 mr-2">
             {/* Camera button */}
             {iconLinks.camera ? (
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => window.open(iconLinks.camera, openLinksInNewTab ? '_blank' : '_self')}
                 className="relative group"
               >
@@ -205,9 +206,9 @@ export function NewNavbar({
             )}
             {/* Room/Sofa button */}
             {iconLinks.room ? (
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => window.open(iconLinks.room, openLinksInNewTab ? '_blank' : '_self')}
                 className="relative group"
               >
@@ -226,12 +227,12 @@ export function NewNavbar({
                 </span>
               </Button>
             )}
-            
+
             {/* Phone button */}
             {iconLinks.phone ? (
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => window.open(iconLinks.phone, openLinksInNewTab ? '_blank' : '_self')}
                 className="relative group"
               >
@@ -250,12 +251,12 @@ export function NewNavbar({
                 </span>
               </Button>
             )}
-            
+
             {/* Pen button */}
             {iconLinks.pen ? (
-              <Button 
-                variant="ghost" 
-                size="icon" 
+              <Button
+                variant="ghost"
+                size="icon"
                 onClick={() => window.open(iconLinks.pen, openLinksInNewTab ? '_blank' : '_self')}
                 className="relative group"
               >
@@ -277,31 +278,49 @@ export function NewNavbar({
           </div>
           {showSearch && (
             <div className="relative hidden md:flex">
-              {isSearchOpen ? (
-                <form onSubmit={handleSearch} className="relative">
-                  <Input
-                    type="search"
-                    placeholder="Search..."
-                    className="h-9 w-[200px] lg:w-[300px]"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                  <Button
-                    type="button"
-                    variant="ghost"
-                    size="icon"
-                    className="absolute right-0 top-0"
-                    onClick={() => setIsSearchOpen(false)}
-                  >
-                    <X className="h-4 w-4" />
-                    <span className="sr-only">Close search</span>
-                  </Button>
-                </form>
-              ) : (
-                <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(true)}>
+              {iconLinks.search ? (
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => window.open(iconLinks.search, openLinksInNewTab ? '_blank' : '_self')}
+                  className="relative group"
+                >
                   <Search className="h-5 w-5" />
                   <span className="sr-only">Search</span>
+                  <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                    Search
+                  </span>
                 </Button>
+              ) : (
+                isSearchOpen ? (
+                  <form onSubmit={handleSearch} className="relative">
+                    <Input
+                      type="search"
+                      placeholder="Search..."
+                      className="h-9 w-[200px] lg:w-[300px]"
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                    />
+                    <Button
+                      type="button"
+                      variant="ghost"
+                      size="icon"
+                      className="absolute right-0 top-0"
+                      onClick={() => setIsSearchOpen(false)}
+                    >
+                      <X className="h-4 w-4" />
+                      <span className="sr-only">Close search</span>
+                    </Button>
+                  </form>
+                ) : (
+                  <Button variant="ghost" size="icon" onClick={() => setIsSearchOpen(true)} className="relative group">
+                    <Search className="h-5 w-5" />
+                    <span className="sr-only">Search</span>
+                    <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                      Search
+                    </span>
+                  </Button>
+                )
               )}
             </div>
           )}

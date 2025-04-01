@@ -3494,7 +3494,27 @@ function NewNavbar(param) {
                         }),
                         showSearch && /* @__PURE__ */ jsx27("div", {
                             className: "relative hidden md:flex",
-                            children: isSearchOpen ? /* @__PURE__ */ jsxs15("form", {
+                            children: iconLinks.search ? /* @__PURE__ */ jsxs15(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                onClick: function() {
+                                    return window.open(iconLinks.search, openLinksInNewTab ? "_blank" : "_self");
+                                },
+                                className: "relative group",
+                                children: [
+                                    /* @__PURE__ */ jsx27(Search2, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ jsx27("span", {
+                                        className: "sr-only",
+                                        children: "Search"
+                                    }),
+                                    /* @__PURE__ */ jsx27("span", {
+                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                        children: "Search"
+                                    })
+                                ]
+                            }) : isSearchOpen ? /* @__PURE__ */ jsxs15("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
@@ -3532,12 +3552,17 @@ function NewNavbar(param) {
                                 onClick: function() {
                                     return setIsSearchOpen(true);
                                 },
+                                className: "relative group",
                                 children: [
                                     /* @__PURE__ */ jsx27(Search2, {
                                         className: "h-5 w-5"
                                     }),
                                     /* @__PURE__ */ jsx27("span", {
                                         className: "sr-only",
+                                        children: "Search"
+                                    }),
+                                    /* @__PURE__ */ jsx27("span", {
+                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
                                         children: "Search"
                                     })
                                 ]

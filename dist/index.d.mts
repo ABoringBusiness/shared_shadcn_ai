@@ -290,6 +290,7 @@ interface NavbarProps {
         room?: string;
         phone?: string;
         pen?: string;
+        search?: string;
     };
     openLinksInNewTab?: boolean;
 }

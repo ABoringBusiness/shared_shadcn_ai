@@ -3820,7 +3820,27 @@ function NewNavbar(param) {
                         }),
                         showSearch && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                             className: "relative hidden md:flex",
-                            children: isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("form", {
+                            children: iconLinks.search ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                variant: "ghost",
+                                size: "icon",
+                                onClick: function() {
+                                    return window.open(iconLinks.search, openLinksInNewTab ? "_blank" : "_self");
+                                },
+                                className: "relative group",
+                                children: [
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Search, {
+                                        className: "h-5 w-5"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                        className: "sr-only",
+                                        children: "Search"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
+                                        children: "Search"
+                                    })
+                                ]
+                            }) : isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("form", {
                                 onSubmit: handleSearch,
                                 className: "relative",
                                 children: [
@@ -3858,12 +3878,17 @@ function NewNavbar(param) {
                                 onClick: function() {
                                     return setIsSearchOpen(true);
                                 },
+                                className: "relative group",
                                 children: [
                                     /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Search, {
                                         className: "h-5 w-5"
                                     }),
                                     /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
                                         className: "sr-only",
+                                        children: "Search"
+                                    }),
+                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
+                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
                                         children: "Search"
                                     })
                                 ]
