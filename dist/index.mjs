@@ -3211,7 +3211,7 @@ var defaultNavItems = [
 import * as React15 from "react";
 import Link7 from "next/link";
 import { usePathname as usePathname3 } from "next/navigation";
-import { Bell as Bell2, Camera as Camera3, ChevronDown as ChevronDown3, LogOut as LogOut3, Menu as Menu3, MessageSquare as MessageSquare2, Moon as Moon3, PenLine as PenLine3, Phone as Phone3, Search as Search2, Settings as Settings2, Sofa as Sofa3, Sun as Sun3, User as User2, Wallet as Wallet2, X as X3, Glasses } from "lucide-react";
+import { Bell as Bell2, Camera as Camera3, ChevronDown as ChevronDown3, LogOut as LogOut3, Menu as Menu3, MessageSquare as MessageSquare2, Moon as Moon3, PenLine as PenLine3, Phone as Phone3, Search as Search2, Settings as Settings2, Sofa as Sofa3, Sun as Sun3, User as User2, Wallet as Wallet2, Glasses } from "lucide-react";
 // src/components/new-navbar/reva-logo-dark.tsx
 import { useTheme as useTheme4 } from "next-themes";
 import Image5 from "next/image";
@@ -3338,11 +3338,11 @@ function NewNavbar(param) {
                         /* @__PURE__ */ jsxs15("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",
                             children: [
-                                iconLinks.camera ? /* @__PURE__ */ jsxs15(Button, {
+                                /* @__PURE__ */ jsxs15(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.camera, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.camera || "https://photo.reva.now/create?flow=sid", openLinksInNewTab ? "_blank" : "_self");
                                     },
                                     className: "relative group",
                                     children: [
@@ -3358,29 +3358,12 @@ function NewNavbar(param) {
                                             children: "Headshots"
                                         })
                                     ]
-                                }) : /* @__PURE__ */ jsxs15(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ jsx27(Camera3, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "sr-only",
-                                            children: "Camera"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Headshots"
-                                        })
-                                    ]
                                 }),
-                                iconLinks.room ? /* @__PURE__ */ jsxs15(Button, {
+                                /* @__PURE__ */ jsxs15(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.room, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.room || "https://photo.reva.now/home-ai", openLinksInNewTab ? "_blank" : "_self");
                                     },
                                     className: "relative group",
                                     children: [
@@ -3396,47 +3379,13 @@ function NewNavbar(param) {
                                             children: "Virtual Staging"
                                         })
                                     ]
-                                }) : /* @__PURE__ */ jsxs15(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ jsx27(Sofa3, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "sr-only",
-                                            children: "Room"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Virtual Staging"
-                                        })
-                                    ]
                                 }),
-                                iconLinks.phone ? /* @__PURE__ */ jsxs15(Button, {
+                                /* @__PURE__ */ jsxs15(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.phone, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.phone || "https://call.reva.now", openLinksInNewTab ? "_blank" : "_self");
                                     },
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ jsx27(Phone3, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "sr-only",
-                                            children: "Phone"
-                                        }),
-                                        /* @__PURE__ */ jsx27("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Lead Calling"
-                                        })
-                                    ]
-                                }) : /* @__PURE__ */ jsxs15(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
                                     className: "relative group",
                                     children: [
                                         /* @__PURE__ */ jsx27(Phone3, {
@@ -3494,63 +3443,11 @@ function NewNavbar(param) {
                         }),
                         showSearch && /* @__PURE__ */ jsx27("div", {
                             className: "relative hidden md:flex",
-                            children: iconLinks.search ? /* @__PURE__ */ jsxs15(Button, {
+                            children: /* @__PURE__ */ jsxs15(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 onClick: function() {
-                                    return window.open(iconLinks.search, openLinksInNewTab ? "_blank" : "_self");
-                                },
-                                className: "relative group",
-                                children: [
-                                    /* @__PURE__ */ jsx27(Search2, {
-                                        className: "h-5 w-5"
-                                    }),
-                                    /* @__PURE__ */ jsx27("span", {
-                                        className: "sr-only",
-                                        children: "Search"
-                                    }),
-                                    /* @__PURE__ */ jsx27("span", {
-                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                        children: "Search"
-                                    })
-                                ]
-                            }) : isSearchOpen ? /* @__PURE__ */ jsxs15("form", {
-                                onSubmit: handleSearch,
-                                className: "relative",
-                                children: [
-                                    /* @__PURE__ */ jsx27(Input, {
-                                        type: "search",
-                                        placeholder: "Search...",
-                                        className: "h-9 w-[200px] lg:w-[300px]",
-                                        value: searchQuery,
-                                        onChange: function(e) {
-                                            return setSearchQuery(e.target.value);
-                                        }
-                                    }),
-                                    /* @__PURE__ */ jsxs15(Button, {
-                                        type: "button",
-                                        variant: "ghost",
-                                        size: "icon",
-                                        className: "absolute right-0 top-0",
-                                        onClick: function() {
-                                            return setIsSearchOpen(false);
-                                        },
-                                        children: [
-                                            /* @__PURE__ */ jsx27(X3, {
-                                                className: "h-4 w-4"
-                                            }),
-                                            /* @__PURE__ */ jsx27("span", {
-                                                className: "sr-only",
-                                                children: "Close search"
-                                            })
-                                        ]
-                                    })
-                                ]
-                            }) : /* @__PURE__ */ jsxs15(Button, {
-                                variant: "ghost",
-                                size: "icon",
-                                onClick: function() {
-                                    return setIsSearchOpen(true);
+                                    return window.open(iconLinks.search || "https://stage.reva.now", openLinksInNewTab ? "_blank" : "_self");
                                 },
                                 className: "relative group",
                                 children: [

@@ -182,75 +182,45 @@ export function NewNavbar({
           {/* Icon buttons */}
           <div className="hidden md:flex items-center gap-2 mr-2">
             {/* Camera button */}
-            {iconLinks.camera ? (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => window.open(iconLinks.camera, openLinksInNewTab ? '_blank' : '_self')}
-                className="relative group"
-              >
-                <Camera className="h-5 w-5" />
-                <span className="sr-only">Camera</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Headshots
-                </span>
-              </Button>
-            ) : (
-              <Button variant="ghost" size="icon" className="relative group">
-                <Camera className="h-5 w-5" />
-                <span className="sr-only">Camera</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Headshots
-                </span>
-              </Button>
-            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => window.open(iconLinks.camera || 'https://photo.reva.now/create?flow=sid', openLinksInNewTab ? '_blank' : '_self')}
+              className="relative group"
+            >
+              <Camera className="h-5 w-5" />
+              <span className="sr-only">Camera</span>
+              <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                Headshots
+              </span>
+            </Button>
             {/* Room/Sofa button */}
-            {iconLinks.room ? (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => window.open(iconLinks.room, openLinksInNewTab ? '_blank' : '_self')}
-                className="relative group"
-              >
-                <Sofa className="h-5 w-5" />
-                <span className="sr-only">Room</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Virtual Staging
-                </span>
-              </Button>
-            ) : (
-              <Button variant="ghost" size="icon" className="relative group">
-                <Sofa className="h-5 w-5" />
-                <span className="sr-only">Room</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Virtual Staging
-                </span>
-              </Button>
-            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => window.open(iconLinks.room || 'https://photo.reva.now/home-ai', openLinksInNewTab ? '_blank' : '_self')}
+              className="relative group"
+            >
+              <Sofa className="h-5 w-5" />
+              <span className="sr-only">Room</span>
+              <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                Virtual Staging
+              </span>
+            </Button>
 
             {/* Phone button */}
-            {iconLinks.phone ? (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => window.open(iconLinks.phone, openLinksInNewTab ? '_blank' : '_self')}
-                className="relative group"
-              >
-                <Phone className="h-5 w-5" />
-                <span className="sr-only">Phone</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Lead Calling
-                </span>
-              </Button>
-            ) : (
-              <Button variant="ghost" size="icon" className="relative group">
-                <Phone className="h-5 w-5" />
-                <span className="sr-only">Phone</span>
-                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                  Lead Calling
-                </span>
-              </Button>
-            )}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => window.open(iconLinks.phone || "https://call.reva.now", openLinksInNewTab ? '_blank' : '_self')}
+              className="relative group"
+            >
+              <Phone className="h-5 w-5" />
+              <span className="sr-only">Phone</span>
+              <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                Lead Calling
+              </span>
+            </Button>
 
             {/* Pen button */}
             {iconLinks.pen ? (
@@ -278,21 +248,19 @@ export function NewNavbar({
           </div>
           {showSearch && (
             <div className="relative hidden md:flex">
-              {iconLinks.search ? (
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => window.open(iconLinks.search, openLinksInNewTab ? '_blank' : '_self')}
-                  className="relative group"
-                >
-                  <Search className="h-5 w-5" />
-                  <span className="sr-only">Search</span>
-                  <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
-                    Search
-                  </span>
-                </Button>
-              ) : (
-                isSearchOpen ? (
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => window.open(iconLinks.search || "https://stage.reva.now", openLinksInNewTab ? '_blank' : '_self')}
+                className="relative group"
+              >
+                <Search className="h-5 w-5" />
+                <span className="sr-only">Search</span>
+                <span className="absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50">
+                  Search
+                </span>
+              </Button>
+              {/* {isSearchOpen ? (
                   <form onSubmit={handleSearch} className="relative">
                     <Input
                       type="search"
@@ -321,7 +289,7 @@ export function NewNavbar({
                     </span>
                   </Button>
                 )
-              )}
+              } */}
             </div>
           )}
 

@@ -3664,11 +3664,11 @@ function NewNavbar(param) {
                         /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("div", {
                             className: "hidden md:flex items-center gap-2 mr-2",
                             children: [
-                                iconLinks.camera ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.camera, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.camera || "https://photo.reva.now/create?flow=sid", openLinksInNewTab ? "_blank" : "_self");
                                     },
                                     className: "relative group",
                                     children: [
@@ -3684,29 +3684,12 @@ function NewNavbar(param) {
                                             children: "Headshots"
                                         })
                                     ]
-                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Camera, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Camera"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Headshots"
-                                        })
-                                    ]
                                 }),
-                                iconLinks.room ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.room, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.room || "https://photo.reva.now/home-ai", openLinksInNewTab ? "_blank" : "_self");
                                     },
                                     className: "relative group",
                                     children: [
@@ -3722,47 +3705,13 @@ function NewNavbar(param) {
                                             children: "Virtual Staging"
                                         })
                                     ]
-                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Sofa, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Room"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Virtual Staging"
-                                        })
-                                    ]
                                 }),
-                                iconLinks.phone ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                                /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                     variant: "ghost",
                                     size: "icon",
                                     onClick: function() {
-                                        return window.open(iconLinks.phone, openLinksInNewTab ? "_blank" : "_self");
+                                        return window.open(iconLinks.phone || "https://call.reva.now", openLinksInNewTab ? "_blank" : "_self");
                                     },
-                                    className: "relative group",
-                                    children: [
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Phone, {
-                                            className: "h-5 w-5"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "sr-only",
-                                            children: "Phone"
-                                        }),
-                                        /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                            className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                            children: "Lead Calling"
-                                        })
-                                    ]
-                                }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
-                                    variant: "ghost",
-                                    size: "icon",
                                     className: "relative group",
                                     children: [
                                         /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Phone, {
@@ -3820,63 +3769,11 @@ function NewNavbar(param) {
                         }),
                         showSearch && /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("div", {
                             className: "relative hidden md:flex",
-                            children: iconLinks.search ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
+                            children: /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
                                 variant: "ghost",
                                 size: "icon",
                                 onClick: function() {
-                                    return window.open(iconLinks.search, openLinksInNewTab ? "_blank" : "_self");
-                                },
-                                className: "relative group",
-                                children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.Search, {
-                                        className: "h-5 w-5"
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                        className: "sr-only",
-                                        children: "Search"
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                        className: "absolute inset-x-0 -bottom-10 px-2 py-1 bg-background border rounded text-xs whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity shadow-lg z-50",
-                                        children: "Search"
-                                    })
-                                ]
-                            }) : isSearchOpen ? /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)("form", {
-                                onSubmit: handleSearch,
-                                className: "relative",
-                                children: [
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(Input, {
-                                        type: "search",
-                                        placeholder: "Search...",
-                                        className: "h-9 w-[200px] lg:w-[300px]",
-                                        value: searchQuery,
-                                        onChange: function(e) {
-                                            return setSearchQuery(e.target.value);
-                                        }
-                                    }),
-                                    /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
-                                        type: "button",
-                                        variant: "ghost",
-                                        size: "icon",
-                                        className: "absolute right-0 top-0",
-                                        onClick: function() {
-                                            return setIsSearchOpen(false);
-                                        },
-                                        children: [
-                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)(import_lucide_react8.X, {
-                                                className: "h-4 w-4"
-                                            }),
-                                            /* @__PURE__ */ (0, import_jsx_runtime27.jsx)("span", {
-                                                className: "sr-only",
-                                                children: "Close search"
-                                            })
-                                        ]
-                                    })
-                                ]
-                            }) : /* @__PURE__ */ (0, import_jsx_runtime27.jsxs)(Button, {
-                                variant: "ghost",
-                                size: "icon",
-                                onClick: function() {
-                                    return setIsSearchOpen(true);
+                                    return window.open(iconLinks.search || "https://stage.reva.now", openLinksInNewTab ? "_blank" : "_self");
                                 },
                                 className: "relative group",
                                 children: [
