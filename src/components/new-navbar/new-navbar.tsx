@@ -510,18 +510,19 @@ const defaultNavItems: NavItem[] = [
   },
   {
     title: "Features",
-    children: [
-      {
-        title: "Feature 1",
-        href: "/features/feature-1",
-        description: "This is feature 1",
-      },
-      {
-        title: "Feature 2",
-        href: "/features/feature-2",
-        description: "This is feature 2",
-      },
-    ],
+    href: "/features",
+    // children: [
+    //   {
+    //     title: "Feature 1",
+    //     href: "/features/feature-1",
+    //     description: "This is feature 1",
+    //   },
+    //   {
+    //     title: "Feature 2",
+    //     href: "/features/feature-2",
+    //     description: "This is feature 2",
+    //   },
+    // ],
   },
   {
     title: "Pricing",
